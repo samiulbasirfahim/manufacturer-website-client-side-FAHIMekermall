@@ -7903,6 +7903,11 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-scroll-tracker@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/react-scroll-tracker/-/react-scroll-tracker-1.7.0.tgz#2178680b8dadffd1844d8a8af03d57586a4b5eea"
+  integrity sha512-h7pAjLu9iB9hD2yDJfZp2KnQdMHIc7a5/hHTWbH5OLir96H4qmpg8uvHqIjKKm3w0Gthhvmnm+DHWQI6XWt0RQ==
+
 react@^18.1.0:
   version "18.1.0"
   resolved "https://registry.npmjs.org/react/-/react-18.1.0.tgz"
