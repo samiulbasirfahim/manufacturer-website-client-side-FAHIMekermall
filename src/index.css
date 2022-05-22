@@ -14,6 +14,10 @@
 }
 
 * {
-	-ms-overflow-style: none; 
-	scrollbar-width: none; 
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+#product-image:hover #purchase-btn {
+	display: block;
 }

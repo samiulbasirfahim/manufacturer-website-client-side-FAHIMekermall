@@ -16,7 +16,7 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 					</div>
 					<p className="grid justify-items-start">
 						<span className="mr-2 xl:text-3xl md:text-xl text-2xl font-bold text-[#ef3d55] font-mono">
-							Brand
+							Spark
 						</span>
 						<span className="font-bold text-primary">
 							Manufacturer
