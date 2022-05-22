@@ -8,7 +8,7 @@ import auth from "../firebase.init"
 const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 	const [user] = useAuthState(auth)
 	return (
-		<section className="max-w-[1444px] px-4 mx-auto flex justify-between items-center h-16 z-50">
+		<section className="max-w-[1444px] lg:px-4 px-2 mx-auto flex justify-between items-center h-16 z-50">
 			<div>
 				<Link to="/" className="flex h-16 items-center">
 					<div className="xl:w-16 w-8 flex items-center xl:h-16 h-8 mr-2 ">
@@ -29,8 +29,8 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 					<NavLink
 						className={({ isActive }) => {
 							return isActive
-								? "font-mono xl:text-xl  text-md bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
-								: "font-bold font-mono xl:text-xl  text-md hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
+								? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
+								: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 						}}
 						to="/"
 					>
@@ -39,8 +39,8 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 					<NavLink
 						className={({ isActive }) => {
 							return isActive
-								? "font-mono xl:text-xl  text-md bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
-								: "font-bold font-mono xl:text-xl  text-md hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
+								? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
+								: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 						}}
 						to="/products"
 					>
@@ -49,8 +49,8 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 					<NavLink
 						className={({ isActive }) => {
 							return isActive
-								? "font-mono xl:text-xl  text-md bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
-								: "font-bold font-mono xl:text-xl  text-md hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
+								? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
+								: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 						}}
 						to="/dashboards"
 					>
@@ -59,8 +59,8 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 					<NavLink
 						className={({ isActive }) => {
 							return isActive
-								? "font-mono xl:text-xl  text-md bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
-								: "font-bold font-mono xl:text-xl  text-md hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
+								? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
+								: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 						}}
 						to="/users"
 					>
@@ -69,20 +69,10 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 					<NavLink
 						className={({ isActive }) => {
 							return isActive
-								? "font-mono xl:text-xl  text-md bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
-								: "font-bold font-mono xl:text-xl  text-md hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
+								? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
+								: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 						}}
 						to="/fff"
-					>
-						Products
-					</NavLink>
-					<NavLink
-						className={({ isActive }) => {
-							return isActive
-								? "font-mono xl:text-xl  text-md bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
-								: "font-bold font-mono xl:text-xl  text-md hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
-						}}
-						to="/fdsf"
 					>
 						Products
 					</NavLink>
@@ -115,13 +105,13 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 					{user ? (
 						<button
 							onClick={() => signOut(auth)}
-							className="font-bold xl:text-xl  text-md font-mono bg-secondary text-white px-4 mx-1 py-2 rounded-xl"
+							className="font-bold xl:text-xl  text-sm lg:text-md font-mono bg-secondary text-white lg:px-4 px-2 mx-1 py-2 rounded-xl"
 						>
 							Log out
 						</button>
 					) : (
 						<Link
-							className="font-bold xl:text-xl  text-md font-mono bg-secondary text-white px-4 mx-1 py-2 rounded-xl"
+							className="font-bold xl:text-xl text-md font-mono bg-secondary text-white lg:px-4 px-2 mx-1 py-2 rounded-xl"
 							to="/login"
 						>
 							Login

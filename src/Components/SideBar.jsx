@@ -9,7 +9,7 @@ const SideBar = ({ children, handleDarkTheme }) => {
 
 	return (
 		<div>
-			<div class="drawer drawer-end">
+			<div class="drawer drawer-end fixed right-0">
 				<input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
 				<div class="drawer-content">
 					{/* <!-- Page content here --> */}

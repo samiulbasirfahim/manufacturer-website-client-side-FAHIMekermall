@@ -15,12 +15,11 @@ const App = () => {
 	const { scrollY } = useScrollTracker();
 	return (
 		<div className={`${isDarkTheme && "dark"} min-h-screen`} data-theme={isDarkTheme ? 'dark' : 'light'}>
-			<div className="fixed top-0 z-50 w-full bg-base-100 h-20 ">
+			<div className="fixed top-0 z-50 w-full bg-base-100 ">
 				<progress class="progress" value={scrollY} max="100"></progress>
 				<Navbar isDarkTheme={isDarkTheme} handleDarkTheme={handleDarkTheme} />
 			</div>
 			<div className="mt-20">
-
 				<SideBar handleDarkTheme={handleDarkTheme} >
 					<Routes>
 						<Route path="/login" element={<Login />}></Route>

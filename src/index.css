@@ -9,3 +9,11 @@
 	margin: 0;
 	font-family: "Helvetica", Arial, sans-serif;
 }
+*::-webkit-scrollbar {
+	display: none;
+}
+
+* {
+	-ms-overflow-style: none; 
+	scrollbar-width: none; 
+}
