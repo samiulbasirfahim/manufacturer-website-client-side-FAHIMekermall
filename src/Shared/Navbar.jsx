@@ -15,7 +15,7 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 						<img src={logo} alt="" className="w-12" />
 					</div>
 					<p className="grid justify-items-start">
-						<span className="mr-2 lg:text-3xl text-xl font-bold text-[#ef3d55] font-mono">
+						<span className="mr-2 lg:text-3xl md:text-xl text-2xl font-bold text-[#ef3d55] font-mono">
 							Brand
 						</span>
 						<span className="font-bold text-primary">
@@ -89,7 +89,7 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 				</ul>
 			</div>
 			<div className="flex items-center">
-				<div className="hidden md:block">
+				<div className="hidden md:flex">
 					<label class="swap swap-rotate mr-6">
 						{/* <!-- this hidden checkbox controls the state --> */}
 						<input type="checkbox" onClick={handleDarkTheme} />
