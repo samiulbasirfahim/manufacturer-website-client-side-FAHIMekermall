@@ -7,6 +7,8 @@ import Login from "./Pages/Login/Login"
 import Register from "./Pages/Register/Register"
 import { useScrollTracker } from "react-scroll-tracker"
 import Home from "./Pages/Home/Home"
+import Dashboard from "./Pages/Dashboard/Dashboard"
+import Orders from "./Pages/Dashboard/DashboardComponents/Orders"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -24,6 +26,16 @@ const App = () => {
 				<SideBar handleDarkTheme={handleDarkTheme} >
 					<Routes>
 						<Route path="/" element={<Home />}></Route>
+						<Route path="/dashboard" element={<Dashboard />}>
+							<Route index ></Route>
+							<Route path="profile" ></Route>
+							<Route path="orders" element={<Orders />} ></Route>
+							<Route path="add-review" ></Route>
+							<Route path="all-orders" ></Route>
+							<Route path="add-products" ></Route>
+							<Route path="manage-products" ></Route>
+							<Route path="manage-admin" ></Route>
+						</Route>
 						<Route path="/login" element={<Login />}></Route>
 						<Route path="/register" element={<Register />}></Route>
 					</Routes>

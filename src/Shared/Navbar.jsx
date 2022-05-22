@@ -9,7 +9,7 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 	const [user] = useAuthState(auth)
 	return (
 		<section className="max-w-[1444px] lg:px-4 px-2 mx-auto flex justify-between items-center h-16 z-50">
-			<div>
+			<div className="flex">
 				<Link to="/" className="flex h-16 items-center">
 					<div className="xl:w-16 w-8 flex items-center xl:h-16 h-8 mr-2 ">
 						<img src={logo} alt="" className="w-12" />
@@ -52,7 +52,7 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 								? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
 								: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 						}}
-						to="/dashboards"
+						to="/dashboard"
 					>
 						Dashboards
 					</NavLink>
