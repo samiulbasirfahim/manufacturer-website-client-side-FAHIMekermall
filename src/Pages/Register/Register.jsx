@@ -5,7 +5,7 @@ import SocialLogin from "../../Shared/SocialLogin"
 const Register = () => {
 	return (
 		<div className="min-h-screen flex justify-center items-center">
-			<div class="w-full max-w-sm p-6 m-auto bg-white rounded-md dark:bg-[#2a303c]">
+			<div class="w-full max-w-sm p-6 m-auto bg-gray-100 rounded-md dark:bg-gray-800">
 				<h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">
 					Brand
 				</h1>
