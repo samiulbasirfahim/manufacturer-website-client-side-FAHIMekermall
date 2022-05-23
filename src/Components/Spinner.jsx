@@ -11,7 +11,7 @@ const override = css`
 
 const Spinner = () => {
 	return (
-		<div className="sweet-loading h-screen w-screen absolute top-0 left-0 flex justify-center items-center bg-base-300/75 ">
+		<div className="sweet-loading h-screen w-screen absolute top-0 left-0 flex justify-center items-center bg-base-300/30 z-50 backdrop-blur-md">
 			<HashLoader css={override} size={55} />
 		</div>
 	)
