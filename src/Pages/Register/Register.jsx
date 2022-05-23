@@ -1,16 +1,65 @@
-import React from "react"
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
+import React, { useState } from "react"
+import { useForm } from "react-hook-form"
+import toast from "react-hot-toast"
 import { Link } from "react-router-dom"
+import Spinner from "../../Components/Spinner"
+import auth from "../../firebase.init"
 import SocialLogin from "../../Shared/SocialLogin"
 
 const Register = () => {
+	const [isLoading, setIsLoading] = useState(false)
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm()
+	const onSubmit = ({ email, name, password }) => {
+		setIsLoading(true)
+		createUserWithEmailAndPassword(auth, email, password)
+			.then(() =>
+				updateProfile(auth.currentUser, {
+					displayName: name,
+				})
+					.then(() => {
+						toast.success("Register successfully!")
+						setIsLoading(false)
+					})
+					.catch((err) => {
+						toast("something went wrong")
+						setIsLoading(false)
+					})
+			)
+			.catch((err) => {
+				setIsLoading(false)
+				switch (err.code) {
+					case "auth/email-already-in-use":
+						toast.error("Email already in use")
+						break
+					case "auth/weak-password":
+						toast.error("Weak password")
+						break
+					case "auth/invalid-email":
+						toast.error("Invalid email")
+						break
+					default:
+						toast("something went wrong")
+						break
+				}
+
+				console.log(err.code)
+			})
+	}
+	console.log(errors)
 	return (
 		<div className="min-h-screen flex justify-center items-center">
+			{isLoading && <Spinner />}
 			<div class="w-full max-w-sm p-6 m-auto bg-gray-100 rounded-md dark:bg-gray-800">
 				<h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">
 					Brand
 				</h1>
 
-				<form class="mt-6">
+				<form class="mt-6" onSubmit={handleSubmit(onSubmit)}>
 					<div>
 						<label
 							for="username"
@@ -20,6 +69,12 @@ const Register = () => {
 						</label>
 						<input
 							type="text"
+							name="name"
+							{...register("name", {
+								required: true,
+								minLength: 3,
+								maxLength: 20,
+							})}
 							class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
 					</div>
@@ -31,7 +86,13 @@ const Register = () => {
 							Email
 						</label>
 						<input
-							type="email"
+							{...register("email", {
+								required: true,
+								pattern:
+									/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+							})}
+							type="text"
+							name="email"
 							class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
 					</div>
@@ -44,16 +105,15 @@ const Register = () => {
 							>
 								Password
 							</label>
-							<Link
-								to="/resetPassword"
-								class="text-xs text-gray-600 dark:text-gray-400 hover:underline"
-							>
-								Forget Password?
-							</Link>
 						</div>
 
 						<input
+							{...register("password", {
+								required: true,
+								minLength: 6,
+							})}
 							type="password"
+							name="password"
 							class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
 					</div>

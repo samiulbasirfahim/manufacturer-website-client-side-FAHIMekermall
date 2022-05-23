@@ -17,6 +17,7 @@ const SocialLogin = () => {
 		<div>
 			<div class="flex items-center justify-between mt-4">
 				<span class="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
+				{loading || (loadingG && <Spinner />)}
 
 				<p class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">
 					or login with Social Media
@@ -42,8 +43,8 @@ const SocialLogin = () => {
 
 				<button
 					onClick={() => {
-						console.log("clicked")
-						signInWithGithub()}}
+						signInWithGithub()
+					}}
 					class="p-2 mx-2 text-sm font-medium text-gray-500 transition-colors duration-200 transform bg-gray-300 rounded-md hover:bg-gray-200 w-14 h-9"
 				>
 					<img src={githubIcont} alt="" />
