@@ -1,23 +1,27 @@
 import React from "react"
 import {
+	useAuthState,
 	useSignInWithGithub,
 	useSignInWithGoogle,
 } from "react-firebase-hooks/auth"
 import Spinner from "../Components/Spinner"
 import auth from "../firebase.init"
 import githubIcont from "../Assets/Octocat/Octocat.png"
+import generateToken from "../Utils/generateToken"
 
 const SocialLogin = () => {
+	const [user] = useAuthState(auth)
+	if (user) {
+		generateToken(user.email, user.displayName)
+	}
 	const [signInWithGithub, , loading] = useSignInWithGithub(auth)
 	const [signInWithGoogle, , loadingG] = useSignInWithGoogle(auth)
-	if (loading || loadingG) {
-		return <Spinner />
-	}
 	return (
 		<div>
 			<div class="flex items-center justify-between mt-4">
 				<span class="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
-				{loading || (loadingG && <Spinner />)}
+				{loading && <Spinner />}
+				{loadingG && <Spinner />}
 
 				<p class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">
 					or login with Social Media

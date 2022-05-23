@@ -1,18 +1,60 @@
+import { signInWithEmailAndPassword } from "firebase/auth"
 import React, { useState } from "react"
+import { useAuthState } from "react-firebase-hooks/auth"
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom"
+import toast from "react-hot-toast"
+import { Link, useLocation, useNavigate } from "react-router-dom"
+import Spinner from "../../Components/Spinner"
+import auth from "../../firebase.init"
 import SocialLogin from "../../Shared/SocialLogin"
+import generateToken from "../../Utils/generateToken"
 
 const Login = () => {
 	const [isLoading, setIsLoading] = useState(false)
+	const [user, loading] = useAuthState(auth)
+	const location = useLocation()
+	const navigate = useNavigate()
+	const from = location?.state?.from || "/"
+	if (user) {
+		navigate(from)
+	}
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm()
-	const onSubmit = ({ email, password }) => console.log(email)
+	const onSubmit = ({ email, password }) => {
+		setIsLoading(true)
+		signInWithEmailAndPassword(auth, email, password)
+			.then(() => {
+				console.log(user.email, user.displayName)
+				generateToken(user.email, user.displayName)
+				setIsLoading(false)
+			})
+			.catch((err) => {
+				setIsLoading(false)
+				switch (err.code) {
+					case "auth/network-request-failed":
+						toast.error("Try again later")
+						break
+					case "auth/wrong-password":
+						toast.error("Wrong password")
+						break
+					case "auth/user-not-found":
+						toast.error("User not found")
+						break
+					default:
+						toast.error("something went wrong")
+						break
+				}
+
+				console.log(err.code)
+			})
+	}
 	return (
 		<div className="min-h-screen flex justify-center items-center">
+			{loading && <Spinner />}
+			{isLoading && <Spinner />}
 			<div class="w-full max-w-sm p-6 m-auto bg-base-200/50">
 				<h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">
 					Brand

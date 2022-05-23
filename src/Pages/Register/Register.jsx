@@ -1,14 +1,23 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import React, { useState } from "react"
+import { useAuthState } from "react-firebase-hooks/auth"
 import { useForm } from "react-hook-form"
 import toast from "react-hot-toast"
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import Spinner from "../../Components/Spinner"
 import auth from "../../firebase.init"
 import SocialLogin from "../../Shared/SocialLogin"
+import generateToken from "../../Utils/generateToken"
 
 const Register = () => {
 	const [isLoading, setIsLoading] = useState(false)
+	const [user] = useAuthState(auth)
+	const location = useLocation()
+	const navigate = useNavigate()
+	const from = location?.state?.from || "/"
+	if (user) {
+		navigate(from)
+	}
 	const {
 		register,
 		handleSubmit,
@@ -24,27 +33,11 @@ const Register = () => {
 					.then(() => {
 						toast.success("Register successfully!")
 						setIsLoading(false)
-						fetch("http://localhost:4000/user", {
-							method: "PUT",
-							headers: { "Content-Type": "application/json" },
-							body: JSON.stringify({
-								email: email,
-								name: name,
-							}),
-						})
-							.then((res) => res.json())
-							.then((data) => {
-								if (data.token) {
-									window.localStorage.setItem(
-										"authorization_token",
-										data.token
-									)
-								}
-							})
+						generateToken(email, name)
 					})
 					.catch((err) => {
 						toast.error("something went wrong on updating name")
-					setIsLoading(false)
+						setIsLoading(false)
 					})
 			)
 			.catch((err) => {

@@ -15,6 +15,7 @@ import Footer from "./Shared/Footer/Footer"
 import Purchase from "./Pages/Purchase/Purchase"
 import Modal from "./Components/PurchaseModal"
 import Parts from "./Pages/Parts/Parts"
+import RequireAuth from "./Authantication/RequireAuth"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -32,15 +33,17 @@ const App = () => {
 					<SideBar handleDarkTheme={handleDarkTheme} >
 						<Routes>
 							<Route path="/" element={<Home />}></Route>
-							<Route path="/dashboard" element={<Dashboard />}>
-								<Route index ></Route>
-								<Route path="profile" ></Route>
-								<Route path="orders" element={<Orders />} ></Route>
-								<Route path="add-review" ></Route>
-								<Route path="all-orders" ></Route>
-								<Route path="add-products" ></Route>
-								<Route path="manage-products" ></Route>
-								<Route path="manage-admin" ></Route>
+							<Route element={<RequireAuth />}>
+								<Route path="/dashboard" element={<Dashboard />}>
+									<Route index ></Route>
+									<Route path="profile" ></Route>
+									<Route path="orders" element={<Orders />} ></Route>
+									<Route path="add-review" ></Route>
+									<Route path="all-orders" ></Route>
+									<Route path="add-products" ></Route>
+									<Route path="manage-products" ></Route>
+									<Route path="manage-admin" ></Route>
+								</Route>
 							</Route>
 							<Route path="/parts" element={<Parts />}></Route>
 							<Route path="/part/:id" element={<PartDetails />}></Route>
