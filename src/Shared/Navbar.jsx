@@ -10,7 +10,7 @@ const Navbar = ({ handleDarkTheme }) => {
 	const { pathname } = useLocation()
 	console.log(pathname.split("/")[1])
 	if (pathname.split("/")[1] === "part") {
-		return 
+		return null
 	}
 	return (
 		<section className="max-w-[1444px] lg:px-4 px-2 mx-auto flex justify-between items-center h-16 z-50">

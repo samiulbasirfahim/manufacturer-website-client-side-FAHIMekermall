@@ -24,7 +24,7 @@ const App = () => {
 				<div className="fixed top-0 z-50 w-full bg-base-100 ">
 					<Navbar isDarkTheme={isDarkTheme} handleDarkTheme={handleDarkTheme} />
 				</div>
-				<div className="mt-16">
+				<div className="">
 					<SideBar handleDarkTheme={handleDarkTheme} >
 						<Routes>
 							<Route path="/" element={<Home />}></Route>

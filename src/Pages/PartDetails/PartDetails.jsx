@@ -1,11 +1,28 @@
 import React from "react"
-import { useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import RecommendedParts from "./PartDetailsComponents/RecommentedParts"
 
 const PartDetails = () => {
 	const { id } = useParams()
+	const navigate = useNavigate()
+	const handleBack = () => {
+		navigate(-1)
+	}
 	return (
 		<div>
+			<div className="fixed top-0 w-full bg-base-100/60 backdrop-blur-md">
+				<div className="max-w-[1444px] w-full lg:px-4 px-2 mx-auto flex justify-between items-center z-50 h-16">
+					<button
+						onClick={handleBack}
+						className="btn rounded-none btn-xl btn-outline px-6 py-2"
+					>
+						Back
+					</button>
+					<p className="font-bold text-2xl text-secondary">
+						Phoenix kubo
+					</p>
+				</div>
+			</div>
 			<div id="top" className="flex items-center justify-center h-[60vh]">
 				<img
 					className="lg:max-w-lg md:max-w-sm max-w-xs"
