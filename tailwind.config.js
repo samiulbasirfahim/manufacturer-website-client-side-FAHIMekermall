@@ -16,17 +16,17 @@ module.exports = {
 					"base-100": "#ffffff",
 				},
 			},
-			{
-				dark: {
-					primary: "#ef3d55",
-					secondary: "#F63E7B",
-					accent: "#434C5E",
-					neutral: "#4C566A",
-					"base-100": "#2a303c",
-				},
-			},
-			"dark",
-			"cupcake",
+			// {
+			// 	dark: {
+			// 		primary: "#ef3d55",
+			// 		secondary: "#F63E7B",
+			// 		accent: "#434C5E",
+			// 		neutral: "#4C566A",
+			// 		"base-100": "#2a303c",
+			// 	},
+			// },
+			"business",
+			"winter"
 		],
 	},
 }

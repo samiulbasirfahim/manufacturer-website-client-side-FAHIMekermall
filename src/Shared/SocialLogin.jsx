@@ -1,6 +1,13 @@
 import React from "react"
+import { useSignInWithGoogle } from "react-firebase-hooks/auth"
+import Spinner from "../Components/Spinner"
+import auth from "../firebase.init"
 
 const SocialLogin = () => {
+	const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth)
+	if (!loading) {
+		return <Spinner />
+	}
 	return (
 		<div>
 			<div class="flex items-center justify-between mt-4">
@@ -15,6 +22,7 @@ const SocialLogin = () => {
 
 			<div class="flex items-center mt-6 -mx-2">
 				<button
+					onClick={() => signInWithGoogle()}
 					type="button"
 					class="flex items-center justify-center w-full px-6 py-2 mx-2 text-sm font-medium text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:bg-blue-400 focus:outline-none"
 				>

@@ -9,15 +9,24 @@
 	margin: 0;
 	font-family: "Helvetica", Arial, sans-serif;
 }
-*::-webkit-scrollbar {
+body::-webkit-scrollbar {
 	display: none;
 }
 
-* {
+body {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 }
-
+*::-webkit-scrollbar {
+	width: 4px; /* width of the entire scrollbar */
+}
+*::-webkit-scrollbar-track {
+	background: rgba(0, 0, 255, 0); /* color of the tracking area */
+}
+*::-webkit-scrollbar-thumb {
+	background-color: blue; /* color of the scroll thumb */
+	border-radius: 20px; /* roundness of the scroll thumb */
+}
 #product-image:hover #purchase-btn {
 	display: block;
 }

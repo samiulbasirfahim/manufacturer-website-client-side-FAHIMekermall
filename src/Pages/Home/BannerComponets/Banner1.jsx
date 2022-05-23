@@ -16,11 +16,11 @@ const Banner1 = () => {
 							4, -4, 0,
 						],
 					}}
-					transition={{ duration: 2, times: [0, 0.2, 1] }}
+					transition={{ duration: 1, times: [0, 0.2, 1] }}
 					className="bg-base-100/80 backdrop-blur-xl md:w-[60%] lg:w-[40%] rounded-xl"
 				>
 					<motion.p className="text-3xl py-6 lg:text-5xl text-center pt-12 font-extrabold text-secondary font-mono">
-						World best cycle parts here
+						All brand available
 					</motion.p>
 					<motion.div
 						animate={{
@@ -31,9 +31,12 @@ const Banner1 = () => {
 						}}
 						className="flex justify-center items-center h-full pb-8"
 					>
-						<button className="btn btn-secondary btn-lg mt-6">
-							Explore more
-						</button>
+						<a
+							href="#items"
+							className="btn btn-secondary btn-lg mt-6"
+						>
+							Shop now
+						</a>
 					</motion.div>
 				</motion.div>
 			</div>

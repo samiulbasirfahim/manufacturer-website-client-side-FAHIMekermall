@@ -9,6 +9,7 @@ import { useScrollTracker } from "react-scroll-tracker"
 import Home from "./Pages/Home/Home"
 import Dashboard from "./Pages/Dashboard/Dashboard"
 import Orders from "./Pages/Dashboard/DashboardComponents/Orders"
+import PartDetails from "./Pages/PartDetails/PartDetails"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -16,7 +17,7 @@ const App = () => {
 		setIsDarkTheme(!isDarkTheme)
 	}
 	return (
-		<div className={`${isDarkTheme && "dark"} min-h-screen`} data-theme={isDarkTheme ? 'dark' : 'light'}>
+		<div className={`${isDarkTheme && "dark"} min-h-screen`} data-theme={isDarkTheme ? 'business' : 'winter'}>
 			<div className="fixed top-0 z-50 w-full bg-base-100 ">
 				<Navbar isDarkTheme={isDarkTheme} handleDarkTheme={handleDarkTheme} />
 			</div>
@@ -34,6 +35,7 @@ const App = () => {
 							<Route path="manage-products" ></Route>
 							<Route path="manage-admin" ></Route>
 						</Route>
+						<Route path="/part/:id" element={<PartDetails />}></Route>
 						<Route path="/login" element={<Login />}></Route>
 						<Route path="/register" element={<Register />}></Route>
 					</Routes>
