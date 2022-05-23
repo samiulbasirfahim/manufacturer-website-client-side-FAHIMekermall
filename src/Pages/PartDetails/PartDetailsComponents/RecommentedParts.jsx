@@ -20,7 +20,7 @@ const RecommendedParts = () => {
 
 	const slideItems = parts.map((part) => (
 		<SwiperSlide>
-			<RecommendedPart />
+			<RecommendedPart part={part} />
 		</SwiperSlide>
 	))
 

@@ -44,7 +44,7 @@ const Register = () => {
 					})
 					.catch((err) => {
 						toast.error("something went wrong on updating name")
-						setIsLoading(false)
+					setIsLoading(false)
 					})
 			)
 			.catch((err) => {

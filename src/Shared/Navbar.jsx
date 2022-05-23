@@ -31,9 +31,6 @@ const Navbar = ({ handleDarkTheme }) => {
 			</div>
 			<div>
 				<ul className="hidden md:block">
-					{/* <label for="my-modal-6" class="btn modal-button">
-						open modal
-					</label> */}
 					<NavLink
 						className={({ isActive }) => {
 							return isActive
@@ -50,29 +47,31 @@ const Navbar = ({ handleDarkTheme }) => {
 								? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
 								: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 						}}
-						to="/products"
+						to="/parts"
 					>
 						Products
 					</NavLink>
+					{user && (
+						<NavLink
+							className={({ isActive }) => {
+								return isActive
+									? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
+									: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
+							}}
+							to="/dashboard"
+						>
+							Dashboards
+						</NavLink>
+					)}
 					<NavLink
 						className={({ isActive }) => {
 							return isActive
 								? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
 								: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 						}}
-						to="/dashboard"
+						to="/blogs"
 					>
-						Dashboards
-					</NavLink>
-					<NavLink
-						className={({ isActive }) => {
-							return isActive
-								? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
-								: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
-						}}
-						to="/users"
-					>
-						Products
+						Blogs
 					</NavLink>
 					<NavLink
 						className={({ isActive }) => {
@@ -82,7 +81,7 @@ const Navbar = ({ handleDarkTheme }) => {
 						}}
 						to="/fff"
 					>
-						Products
+						Contact Us
 					</NavLink>
 				</ul>
 			</div>

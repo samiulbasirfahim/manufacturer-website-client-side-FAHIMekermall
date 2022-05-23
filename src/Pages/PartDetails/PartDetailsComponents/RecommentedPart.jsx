@@ -1,7 +1,17 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 
-const RecommendedPart = () => {
+const RecommendedPart = ({
+	part: {
+		_id,
+		title,
+		imageUrl,
+		description,
+		minOrderQuantity,
+		availableQuantity,
+		price,
+	},
+}) => {
 	const navigate = useNavigate()
 	return (
 		<div className="flex flex-col max-w-md lg:px-12 px-6 shadow-md py-8 relative bg-base-200  mx-6">
@@ -16,7 +26,7 @@ const RecommendedPart = () => {
 				<div className="absolute hidden flex-col md:flex-row justify-evenly items-center lg:flex">
 					<button
 						className="btn btn-primary rounded-none hidden m-4 purchase-btn"
-						onClick={() => navigate("/purchase/f")}
+						onClick={() => navigate("/purchase/")}
 					>
 						Purchase Now
 					</button>

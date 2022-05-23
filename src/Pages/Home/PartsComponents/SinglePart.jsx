@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 const SinglePart = ({
 	part: {
+		_id,
 		title,
 		imageUrl,
 		description,
@@ -22,20 +23,17 @@ const SinglePart = ({
 				id="product-image"
 				className="relative flex justify-center items-center"
 			>
-				<img
-					src="https://ld-magento-72.template-help.com/magento_63513/pub/media/catalog/product/cache/c165a6606d6711d020e13d566b15eae7/f/y/fyxation-_eastside_negra_bicicleta_urbana_1.jpg"
-					alt=""
-				/>
+				<img src={imageUrl} alt="" />
 				<div className="absolute md:flex flex-col md:flex-row justify-evenly items-center hidden">
 					<button
 						className="btn btn-primary rounded-none hidden m-4 purchase-btn"
-						onClick={() => navigate("/purchase/f")}
+						onClick={() => navigate("/purchase/" + _id)}
 					>
 						Purchase Now
 					</button>
 					<a
 						href="#top"
-						onClick={() => navigate("/part/fgdfgsf#top")}
+						onClick={() => navigate(`/part/${_id}#top`)}
 						className="btn btn-primary rounded-none hidden purchase-btn h-12 items-center"
 					>
 						<svg
@@ -64,13 +62,13 @@ const SinglePart = ({
 				<div className="flex justify-between items-center md:hidden">
 					<button
 						className="btn btn-primary rounded-none  m-4 purchase-btn"
-						onClick={() => navigate("/purchase/f")}
+						onClick={() => navigate("/purchase/" + _id)}
 					>
 						Purchase Now
 					</button>
 					<a
 						href="#top"
-						onClick={() => navigate("/part/fgdfgsf#top")}
+						onClick={() => navigate(`/part/${_id}#top`)}
 						className="btn btn-primary rounded-none purchase-btn h-12 items-center"
 					>
 						<svg
@@ -98,11 +96,18 @@ const SinglePart = ({
 					{title}
 				</p>
 				<div className="flex justify-between items-center">
-					<p className="font-mono text-3xl text-gray-7001">${price}</p>
+					<p className="font-mono text-3xl text-gray-7001">
+						${price}
+					</p>
 				</div>
-				<p>{description}</p>
+				<p>
+					{description.length > 50
+						? description.slice(0,50) + "..."
+						: description}
+				</p>
 				<span className="flex flex-col md:flex-row justify-between w-full text-primary font-semibold font-mono py-4">
-					<p>Min Orders: {minOrderQuantity}</p> <p className="">Available: {availableQuantity}</p>
+					<p>Min Orders: {minOrderQuantity}</p>{" "}
+					<p className="">Available: {availableQuantity}</p>
 				</span>
 			</div>
 		</div>

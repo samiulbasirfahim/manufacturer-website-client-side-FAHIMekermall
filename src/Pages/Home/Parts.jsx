@@ -9,7 +9,7 @@ const Parts = () => {
 		error,
 		data: parts,
 	} = useQuery("repoData", () =>
-		fetch("http://localhost:4000/part?limit=3").then((res) => res.json())
+		fetch("http://localhost:4000/part?limit=3&sort=1").then((res) => res.json())
 	)
 	if (isLoading) {
 		return <Spinner />
