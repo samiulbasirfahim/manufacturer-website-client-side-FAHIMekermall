@@ -6,13 +6,17 @@ import { Navigation } from "swiper"
 import RecommendedPart from "./RecommentedPart"
 import Spinner from "../../../Components/Spinner"
 import { useQuery } from "react-query"
+import { useNavigate } from "react-router-dom"
 const RecommendedParts = () => {
+	const navigate = useNavigate()
 	const {
 		isLoading,
 		error,
 		data: parts,
 	} = useQuery("repoData", () =>
-		fetch("http://localhost:4000/part?limit=10").then((res) => res.json())
+		fetch("http://localhost:4000/part?limit=8&sort=2").then((res) =>
+			res.json()
+		)
 	)
 	if (isLoading) {
 		return <Spinner />
@@ -52,6 +56,18 @@ const RecommendedParts = () => {
 					}}
 				>
 					{slideItems}
+					<SwiperSlide>
+						<div className="flex items-center h-full">
+							<div className="flex flex-col max-w-md lg:px-12 px-6 shadow-md py-8 relative bg-base-200  mx-6">
+								<button
+									className="btn btn-primary"
+									onClick={() => navigate("/parts")}
+								>
+									Explore more
+								</button>
+							</div>
+						</div>
+					</SwiperSlide>
 				</Swiper>
 			</div>
 		</div>

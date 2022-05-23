@@ -11,13 +11,16 @@ const SinglePart = ({
 		availableQuantity,
 		price,
 	},
+	isNew,
 }) => {
 	const navigate = useNavigate()
 	return (
 		<div className="flex flex-col max-w-md lg:px-12 px-6 shadow-md py-8 relative bg-base-200">
-			<p className="bg-accent-content absolute top-[-15px] left-[-15px] font-bold lowercase px-2 py-1 rounded-2xl">
-				New
-			</p>
+			{isNew && (
+				<p className="bg-accent-content absolute top-[-15px] left-[-15px] font-bold lowercase px-2 py-1 rounded-2xl">
+					New
+				</p>
+			)}
 
 			<div
 				id="product-image"
@@ -102,7 +105,7 @@ const SinglePart = ({
 				</div>
 				<p>
 					{description.length > 50
-						? description.slice(0,50) + "..."
+						? description.slice(0, 50) + "..."
 						: description}
 				</p>
 				<span className="flex flex-col md:flex-row justify-between w-full text-primary font-semibold font-mono py-4">

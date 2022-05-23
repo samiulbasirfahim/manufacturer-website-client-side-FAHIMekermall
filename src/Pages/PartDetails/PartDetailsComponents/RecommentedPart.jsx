@@ -92,14 +92,21 @@ const RecommendedPart = ({
 					</a>
 				</div>
 				<p className="font-semibold py-6 text-4xl font-mono text-primary text-center">
-					Phoenix kubo
+					{title}
 				</p>
 				<div className="flex justify-between items-center">
-					<p className="font-mono text-3xl text-gray-7001">$233.00</p>
+					<p className="font-mono text-3xl text-gray-7001">
+						${price}
+					</p>
 				</div>
-				<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit ...</p>
+				<p>
+					{description.length > 50
+						? description.slice(0, 50) + "..."
+						: description}
+				</p>
 				<span className="flex flex-col md:flex-row justify-between w-full text-primary font-semibold font-mono py-4">
-					<p>Min Orders: 40</p> <p className="">Available: 500</p>
+					<p>Min Orders: {minOrderQuantity}</p>
+					<p className="">Available: {availableQuantity}</p>
 				</span>
 			</div>
 		</div>

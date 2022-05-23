@@ -9,7 +9,9 @@ const Parts = () => {
 		error,
 		data: parts,
 	} = useQuery("repoData", () =>
-		fetch("http://localhost:4000/part?limit=3&sort=1").then((res) => res.json())
+		fetch("http://localhost:4000/part?limit=3&sort=1").then((res) =>
+			res.json()
+		)
 	)
 	if (isLoading) {
 		return <Spinner />
@@ -18,7 +20,7 @@ const Parts = () => {
 		<div id="items">
 			<div className="container mx-auto grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-6 pb-24 px-6">
 				{parts.map((part) => (
-					<SinglePart part={part} />
+					<SinglePart part={part} isNew={true} />
 				))}
 			</div>
 		</div>
