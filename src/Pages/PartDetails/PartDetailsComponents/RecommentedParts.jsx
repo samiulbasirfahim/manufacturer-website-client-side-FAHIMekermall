@@ -32,14 +32,14 @@ const RecommendedParts = () => {
 	)
 
 	return (
-		<div className="md:flex w-full justify-between pb-20">
+		<div className="md:flex w-full justify-between pb-20 container mx-auto">
 			<div className="w-full flex items-center">
 				<p className="flex-1 w-full text-center my-12 text-4xl font-bold font-mono">
 					You may like
 				</p>
 			</div>
 			<div className="flex-1">
-				<div className="hidden w-[70vw]  md:block">
+				<div className="hidden w-[60vw]  md:block">
 					<Swiper
 						navigation={true}
 						modules={[Navigation]}

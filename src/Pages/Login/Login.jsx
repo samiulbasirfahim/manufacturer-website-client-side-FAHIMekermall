@@ -13,7 +13,7 @@ const Login = () => {
 	const onSubmit = ({ email, password }) => console.log(email)
 	return (
 		<div className="min-h-screen flex justify-center items-center">
-			<div class="w-full max-w-sm p-6 m-auto bg-gray-100 rounded-md dark:bg-gray-800">
+			<div class="w-full max-w-sm p-6 m-auto bg-base-200/50">
 				<h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">
 					Brand
 				</h1>

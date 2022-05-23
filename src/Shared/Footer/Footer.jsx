@@ -11,89 +11,89 @@ const Footer = () => {
 							<h5 class="text-xl font-bold mb-6">Features</h5>
 							<ul class="list-none footer-links">
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Cool stuff
-									</a>
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Random feature
-									</a>
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Team feature
-									</a>
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Stuff for developers
-									</a>
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Another one
-									</a>
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Last time
-									</a>
+									</Link>
 								</li>
 							</ul>
 						</div>
 						<div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 sm:mt-0">
-							<h5 class="text-xl font-bold mb-6">Resources</h5>
+							<h5 class="text-xl font-bold mb-6"> Shop</h5>
 							<ul class="list-none footer-links">
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
-										Resource
-									</a>
+										Bike parts
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
-										Resource name
-									</a>
+										Cycle parts
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
-										Another resource
-									</a>
+										Cars parts
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
-										Final resource
-									</a>
+										Others parts
+									</Link>
 								</li>
 							</ul>
 						</div>
@@ -101,36 +101,36 @@ const Footer = () => {
 							<h5 class="text-xl font-bold mb-6">About</h5>
 							<ul class="list-none footer-links">
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Team
-									</a>
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Locations
-									</a>
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Privacy
-									</a>
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Terms
-									</a>
+									</Link>
 								</li>
 							</ul>
 						</div>
@@ -138,28 +138,28 @@ const Footer = () => {
 							<h5 class="text-xl font-bold mb-6">Help</h5>
 							<ul class="list-none footer-links">
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Support
-									</a>
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Help Center
-									</a>
+									</Link>
 								</li>
 								<li class="mb-2">
-									<a
-										href="#"
+									<Link
+										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
 										Contact Us
-									</a>
+									</Link>
 								</li>
 							</ul>
 						</div>
@@ -168,24 +168,24 @@ const Footer = () => {
 								Stay connected
 							</h5>
 							<div class="flex sm:justify-center xl:justify-start">
-								<a
-									href=""
-									class="w-8 h-8 border border-2 border-gray-400 rounded-full text-center py-1 text-gray-600 hover:text-white hover:bg-blue-600 hover:border-blue-600"
+								<Link
+									to=""
+									class="w-8 h-8  border-2 border-gray-400 rounded-full text-center py-1 text-gray-600 hover:text-white hover:bg-blue-600 hover:border-blue-600"
 								>
 									<i class="fab fa-facebook"></i>
-								</a>
-								<a
-									href=""
-									class="w-8 h-8 border border-2 border-gray-400 rounded-full text-center py-1 ml-2 text-gray-600 hover:text-white hover:bg-blue-400 hover:border-blue-400"
+								</Link>
+								<Link
+									to=""
+									class="w-8 h-8  border-2 border-gray-400 rounded-full text-center py-1 ml-2 text-gray-600 hover:text-white hover:bg-blue-400 hover:border-blue-400"
 								>
 									<i class="fab fa-twitter"></i>
-								</a>
-								<a
-									href=""
-									class="w-8 h-8 border border-2 border-gray-400 rounded-full text-center py-1 ml-2 text-gray-600 hover:text-white hover:bg-red-600 hover:border-red-600"
+								</Link>
+								<Link
+									to=""
+									class="w-8 h-8  border-2 border-gray-400 rounded-full text-center py-1 ml-2 text-gray-600 hover:text-white hover:bg-red-600 hover:border-red-600"
 								>
 									<i class="fab fa-google-plus-g"></i>
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>

@@ -17,13 +17,16 @@ const SinglePart = () => {
 					src="https://ld-magento-72.template-help.com/magento_63513/pub/media/catalog/product/cache/c165a6606d6711d020e13d566b15eae7/f/y/fyxation-_eastside_negra_bicicleta_urbana_1.jpg"
 					alt=""
 				/>
-				<div className="absolute flex flex-col md:flex-row justify-evenly items-center">
-					<button className="btn btn-primary rounded-none hidden m-4 purchase-btn">
+				<div className="absolute md:flex flex-col md:flex-row justify-evenly items-center hidden">
+					<button
+						className="btn btn-primary rounded-none hidden m-4 purchase-btn"
+						onClick={() => navigate("/purchase/f")}
+					>
 						Purchase Now
 					</button>
 					<a
 						href="#top"
-						onClick={() => navigate("/part/fgdfgsf")}
+						onClick={() => navigate("/part/fgdfgsf#top")}
 						className="btn btn-primary rounded-none hidden purchase-btn h-12 items-center"
 					>
 						<svg
@@ -49,6 +52,36 @@ const SinglePart = () => {
 				</div>
 			</div>
 			<div className="">
+				<div className="flex justify-between items-center md:hidden">
+					<button className="btn btn-primary rounded-none  m-4 purchase-btn" onClick={() => navigate('/purchase/f')}>
+						Purchase Now
+					</button>
+					<a
+						href="#top"
+						onClick={() => navigate("/part/fgdfgsf#top")}
+						className="btn btn-primary rounded-none purchase-btn h-12 items-center"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-6 w-6"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+							/>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+							/>
+						</svg>
+					</a>
+				</div>
 				<p className="font-semibold py-6 text-4xl font-mono text-primary text-center">
 					Phoenix kubo
 				</p>

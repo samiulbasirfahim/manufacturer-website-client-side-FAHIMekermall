@@ -12,6 +12,7 @@ import Orders from "./Pages/Dashboard/DashboardComponents/Orders"
 import PartDetails from "./Pages/PartDetails/PartDetails"
 import { Toaster } from "react-hot-toast"
 import Footer from "./Shared/Footer/Footer"
+import Purchase from "./Pages/Purchase/Purchase"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -40,6 +41,7 @@ const App = () => {
 								<Route path="manage-admin" ></Route>
 							</Route>
 							<Route path="/part/:id" element={<PartDetails />}></Route>
+							<Route path="/purchase/:id" element={<Purchase />}></Route>
 							<Route path="/login" element={<Login />}></Route>
 							<Route path="/register" element={<Register />}></Route>
 						</Routes>
