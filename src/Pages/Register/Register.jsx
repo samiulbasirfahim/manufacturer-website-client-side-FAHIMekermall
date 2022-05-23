@@ -73,10 +73,25 @@ const Register = () => {
 							{...register("name", {
 								required: true,
 								minLength: 3,
-								maxLength: 20,
+								maxLength: 30,
 							})}
 							class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
+						{errors.name?.type === "required" && (
+							<p className="text-red-600 text-xs">
+								Name is required
+							</p>
+						)}
+						{errors.name?.type === "minLength" && (
+							<p className="text-red-600 text-xs">
+								Name is too short
+							</p>
+						)}
+						{errors.name?.type === "maxLength" && (
+							<p className="text-red-600 text-xs">
+								Name is too long
+							</p>
+						)}
 					</div>
 					<div class="mt-4">
 						<label
@@ -95,6 +110,16 @@ const Register = () => {
 							name="email"
 							class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
+						{errors.email?.type === "required" && (
+							<p className="text-red-600 text-xs">
+								Email is required
+							</p>
+						)}
+						{errors.email?.type === "pattern" && (
+							<p className="text-red-600 text-xs">
+								Invalid Email Address
+							</p>
+						)}
 					</div>
 
 					<div class="mt-4">
@@ -116,6 +141,16 @@ const Register = () => {
 							name="password"
 							class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
+						{errors.password?.type === "required" && (
+							<p className="text-red-600 text-xs">
+								Password is required
+							</p>
+						)}
+						{errors.password?.type === "minLength" && (
+							<p className="text-red-600 text-xs">
+								Password is too short
+							</p>
+						)}
 					</div>
 
 					<div class="mt-6">
