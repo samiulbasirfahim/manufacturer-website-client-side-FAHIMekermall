@@ -8,7 +8,12 @@ import Banner2 from "./BannerComponets/Banner2"
 const Banner = () => {
 	return (
 		<div className="h-screen">
-			<Swiper navigation={true} modules={[Navigation]} className="h-full">
+			<Swiper
+				navigation={true}
+				modules={[Navigation]}
+			spaceBetween={20}
+				className="h-full"
+			>
 				<SwiperSlide>
 					<Banner1 />
 				</SwiperSlide>

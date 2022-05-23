@@ -54,6 +54,7 @@ const RecommendedParts = () => {
 						navigation={true}
 						modules={[Navigation]}
 						slidesPerView={1}
+						spaceBetween={10}
 					>
 						{slideItems}
 					</Swiper>

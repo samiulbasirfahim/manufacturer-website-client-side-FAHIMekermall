@@ -1,3 +1,3 @@
-const genarateToken = (user) =>{
-    
+const genarateToken = (user) => {
+  
 }
