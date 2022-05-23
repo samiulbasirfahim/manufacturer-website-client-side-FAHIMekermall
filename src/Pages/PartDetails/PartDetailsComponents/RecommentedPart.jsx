@@ -26,13 +26,13 @@ const RecommendedPart = ({
 				<div className="absolute hidden flex-col md:flex-row justify-evenly items-center lg:flex">
 					<button
 						className="btn btn-primary rounded-none hidden m-4 purchase-btn"
-						onClick={() => navigate("/purchase/")}
+						onClick={() => navigate("/purchase/" + _id)}
 					>
 						Purchase Now
 					</button>
 					<a
 						href="#top"
-						onClick={() => navigate("/part/fgdfgsf#top")}
+						onClick={() => navigate(`/part/${_id}#top`)}
 						className="btn btn-primary rounded-none hidden purchase-btn h-12 items-center"
 					>
 						<svg
@@ -61,13 +61,13 @@ const RecommendedPart = ({
 				<div className="flex justify-between items-center lg:hidden">
 					<button
 						className="btn btn-primary rounded-none  m-4 purchase-btn"
-						onClick={() => navigate("/purchase/f")}
+						onClick={() => navigate("/purchase/" + _id)}
 					>
 						Purchase Now
 					</button>
 					<a
 						href="#top"
-						onClick={() => navigate("/part/fgdfgsf#top")}
+						onClick={() => navigate(`/part/${_id}#top`)}
 						className="btn btn-primary rounded-none purchase-btn h-12 items-center"
 					>
 						<svg

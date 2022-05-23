@@ -13,9 +13,9 @@ import PartDetails from "./Pages/PartDetails/PartDetails"
 import { Toaster } from "react-hot-toast"
 import Footer from "./Shared/Footer/Footer"
 import Purchase from "./Pages/Purchase/Purchase"
-import Modal from "./Components/PurchaseModal"
 import Parts from "./Pages/Parts/Parts"
 import RequireAuth from "./Authantication/RequireAuth"
+import MyProfile from "./Pages/Dashboard/DashboardComponents/MyProfile"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -35,8 +35,8 @@ const App = () => {
 							<Route path="/" element={<Home />}></Route>
 							<Route element={<RequireAuth />}>
 								<Route path="/dashboard" element={<Dashboard />}>
-									<Route index ></Route>
-									<Route path="profile" ></Route>
+									<Route index element={<MyProfile />}></Route>
+									<Route path="profile" element={<MyProfile />}></Route>
 									<Route path="orders" element={<Orders />} ></Route>
 									<Route path="add-review" ></Route>
 									<Route path="all-orders" ></Route>

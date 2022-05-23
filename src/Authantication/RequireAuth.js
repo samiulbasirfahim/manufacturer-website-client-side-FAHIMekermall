@@ -14,7 +14,7 @@ const RequireAuth = () => {
         toast.error('Your should login first')
         return <Navigate to="/login" state={{ from: location }} replace />
     } else {
-    return <Outlet />
+        return <Outlet />
     }
 
 }

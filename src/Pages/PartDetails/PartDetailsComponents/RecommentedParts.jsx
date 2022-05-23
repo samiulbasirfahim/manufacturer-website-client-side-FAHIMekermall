@@ -22,11 +22,14 @@ const RecommendedParts = () => {
 		return <Spinner />
 	}
 
-	const slideItems = parts.map((part) => (
-		<SwiperSlide>
-			<RecommendedPart part={part} />
-		</SwiperSlide>
-	))
+	let slideItems
+	if (parts?.length > 0) {
+		slideItems = parts.map((part) => (
+			<SwiperSlide>
+				<RecommendedPart part={part} />
+			</SwiperSlide>
+		))
+	}
 
 	return (
 		<div className="pb-20 container mx-auto">
