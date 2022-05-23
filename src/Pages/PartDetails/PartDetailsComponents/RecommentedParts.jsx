@@ -25,33 +25,34 @@ const RecommendedParts = () => {
 	))
 
 	return (
-		<div className="md:flex w-full justify-between pb-20 container mx-auto">
-			<div className="w-full flex items-center">
-				<p className="flex-1 w-full text-center my-12 text-4xl font-bold font-mono">
-					You may like
-				</p>
-			</div>
-			<div className="flex-1">
-				<div className="hidden w-[60vw]  md:block">
-					<Swiper
-						navigation={true}
-						modules={[Navigation]}
-						slidesPerView={3}
-						spaceBetween={10}
-					>
-						{slideItems}
-					</Swiper>
-				</div>
-				<div className="md:hidden">
-					<Swiper
-						navigation={true}
-						modules={[Navigation]}
-						slidesPerView={1}
-						spaceBetween={10}
-					>
-						{slideItems}
-					</Swiper>
-				</div>
+		<div className="pb-20 container mx-auto">
+			<p className="text-center my-12 text-4xl font-bold font-mono">
+				You may like
+			</p>
+			<div className="flex">
+				<Swiper
+					navigation={true}
+					modules={[Navigation]}
+					pagination={{
+						clickable: true,
+					}}
+					breakpoints={{
+						640: {
+							slidesPerView: 1,
+							spaceBetween: 20,
+						},
+						944: {
+							slidesPerView: 2,
+							spaceBetween: 40,
+						},
+						1444: {
+							slidesPerView: 3,
+							spaceBetween: 10,
+						},
+					}}
+				>
+					{slideItems}
+				</Swiper>
 			</div>
 		</div>
 	)

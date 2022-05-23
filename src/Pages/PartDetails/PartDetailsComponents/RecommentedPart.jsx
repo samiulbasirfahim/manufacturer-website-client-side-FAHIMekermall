@@ -13,7 +13,7 @@ const RecommendedPart = () => {
 					src="https://ld-magento-72.template-help.com/magento_63513/pub/media/catalog/product/cache/c165a6606d6711d020e13d566b15eae7/f/y/fyxation-_eastside_negra_bicicleta_urbana_1.jpg"
 					alt=""
 				/>
-				<div className="absolute flex flex-col md:flex-row justify-evenly items-center">
+				<div className="absolute hidden flex-col md:flex-row justify-evenly items-center lg:flex">
 					<button
 						className="btn btn-primary rounded-none hidden m-4 purchase-btn"
 						onClick={() => navigate("/purchase/f")}
@@ -48,7 +48,7 @@ const RecommendedPart = () => {
 				</div>
 			</div>
 			<div className="">
-				<div className="flex justify-between items-center md:hidden">
+				<div className="flex justify-between items-center lg:hidden">
 					<button
 						className="btn btn-primary rounded-none  m-4 purchase-btn"
 						onClick={() => navigate("/purchase/f")}
