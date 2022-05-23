@@ -31,6 +31,9 @@ const Navbar = ({ handleDarkTheme }) => {
 			</div>
 			<div>
 				<ul className="hidden md:block">
+					{/* <label for="my-modal-6" class="btn modal-button">
+						open modal
+					</label> */}
 					<NavLink
 						className={({ isActive }) => {
 							return isActive

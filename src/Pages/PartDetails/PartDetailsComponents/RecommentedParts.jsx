@@ -4,32 +4,25 @@ import "swiper/css"
 import "swiper/css/navigation"
 import { Navigation } from "swiper"
 import RecommendedPart from "./RecommentedPart"
+import Spinner from "../../../Components/Spinner"
+import { useQuery } from "react-query"
 const RecommendedParts = () => {
-	const slideItems = (
-		<>
-			<SwiperSlide>
-				<RecommendedPart />
-			</SwiperSlide>
-			<SwiperSlide>
-				<RecommendedPart />
-			</SwiperSlide>
-			<SwiperSlide>
-				<RecommendedPart />
-			</SwiperSlide>
-			<SwiperSlide>
-				<RecommendedPart />
-			</SwiperSlide>
-			<SwiperSlide>
-				<RecommendedPart />
-			</SwiperSlide>
-			<SwiperSlide>
-				<RecommendedPart />
-			</SwiperSlide>
-			<SwiperSlide>
-				<RecommendedPart />
-			</SwiperSlide>
-		</>
+	const {
+		isLoading,
+		error,
+		data: parts,
+	} = useQuery("repoData", () =>
+		fetch("http://localhost:4000/part?limit=10").then((res) => res.json())
 	)
+	if (isLoading) {
+		return <Spinner />
+	}
+
+	const slideItems = parts.map((part) => (
+		<SwiperSlide>
+			<RecommendedPart />
+		</SwiperSlide>
+	))
 
 	return (
 		<div className="md:flex w-full justify-between pb-20 container mx-auto">

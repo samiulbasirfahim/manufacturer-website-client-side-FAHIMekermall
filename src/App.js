@@ -13,6 +13,8 @@ import PartDetails from "./Pages/PartDetails/PartDetails"
 import { Toaster } from "react-hot-toast"
 import Footer from "./Shared/Footer/Footer"
 import Purchase from "./Pages/Purchase/Purchase"
+import Modal from "./Components/PurchaseModal"
+import Parts from "./Pages/Parts/Parts"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -40,6 +42,7 @@ const App = () => {
 								<Route path="manage-products" ></Route>
 								<Route path="manage-admin" ></Route>
 							</Route>
+							<Route path="/parts" element={<Parts />}></Route>
 							<Route path="/part/:id" element={<PartDetails />}></Route>
 							<Route path="/purchase/:id" element={<Purchase />}></Route>
 							<Route path="/login" element={<Login />}></Route>
@@ -52,6 +55,7 @@ const App = () => {
 			</div>
 			<Toaster position="top-right"
 				reverseOrder={false} />
+
 		</div>
 	)
 }
