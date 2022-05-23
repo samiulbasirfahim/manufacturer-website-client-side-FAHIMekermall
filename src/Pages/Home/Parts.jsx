@@ -19,7 +19,7 @@ const Parts = () => {
 	return (
 		<div id="items">
 			<div className="container mx-auto grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-6 pb-24 px-6">
-				{parts.map((part) => (
+				{parts?.map((part) => (
 					<SinglePart part={part} isNew={true} />
 				))}
 			</div>

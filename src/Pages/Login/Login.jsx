@@ -1,3 +1,4 @@
+import { async } from "@firebase/util"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import React, { useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
@@ -15,9 +16,7 @@ const Login = () => {
 	const location = useLocation()
 	const navigate = useNavigate()
 	const from = location?.state?.from || "/"
-	if (user) {
-		navigate(from)
-	}
+
 	const {
 		register,
 		handleSubmit,
@@ -27,8 +26,6 @@ const Login = () => {
 		setIsLoading(true)
 		signInWithEmailAndPassword(auth, email, password)
 			.then(() => {
-				console.log(user.email, user.displayName)
-				generateToken(user.email, user.displayName)
 				setIsLoading(false)
 			})
 			.catch((err) => {
@@ -44,12 +41,16 @@ const Login = () => {
 						toast.error("User not found")
 						break
 					default:
-						toast.error("something went wrong")
-						break
+						console.log(err, "error")
+						toast.error("Something went wrong")
 				}
 
 				console.log(err.code)
 			})
+	}
+	if (user) {
+		generateToken(user.email, user.displayName)
+		navigate(from)
 	}
 	return (
 		<div className="min-h-screen flex justify-center items-center">
