@@ -1,8 +1,16 @@
-import React from "react"
+import React, { useState } from "react"
+import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 import SocialLogin from "../../Shared/SocialLogin"
 
 const Login = () => {
+	const [isLoading, setIsLoading] = useState(false)
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm()
+	const onSubmit = ({ email, password }) => console.log(email)
 	return (
 		<div className="min-h-screen flex justify-center items-center">
 			<div class="w-full max-w-sm p-6 m-auto bg-gray-100 rounded-md dark:bg-gray-800">
@@ -10,24 +18,40 @@ const Login = () => {
 					Brand
 				</h1>
 
-				<form class="mt-6">
-					<div>
+				<form class="mt-6" onSubmit={handleSubmit(onSubmit)}>
+					<div class="mt-4">
 						<label
-							for="username"
+							htmlFor="username"
 							class="block text-sm text-gray-800 dark:text-gray-200"
 						>
 							Email
 						</label>
 						<input
-							type="Email"
+							{...register("email", {
+								required: true,
+								pattern:
+									/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+							})}
+							type="text"
+							name="email"
 							class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
+						{errors.email?.type === "required" && (
+							<p className="text-red-600 text-xs">
+								Email is required
+							</p>
+						)}
+						{errors.email?.type === "pattern" && (
+							<p className="text-red-600 text-xs">
+								Invalid Email Address
+							</p>
+						)}
 					</div>
 
 					<div class="mt-4">
 						<div class="flex items-center justify-between">
 							<label
-								for="password"
+								htmlFor="password"
 								class="block text-sm text-gray-800 dark:text-gray-200"
 							>
 								Password
@@ -41,9 +65,24 @@ const Login = () => {
 						</div>
 
 						<input
+							{...register("password", {
+								required: true,
+								minLength: 6,
+							})}
 							type="password"
+							name="password"
 							class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
+						{errors.password?.type === "required" && (
+							<p className="text-red-600 text-xs">
+								Password is required
+							</p>
+						)}
+						{errors.password?.type === "minLength" && (
+							<p className="text-red-600 text-xs">
+								Password is too short
+							</p>
+						)}
 					</div>
 
 					<div class="mt-6">

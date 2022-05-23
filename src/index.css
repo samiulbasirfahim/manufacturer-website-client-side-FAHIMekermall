@@ -27,6 +27,6 @@ body {
 	background-color: blue; /* color of the scroll thumb */
 	border-radius: 20px; /* roundness of the scroll thumb */
 }
-#product-image:hover #purchase-btn {
-	display: block;
+#product-image:hover .purchase-btn {
+	display: flex;
 }

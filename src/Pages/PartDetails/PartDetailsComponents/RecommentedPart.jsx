@@ -1,13 +1,10 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 
-const SinglePart = () => {
+const RecommendedPart = () => {
 	const navigate = useNavigate()
 	return (
 		<div className="flex flex-col max-w-md lg:px-12 px-6 shadow-md py-8 relative bg-base-200">
-			<p className="bg-accent-content absolute top-[-15px] left-[-15px] font-bold lowercase px-2 py-1 rounded-2xl">
-				New
-			</p>
 
 			<div
 				id="product-image"
@@ -64,4 +61,4 @@ const SinglePart = () => {
 	)
 }
 
-export default SinglePart
+export default RecommendedPart

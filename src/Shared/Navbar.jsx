@@ -1,12 +1,17 @@
 import { signOut } from "firebase/auth"
 import { useAuthState } from "react-firebase-hooks/auth"
 import React from "react"
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useLocation } from "react-router-dom"
 import logo from "../Assets/logo.png"
 import auth from "../firebase.init"
 
-const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
+const Navbar = ({ handleDarkTheme }) => {
 	const [user] = useAuthState(auth)
+	const { pathname } = useLocation()
+	console.log(pathname.split("/")[1])
+	if (pathname.split("/")[1] === "part") {
+		return 
+	}
 	return (
 		<section className="max-w-[1444px] lg:px-4 px-2 mx-auto flex justify-between items-center h-16 z-50">
 			<div className="flex">
@@ -119,7 +124,7 @@ const Navbar = ({ isDarkTheme, handleDarkTheme }) => {
 					)}
 				</div>
 				<label
-					for="my-drawer-4"
+					htmlFor="my-drawer-4"
 					class="drawer-button btn-circle swap swap-rotate md:hidden"
 				>
 					<input type="checkbox" />

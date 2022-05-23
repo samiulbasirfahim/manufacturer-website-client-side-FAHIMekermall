@@ -62,7 +62,7 @@ const Register = () => {
 				<form class="mt-6" onSubmit={handleSubmit(onSubmit)}>
 					<div>
 						<label
-							for="username"
+							htmlFor="username"
 							class="block text-sm text-gray-800 dark:text-gray-200"
 						>
 							Name
@@ -95,7 +95,7 @@ const Register = () => {
 					</div>
 					<div class="mt-4">
 						<label
-							for="username"
+							htmlFor="username"
 							class="block text-sm text-gray-800 dark:text-gray-200"
 						>
 							Email
@@ -125,7 +125,7 @@ const Register = () => {
 					<div class="mt-4">
 						<div class="flex items-center justify-between">
 							<label
-								for="password"
+								htmlFor="password"
 								class="block text-sm text-gray-800 dark:text-gray-200"
 							>
 								Password
