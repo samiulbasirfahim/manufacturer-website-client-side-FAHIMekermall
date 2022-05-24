@@ -27,12 +27,14 @@ const Purchase = () => {
 
 	const [quantity, setQuantity] = useState(0)
 	useEffect(() => setQuantity(minOrderQuantity), [minOrderQuantity])
-	const [err, setErr] = useState("")
+	const [err, setErr] = useState("This product is available soon")
 	useEffect(() => {
 		if (quantity < minOrderQuantity) {
 			setErr(`You have to make at least ${minOrderQuantity} bookings`)
 		} else if (quantity > availableQuantity) {
 			setErr(`You can't order more than ${availableQuantity}`)
+		} else if (availableQuantity < minOrderQuantity) {
+			setErr("This product is available soon")
 		} else {
 			setErr("")
 		}
