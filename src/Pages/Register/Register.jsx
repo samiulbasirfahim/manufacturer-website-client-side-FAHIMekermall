@@ -62,7 +62,6 @@ const Register = () => {
 						toast.error("something went wrong")
 						break
 				}
-
 			})
 	}
 	return (
