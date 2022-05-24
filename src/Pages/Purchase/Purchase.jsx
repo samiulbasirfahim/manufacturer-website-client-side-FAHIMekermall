@@ -125,7 +125,7 @@ const Purchase = () => {
 								Shipping Address
 							</span>
 							<div class="grid md:grid-cols-2 md:gap-2"></div>
-							<div class="mt-4">
+							<div title={description} class="mt-4">
 								<div class="flex items-center justify-between">
 									<label
 										htmlFor="part_name"
