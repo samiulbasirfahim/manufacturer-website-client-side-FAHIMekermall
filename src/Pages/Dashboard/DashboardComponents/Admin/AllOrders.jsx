@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Spinner from "../../../../Components/Spinner"
+import Swal from "sweetalert2"
 
 const AllOrders = () => {
 	const [sort, setSort] = useState(0)
@@ -22,16 +23,30 @@ const AllOrders = () => {
 	}
 
 	const handleDiscard = (id) => {
-		fetch("http://localhost:4000/booking/" + id, {
-			method: "DELETE",
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You won't be able to revert this!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, delete it!",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				fetch("http://localhost:4000/booking/" + id, {
+					method: "DELETE",
+				})
+					.then((response) => response.json())
+					.then((data) => {
+						if (data.success) {
+							const remaining = orders.filter(
+								(order) => order._id !== id
+							)
+							setOrders(remaining)
+						}
+					})
+			}
 		})
-			.then((response) => response.json())
-			.then((data) => {
-				if (data.success) {
-					const remaining = orders.filter((order) => order._id !== id)
-					setOrders(remaining)
-				}
-			})
 	}
 
 	return (
