@@ -27,10 +27,19 @@ const Purchase = () => {
 
 	const [quantity, setQuantity] = useState(0)
 	useEffect(() => setQuantity(minOrderQuantity), [minOrderQuantity])
+	const [err, setErr] = useState("")
+	useEffect(() => {
+		if (quantity < minOrderQuantity) {
+			setErr(`You have to make at least ${minOrderQuantity} bookings`)
+		} else if (quantity > availableQuantity) {
+			setErr(`You can't order more than ${availableQuantity}`)
+		} else {
+			setErr("")
+		}
+	}, [quantity])
 	if (isLoading) {
 		return <Spinner />
 	}
-
 	const handlePurchase = (event) => {
 		event.preventDefault()
 		const bookingInfo = {
@@ -157,6 +166,7 @@ const Purchase = () => {
 									required
 									class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 								/>
+								<p className="text-red-600 text-sm ">{err}</p>
 							</div>
 							<div class="mt-4">
 								<div class="flex items-center justify-between">
@@ -204,6 +214,7 @@ const Purchase = () => {
 									Back
 								</button>
 								<input
+									disabled={err !== ""}
 									type="submit"
 									class="h-12 w-48 rounded btn btn-primary"
 									value={"Confirm purchase"}
