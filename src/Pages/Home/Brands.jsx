@@ -11,8 +11,8 @@ const Brands = () => {
 	return (
 		<div className="container mx-auto">
 			<div>
-				<h1 className="text-[#333333] text-[35px] font-serif font-bold text-center">
-					CHOOSE PARTS BY BRAND
+				<h1 className="text-[#333333] text-[35px] font-mono font-bold text-center uppercase">
+					All big companies collaborated with us
 				</h1>
 				<p className="text-[#E81938] font-extrabold text-center">
 					WE MANUFACTURE ALL PARTS

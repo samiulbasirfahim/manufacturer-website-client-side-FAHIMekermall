@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import {
 	useAuthState,
 	useSendEmailVerification,
@@ -19,9 +19,12 @@ const Register = () => {
 	const navigate = useNavigate()
 	const [sendEmailVerification] = useSendEmailVerification(auth)
 	const from = location?.state?.from || "/"
-	if (user) {
-		navigate(from)
-	}
+	useEffect(() => {
+		if (user) {
+			generateToken(user.email, user.displayName)
+			navigate(from, { replace: true })
+		}
+	}, [user])
 	const {
 		register,
 		handleSubmit,

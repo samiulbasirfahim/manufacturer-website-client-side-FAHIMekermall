@@ -1,6 +1,6 @@
 import { async } from "@firebase/util"
 import { signInWithEmailAndPassword } from "firebase/auth"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useForm } from "react-hook-form"
 import toast from "react-hot-toast"
@@ -45,10 +45,12 @@ const Login = () => {
 				}
 			})
 	}
-	if (user) {
-		generateToken(user.email, user.displayName)
-		navigate(from)
-	}
+	useEffect(() => {
+		if (user) {
+			generateToken(user.email, user.displayName)
+			navigate(from, { replace: true })
+		}
+	}, [user])
 	return (
 		<div className="min-h-screen flex justify-center items-center">
 			{loading && <Spinner />}

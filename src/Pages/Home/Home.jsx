@@ -1,7 +1,9 @@
 import React from "react"
+import BusinessStats from "./BusinessStats"
 import Banner from "./Banner"
 import Brands from "./Brands"
 import Parts from "./Parts"
+import Support from "./Support"
 
 const Home = () => {
 	return (
@@ -11,7 +13,9 @@ const Home = () => {
 				Latest items
 			</p>
 			<Parts />
+			<BusinessStats />
 			<Brands />
+			<Support />
 		</div>
 	)
 }
