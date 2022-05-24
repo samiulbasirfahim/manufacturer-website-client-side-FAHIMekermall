@@ -8,7 +8,6 @@ import Register from "./Pages/Register/Register"
 import { useScrollTracker } from "react-scroll-tracker"
 import Home from "./Pages/Home/Home"
 import Dashboard from "./Pages/Dashboard/Dashboard"
-import Orders from "./Pages/Dashboard/DashboardComponents/Orders"
 import PartDetails from "./Pages/PartDetails/PartDetails"
 import { Toaster } from "react-hot-toast"
 import Footer from "./Shared/Footer/Footer"
@@ -16,6 +15,8 @@ import Purchase from "./Pages/Purchase/Purchase"
 import Parts from "./Pages/Parts/Parts"
 import RequireAuth from "./Authantication/RequireAuth"
 import MyProfile from "./Pages/Dashboard/DashboardComponents/MyProfile"
+import Orders from "./Pages/Dashboard/DashboardComponents/User/Orders"
+import AllOrders from "./Pages/Dashboard/DashboardComponents/Admin/AllOrders"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -36,10 +37,9 @@ const App = () => {
 							<Route element={<RequireAuth />}>
 								<Route path="/dashboard" element={<Dashboard />}>
 									<Route index element={<MyProfile />}></Route>
-									<Route path="profile" element={<MyProfile />}></Route>
 									<Route path="orders" element={<Orders />} ></Route>
 									<Route path="add-review" ></Route>
-									<Route path="all-orders" ></Route>
+									<Route path="all-orders" element={<AllOrders />}></Route>
 									<Route path="add-products" ></Route>
 									<Route path="manage-products" ></Route>
 									<Route path="manage-admin" ></Route>

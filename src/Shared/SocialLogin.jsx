@@ -7,13 +7,8 @@ import {
 import Spinner from "../Components/Spinner"
 import auth from "../firebase.init"
 import githubIcont from "../Assets/Octocat/Octocat.png"
-import generateToken from "../Utils/generateToken"
 
 const SocialLogin = () => {
-	const [user] = useAuthState(auth)
-	if (user) {
-		generateToken(user.email, user.displayName)
-	}
 	const [signInWithGithub, , loading] = useSignInWithGithub(auth)
 	const [signInWithGoogle, , loadingG] = useSignInWithGoogle(auth)
 	return (

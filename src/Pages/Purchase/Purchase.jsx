@@ -35,6 +35,7 @@ const Purchase = () => {
 		event.preventDefault()
 		const bookingInfo = {
 			title: `${title} booking for ${user.displayName}`,
+			partTitle: title,
 			partId: partId,
 			quantity: event.target.quantity.value,
 			totalPrice: +price * +quantity,

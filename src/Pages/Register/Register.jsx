@@ -1,6 +1,9 @@
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import React, { useState } from "react"
-import { useAuthState } from "react-firebase-hooks/auth"
+import {
+	useAuthState,
+	useSendEmailVerification,
+} from "react-firebase-hooks/auth"
 import { useForm } from "react-hook-form"
 import toast from "react-hot-toast"
 import { Link, useLocation, useNavigate } from "react-router-dom"
@@ -14,6 +17,7 @@ const Register = () => {
 	const [user] = useAuthState(auth)
 	const location = useLocation()
 	const navigate = useNavigate()
+	const [sendEmailVerification] = useSendEmailVerification(auth)
 	const from = location?.state?.from || "/"
 	if (user) {
 		navigate(from)
@@ -31,7 +35,9 @@ const Register = () => {
 					displayName: name,
 				})
 					.then(() => {
-						toast.success("Register successfully!")
+						sendEmailVerification().then(() => {
+							toast.success("Register successfully!")
+						})
 						setIsLoading(false)
 						generateToken(email, name)
 					})

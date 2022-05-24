@@ -7,6 +7,7 @@ import auth from "../../../firebase.init"
 
 const DashboardSidebar = () => {
 	const [user] = useAuthState(auth)
+	console.log(user,'user')
 	// const [userData, setUserData] = useState({})
 
 	const {
@@ -35,10 +36,10 @@ const DashboardSidebar = () => {
 				type="checkbox"
 				class="drawer-toggle bg-base-200 w-full"
 			/>
-			<div class="drawer-content mt-5 bg-base-300 lg:rounded-tl-3xl">
+			<div class="drawer-content mt-5 bg-base-300 lg:rounded-tl-3xl lg:ml-80 pt-16">
 				<label
 					htmlFor="my-drawer-2"
-					class="btn btn-circle swap swap-rotate fixed left-0"
+					class="btn btn-circle swap swap-rotate fixed left-0 z-50"
 				>
 					<input type="checkbox" />
 
@@ -64,9 +65,9 @@ const DashboardSidebar = () => {
 				</label>
 				<Outlet />
 			</div>
-			<div class="drawer-side">
+			<div class="drawer-side bg-base-300">
 				<label htmlFor="my-drawer-2" class="drawer-overlay"></label>
-				<ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+				<ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content fixed left-0 h-screen">
 					{/* <!-- Sidebar content here --> */}
 					<NavLink
 						className={({ isActive }) => {
@@ -74,7 +75,7 @@ const DashboardSidebar = () => {
 								? "font-mono   text-md      bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
 								: "font-bold font-mono   text-md      hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 						}}
-						to="/dashboard/profile"
+						to="/dashboard/"
 					>
 						My profile
 					</NavLink>
@@ -102,6 +103,8 @@ const DashboardSidebar = () => {
 							</NavLink>
 						</>
 					)}
+					{console.log(userData.roles)}
+					{console.log(userData)}
 					{userData.roles === "admin" && (
 						<>
 							<NavLink
