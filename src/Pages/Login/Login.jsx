@@ -41,11 +41,8 @@ const Login = () => {
 						toast.error("User not found")
 						break
 					default:
-						console.log(err, "error")
 						toast.error("Something went wrong")
 				}
-
-				console.log(err.code)
 			})
 	}
 	if (user) {

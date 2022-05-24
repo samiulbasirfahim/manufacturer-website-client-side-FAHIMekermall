@@ -1,16 +1,17 @@
+import { async } from "@firebase/util"
 import React, { useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
+import toast from "react-hot-toast"
 import { useQuery } from "react-query"
 import Spinner from "../../../Components/Spinner"
 import auth from "../../../firebase.init"
 
 const MyProfile = () => {
 	const [user] = useAuthState(auth)
-	console.log(user, "user")
 	const [isEdit, setIsEdit] = useState(false)
 	const {
 		isLoading,
-		error,
+		refetch,
 		data: userData,
 	} = useQuery("repoData", () =>
 		fetch("http://localhost:4000/user/" + user.email, {
@@ -26,10 +27,50 @@ const MyProfile = () => {
 	if (isLoading) {
 		return <Spinner />
 	}
-	const handleEdit = (e) => {
+	const handleEdit = async (e) => {
 		e.preventDefault()
-		const imagebbapi = process.env.REACT_APP_imagebb_key
-		console.log(e.target)
+		const image = e.target.image.files[0]
+		const formData = new FormData()
+		formData.append("image", image)
+		let imageUrl
+		if (image) {
+			await fetch(
+				"https://api.imgbb.com/1/upload?key=" +
+					process.env.REACT_APP_imagebb_key,
+				{
+					method: "POST",
+
+					body: formData,
+				}
+			)
+				.then((response) => response.json())
+				.then((data) => {
+					if (data.data.url) {
+						imageUrl = data.data.url
+					}
+				})
+		}
+
+		const updatedUserInfo = {
+			name: e.target.name.value,
+			bio: e.target.bio.value,
+		}
+		if (imageUrl) {
+			updatedUserInfo.imageUrl = imageUrl
+		}
+		fetch("http://localhost:4000/user/" + user.email, {
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(updatedUserInfo),
+			method: "PUT",
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				if (data.modifiedCount > 0) {
+					toast.success("user updated successfully")
+					setIsEdit(null)
+					refetch()
+				}
+			})
 	}
 
 	return (
@@ -68,7 +109,7 @@ const MyProfile = () => {
 										<div class="mt-4">
 											<div class="flex items-center justify-between">
 												<label
-													htmlFor="password"
+													htmlFor="name"
 													class="block text-sm text-gray-800 dark:text-gray-200"
 												>
 													Full name
@@ -78,13 +119,15 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="name"
+												required
+												defaultValue={userData.name}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
 										<div class="mt-4">
 											<div class="flex items-center justify-between">
 												<label
-													htmlFor="password"
+													htmlFor="bio"
 													class="block text-sm text-gray-800 dark:text-gray-200"
 												>
 													Bio
@@ -93,28 +136,27 @@ const MyProfile = () => {
 
 											<input
 												type="text"
-												name="name"
+												name="bio"
+												required
+												defaultValue={userData.bio}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
-										<div class="w-full p-3">
-											<div class="relative border-dotted h-48 rounded-lg  border-2 border-blue-700 bg-gray-100 flex justify-center items-center">
-												<div class="absolute">
-													<div class="flex flex-col items-center">
-														<i class="fa fa-folder-open fa-4x text-blue-700"></i>
-														<span class="block text-gray-400 font-normal">
-															Attach you Image
-															here
-														</span>
-													</div>
-												</div>
-
-												<input
-													type="file"
-													class="h-full w-full opacity-0"
-													name=""
-												/>
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
+												<label
+													htmlFor="bio"
+													class="block text-sm text-gray-800 dark:text-gray-200"
+												>
+													Image
+												</label>
 											</div>
+
+											<input
+												type="file"
+												name="image"
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+											/>
 										</div>
 									</>
 								)}
@@ -127,9 +169,11 @@ const MyProfile = () => {
 											<p>Edit</p>
 										</div>
 									) : (
-										<div class="text-center w-full p-4 hover:bg-gray-100 cursor-pointer">
-											<p>Save</p>
-										</div>
+										<input
+											type="submit"
+											value="Save"
+											class="text-center w-full p-4 hover:bg-gray-100 cursor-pointer"
+										/>
 									)}
 								</div>
 							</form>

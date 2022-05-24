@@ -53,7 +53,6 @@ const Purchase = () => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data)
 				if (data?.data?._id) {
 					navigate(-1)
 					toast.success("Booking successful ")

@@ -8,7 +8,6 @@ import auth from "../firebase.init"
 const Navbar = ({ handleDarkTheme }) => {
 	const [user] = useAuthState(auth)
 	const { pathname } = useLocation()
-	console.log(pathname.split("/")[1])
 	if (pathname.split("/")[1] === "part") {
 		return null
 	}

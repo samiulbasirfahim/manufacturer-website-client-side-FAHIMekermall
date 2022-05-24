@@ -7,7 +7,6 @@ import auth from "../../../firebase.init"
 
 const DashboardSidebar = () => {
 	const [user] = useAuthState(auth)
-	console.log(user,'user')
 	// const [userData, setUserData] = useState({})
 
 	const {
@@ -103,8 +102,6 @@ const DashboardSidebar = () => {
 							</NavLink>
 						</>
 					)}
-					{console.log(userData.roles)}
-					{console.log(userData)}
 					{userData.roles === "admin" && (
 						<>
 							<NavLink

@@ -63,10 +63,8 @@ const Register = () => {
 						break
 				}
 
-				console.log(err.code)
 			})
 	}
-	console.log(errors)
 	return (
 		<div className="min-h-screen flex justify-center items-center">
 			{isLoading && <Spinner />}

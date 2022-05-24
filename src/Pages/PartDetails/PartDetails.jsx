@@ -6,7 +6,6 @@ import RecommendedParts from "./PartDetailsComponents/RecommentedParts"
 
 const PartDetails = () => {
 	const { id } = useParams()
-	console.log(id)
 	const navigate = useNavigate()
 	const handleBack = () => {
 		navigate(-1)
