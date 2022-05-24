@@ -24,11 +24,14 @@ const Hero = () => {
 					</p>
 				</div>
 				<p className="md:text-2xl text-xl font-bold text-gray-500">
-					Buy parts fr
+					Buy parts from us
 				</p>
-				<button className=" w-[200px] btn btn-primary mt-8 mx-auto py-3 text-black">
+				<a
+					href="#items"
+					className=" w-[200px] btn btn-primary mt-8 mx-auto py-3 text-black"
+				>
 					Get Started
-				</button>
+				</a>
 			</div>
 		</div>
 	)

@@ -76,7 +76,7 @@ const MyProfile = () => {
 	return (
 		<div className="h-[80vh] w-full flex justify-center items-center">
 			<div>
-				<div class="h-screen bg-base-300   flex flex-wrap items-center  justify-center  ">
+				<div class="h-screen bg-base-300  flex flex-wrap items-center  justify-center  ">
 					<div class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3    bg-base-300  shadow-lg    transform   duration-200 easy-in-out">
 						<div class=" h-32 overflow-hidden">
 							<img

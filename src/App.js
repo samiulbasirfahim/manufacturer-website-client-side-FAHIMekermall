@@ -18,6 +18,7 @@ import MyProfile from "./Pages/Dashboard/DashboardComponents/MyProfile"
 import Orders from "./Pages/Dashboard/DashboardComponents/User/Orders"
 import AllOrders from "./Pages/Dashboard/DashboardComponents/Admin/AllOrders"
 import Contact from "./Pages/Contact-us/Contact"
+import AddReview from "./Pages/Dashboard/DashboardComponents/User/AddReview"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -40,7 +41,7 @@ const App = () => {
 								<Route path="/dashboard" element={<Dashboard />}>
 									<Route index element={<MyProfile />}></Route>
 									<Route path="orders" element={<Orders />} ></Route>
-									<Route path="add-review" ></Route>
+									<Route path="add-review" element={<AddReview />} ></Route>
 									<Route path="all-orders" element={<AllOrders />}></Route>
 									<Route path="add-products" ></Route>
 									<Route path="manage-products" ></Route>
