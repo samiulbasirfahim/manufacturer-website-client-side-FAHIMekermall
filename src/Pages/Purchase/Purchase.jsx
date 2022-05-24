@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
+import toast from "react-hot-toast"
 import { useQuery } from "react-query"
 import { useNavigate, useParams } from "react-router-dom"
 import Spinner from "../../Components/Spinner"
@@ -13,6 +14,7 @@ const Purchase = () => {
 		isLoading,
 		error,
 		data: {
+			_id: partId,
 			title,
 			description,
 			price,
@@ -29,11 +31,40 @@ const Purchase = () => {
 		return <Spinner />
 	}
 
+	const handlePurchase = (event) => {
+		event.preventDefault()
+		const bookingInfo = {
+			title: `${title} booking for ${user.displayName}`,
+			partId: partId,
+			quantity: event.target.quantity.value,
+			totalPrice: +price * +quantity,
+			userEmail: user.email,
+			address: event.target.address.value,
+			phone: event.target.phone.value,
+			paid: false,
+		}
+		fetch("http://localhost:4000/booking", {
+			method: "POST",
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify(bookingInfo),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data)
+				if (data?.data?._id) {
+					navigate(-1)
+					toast.success("Booking successful ")
+				}
+			})
+	}
+
 	return (
 		<div>
 			<div class="py-12 mx-4">
 				<div class="max-w-md mx-auto bg-base-200/50 shadow-lg rounded-lg md:max-w-xl">
-					<form class="">
+					<form onSubmit={handlePurchase} class="">
 						<div class="w-full p-4 px-5 py-5">
 							<div class="flex flex-row mb-8">
 								<h2 class="text-3xl font-semibold">Spark</h2>
@@ -104,7 +135,7 @@ const Purchase = () => {
 							<div class="mt-4">
 								<div class="flex items-center justify-between">
 									<label
-										htmlFor="phone"
+										htmlFor="quantity"
 										class="block text-sm text-gray-800 dark:text-gray-200"
 									>
 										Quantity
@@ -113,7 +144,7 @@ const Purchase = () => {
 
 								<input
 									type="number"
-									name="phone"
+									name="quantity"
 									onChange={(e) =>
 										setQuantity(e.target.value)
 									}
