@@ -1,24 +1,64 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
-import { useQuery } from "react-query"
 import { useNavigate } from "react-router-dom"
 import Spinner from "../../../../Components/Spinner"
 import auth from "../../../../firebase.init"
 
 const Orders = () => {
 	const [user] = useAuthState(auth)
+	const [sort, setSort] = useState(0)
 	const navigate = useNavigate()
-	const { isLoading, data } = useQuery("my_orders", () =>
-		fetch("http://localhost:4000/booking/" + user.email).then((res) =>
-			res.json()
-		)
-	)
+	const [isLoading, setIsLoading] = useState(false)
+	const [orders, setOrders] = useState([])
+	useEffect(() => {
+		setIsLoading(true)
+		fetch(`http://localhost:4000/booking/${user.email}?sort=${sort}`)
+			.then((res) => res.json())
+			.then((data) => {
+				setIsLoading(false)
+				setOrders(data)
+			})
+	}, [sort])
+
 	if (isLoading) {
 		return <Spinner />
 	}
+
+	const handleDiscard = (id) => {
+		fetch("http://localhost:4000/booking/" + id, {
+			method: "DELETE",
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				if (data.success) {
+					const remaining = orders.filter((order) => order._id !== id)
+					setOrders(remaining)
+				}
+			})
+	}
+
 	return (
 		<div className="">
 			<div class="relative overflow-x-auto shadow-md sm:rounded-lg  bg-base-300 lg:mx-10 mx-2">
+				<div>
+					<label className="mx-2" htmlFor="sort">
+						Sort by
+					</label>
+					<select
+						name="sort"
+						id="sort"
+						onChange={(e) => {
+							setSort(e.target.value)
+						}}
+					>
+						<option selected value="0">
+							None
+						</option>
+						<option value="1">Date</option>
+						<option value="2">Price</option>
+						<option value="3">Quantity</option>
+					</select>
+				</div>
 				<table class="w-full text-sm text-left">
 					<thead class="text-xs text-gray-700 uppercase bg-primary dark:text-gray-400">
 						<tr>
@@ -38,8 +78,9 @@ const Orders = () => {
 					</thead>
 
 					<tbody>
-						{data.map(
+						{orders.map(
 							({
+								_id,
 								partId,
 								partTitle,
 								quantity,
@@ -70,7 +111,14 @@ const Orders = () => {
 													>
 														Pay
 													</button>
-													<button class="ml-6 cursor-pointer font-medium text-red-600 dark:text-red-500 hover:underline">
+													<button
+														onClick={async () => {
+															await handleDiscard(
+																_id
+															)
+														}}
+														class="ml-6 cursor-pointer font-medium text-red-600 dark:text-red-500 hover:underline"
+													>
 														Discard
 													</button>
 												</>
@@ -89,7 +137,7 @@ const Orders = () => {
 						)}
 					</tbody>
 				</table>
-				{data.length === 0 && (
+				{orders.length === 0 && (
 					<div>
 						<p className="text-center text-3xl font-bold py-28">
 							No orders available

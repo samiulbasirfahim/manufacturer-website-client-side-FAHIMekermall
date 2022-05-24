@@ -21,7 +21,7 @@ const Purchase = () => {
 			minOrderQuantity,
 			availableQuantity,
 		} = {},
-	} = useQuery("part_details", () =>
+	} = useQuery(["partDetails", id], () =>
 		fetch("http://localhost:4000/part/" + id).then((res) => res.json())
 	)
 
