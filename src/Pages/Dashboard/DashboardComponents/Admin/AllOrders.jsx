@@ -106,16 +106,6 @@ const AllOrders = () => {
 											{!paid ? (
 												<>
 													<button
-														onClick={() =>
-															navigate(
-																"/pay/" + partId
-															)
-														}
-														class="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline"
-													>
-														Pay
-													</button>
-													<button
 														onClick={async () => {
 															await handleDiscard(
 																_id
