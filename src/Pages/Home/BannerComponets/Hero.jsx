@@ -10,7 +10,7 @@ const Hero = () => {
 				</h1>
 				<div className="flex justify-center items-center">
 					<p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
-						Best in bangladesh for
+						Best in bangladesh for manufacture parts of
 					</p>
 					<Typed
 						className="md:text-5xl sm:text-4xl text-xl font-bold md:px-4 px-2 "
@@ -19,9 +19,6 @@ const Hero = () => {
 						backSpeed={140}
 						loop
 					/>
-					<p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
-						Parts
-					</p>
 				</div>
 				<p className="md:text-2xl text-xl font-bold text-gray-500">
 					Buy parts from us
@@ -30,7 +27,7 @@ const Hero = () => {
 					href="#items"
 					className=" w-[200px] btn btn-primary mt-8 mx-auto py-3 text-black"
 				>
-					Get Started
+					Explore items
 				</a>
 			</div>
 		</div>

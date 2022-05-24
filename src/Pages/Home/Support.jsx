@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 const Support = () => {
 	const navigate = useNavigate()
 	return (
-		<div name="support" className="w-full mt-24">
+		<div name="support " className="w-full mt-4">
 			<div className="max-w-[1240px] mx-auto relative">
 				<div className="px-4 py-12">
 					<h2 className="text-3xl pt-6 font-bold uppercase text-center text-secondary">

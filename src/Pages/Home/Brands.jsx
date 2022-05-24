@@ -19,7 +19,7 @@ const Brands = () => {
 				</p>
 			</div>
 
-			<div className=" mt-20 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-1 gap-y-6">
+			<div className=" mt-20 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-1 gap-y-6 justify-items-center">
 				{brands.map((brand, index) => (
 					<div key={index}>
 						<div className=" mx-auto ">

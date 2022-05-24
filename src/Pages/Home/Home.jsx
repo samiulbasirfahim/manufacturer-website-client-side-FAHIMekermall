@@ -4,6 +4,7 @@ import Banner from "./Banner"
 import Brands from "./Brands"
 import Parts from "./Parts"
 import Support from "./Support"
+import Testimonials from "./Testimonials/Testimonials"
 
 const Home = () => {
 	return (
@@ -15,6 +16,7 @@ const Home = () => {
 			<Parts />
 			<BusinessStats />
 			<Brands />
+			<Testimonials />
 			<Support />
 		</div>
 	)

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import Spinner from "../../../../Components/Spinner"
 import auth from "../../../../firebase.init"
 import Swal from "sweetalert2"
+import Table from "../../../../Components/Table"
 
 const Orders = () => {
 	const [user] = useAuthState(auth)
@@ -21,9 +22,9 @@ const Orders = () => {
 			})
 	}, [sort])
 
-	if (isLoading) {
-		return <Spinner />
-	}
+	// if (isLoading) {
+	// 	return <Spinner />
+	// }
 
 	const handleDiscard = (id) => {
 		Swal.fire({
@@ -74,85 +75,12 @@ const Orders = () => {
 						<option value="3">Quantity</option>
 					</select>
 				</div>
-				<table class="w-full text-sm text-left">
-					<thead class="text-xs text-gray-700 uppercase bg-primary dark:text-gray-400">
-						<tr>
-							<th scope="col" class="px-6 py-3">
-								Part Name
-							</th>
-							<th scope="col" class="px-6 py-3">
-								Quantity
-							</th>
-							<th scope="col" class="px-6 py-3">
-								Total Price
-							</th>
-							<th scope="col" class="flex justify-end px-6 py-3">
-								<span class="text-right"></span>
-							</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						{orders.map(
-							({
-								_id,
-								partId,
-								partTitle,
-								quantity,
-								totalPrice,
-								paid,
-							}) => {
-								return (
-									<tr class="border-b bg-base-300">
-										<td class="px-6 py-4 font-mono font-bold">
-											{partTitle}
-										</td>
-										<td class="px-6 py-4 font-mono font-bold">
-											{quantity}
-										</td>
-										<td class="px-6 py-4 font-mono font-bold">
-											${totalPrice}
-										</td>
-										<td class="px-6 py-4 text-right font-mono font-bold">
-											{!paid ? (
-												<>
-													<button
-														onClick={() =>
-															navigate(
-																"/pay/" + partId
-															)
-														}
-														class="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline"
-													>
-														Pay
-													</button>
-													<button
-														onClick={async () => {
-															await handleDiscard(
-																_id
-															)
-														}}
-														class="ml-6 cursor-pointer font-medium text-red-600 dark:text-red-500 hover:underline"
-													>
-														Discard
-													</button>
-												</>
-											) : (
-												<button
-													disabled
-													class="cursor-not-allowed font-medium text-green-600 dark:text-green-500 hover:underline"
-												>
-													Paid
-												</button>
-											)}
-										</td>
-									</tr>
-								)
-							}
-						)}
-					</tbody>
-				</table>
-				{orders.length === 0 && (
+				<Table
+					orders={orders}
+					handleDiscard={handleDiscard}
+					pay={true}
+				/>
+				{orders && orders.length === 0 && (
 					<div>
 						<p className="text-center text-3xl font-bold py-28">
 							No orders available
