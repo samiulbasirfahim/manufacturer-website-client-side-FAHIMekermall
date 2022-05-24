@@ -76,17 +76,10 @@ const Footer = () => {
 										to="#"
 										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
 									>
-										Cycle parts
+										Automotive
 									</Link>
 								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Cars parts
-									</Link>
-								</li>
+
 								<li class="mb-2">
 									<Link
 										to="#"

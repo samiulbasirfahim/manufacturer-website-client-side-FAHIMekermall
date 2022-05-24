@@ -7,6 +7,13 @@ const Parts = () => {
 	const [limit, setLimit] = useState(10)
 	const [parts, setParts] = useState([])
 	const [isLoading, setIsLoading] = useState()
+	const [count, setCount] = useState(0)
+	const [totalPage, setTotalPage] = useState(0)
+	useEffect(() => {
+		fetch("http://localhost:4000/part/count")
+			.then((response) => response.json())
+			.then((data) => setCount(data.count))
+	}, [])
 	useEffect(() => {
 		setIsLoading(true)
 		fetch(`http://localhost:4000/part?sort=${sort}&limit=${limit}`)
@@ -16,6 +23,9 @@ const Parts = () => {
 				setParts(data)
 			})
 	}, [sort, limit])
+	useEffect(() => {
+		setTotalPage(Math.ceil(count / limit))
+	}, [limit, count])
 	return (
 		<div className="mt-20">
 			{isLoading && <Spinner />}
@@ -63,6 +73,12 @@ const Parts = () => {
 					<SinglePart part={part} />
 				))}
 			</div>
+			<select name="" id="">
+				{/* {totalPage((page) => (
+					<option value={page}>{page + 1}</option>
+				))} */}
+			</select>
+			<p>{totalPage}</p>
 		</div>
 	)
 }

@@ -29,10 +29,10 @@ const Orders = () => {
 								Quantity
 							</th>
 							<th scope="col" class="px-6 py-3">
-								Price
+								Total Price
 							</th>
 							<th scope="col" class="flex justify-end px-6 py-3">
-								<span class="text-right">Pay</span>
+								<span class="text-right"></span>
 							</th>
 						</tr>
 					</thead>
@@ -59,20 +59,25 @@ const Orders = () => {
 										</td>
 										<td class="px-6 py-4 text-right font-mono font-bold">
 											{!paid ? (
-												<button
-													onClick={() =>
-														navigate(
-															"/pay/" + partId
-														)
-													}
-													class="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline"
-												>
-													Pay
-												</button>
+												<>
+													<button
+														onClick={() =>
+															navigate(
+																"/pay/" + partId
+															)
+														}
+														class="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline"
+													>
+														Pay
+													</button>
+													<button class="ml-6 cursor-pointer font-medium text-red-600 dark:text-red-500 hover:underline">
+														Discard
+													</button>
+												</>
 											) : (
 												<button
 													disabled
-													class="cursor-not-allowed font-medium text-blue-600 dark:text-blue-500 hover:underline"
+													class="cursor-not-allowed font-medium text-green-600 dark:text-green-500 hover:underline"
 												>
 													Paid
 												</button>

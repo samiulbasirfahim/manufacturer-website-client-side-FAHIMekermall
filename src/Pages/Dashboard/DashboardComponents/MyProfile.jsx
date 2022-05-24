@@ -169,11 +169,19 @@ const MyProfile = () => {
 											<p>Edit</p>
 										</div>
 									) : (
-										<input
-											type="submit"
-											value="Save"
-											class="text-center w-full p-4 hover:bg-gray-100 cursor-pointer"
-										/>
+										<div class="grid grid-cols-2">
+											<input
+												type="submit"
+												value="Save"
+												class="text-center w-full p-4 hover:bg-gray-100 cursor-pointer"
+											/>
+											<button
+												class="text-center w-full p-4 hover:bg-gray-100 cursor-pointer"
+												onClick={() => setIsEdit(false)}
+											>
+												Hide
+											</button>
+										</div>
 									)}
 								</div>
 							</form>

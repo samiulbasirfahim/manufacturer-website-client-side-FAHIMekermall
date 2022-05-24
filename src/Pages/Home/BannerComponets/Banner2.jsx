@@ -20,7 +20,7 @@ const Banner2 = () => {
 					className="bg-base-100/80 backdrop-blur-xl md:w-[60%] lg:w-[40%] rounded-xl"
 				>
 					<motion.p className="text-3xl py-6 lg:text-5xl text-center pt-12 font-extrabold text-secondary font-mono">
-						World best cycle parts here
+						World best Automotive parts here
 					</motion.p>
 					<motion.div
 						animate={{
