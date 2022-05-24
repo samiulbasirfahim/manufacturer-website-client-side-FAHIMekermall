@@ -17,6 +17,7 @@ import RequireAuth from "./Authantication/RequireAuth"
 import MyProfile from "./Pages/Dashboard/DashboardComponents/MyProfile"
 import Orders from "./Pages/Dashboard/DashboardComponents/User/Orders"
 import AllOrders from "./Pages/Dashboard/DashboardComponents/Admin/AllOrders"
+import Contact from "./Pages/Contact-us/Contact"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -47,6 +48,7 @@ const App = () => {
 								</Route>
 							</Route>
 							<Route path="/parts" element={<Parts />}></Route>
+							<Route path="/contact-us" element={<Contact />}></Route>
 							<Route path="/part/:id" element={<PartDetails />}></Route>
 							<Route path="/login" element={<Login />}></Route>
 							<Route path="/register" element={<Register />}></Route>

@@ -61,15 +61,27 @@ const SideBar = ({ children, handleDarkTheme }) => {
 						>
 							Products
 						</NavLink>
+						{user && (
+							<NavLink
+								className={({ isActive }) => {
+									return isActive
+										? "font-mono   text-md      bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
+										: "font-bold font-mono   text-md      hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
+								}}
+								to="/dashboard/"
+							>
+								Dashboards
+							</NavLink>
+						)}
 						<NavLink
 							className={({ isActive }) => {
 								return isActive
 									? "font-mono   text-md      bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
 									: "font-bold font-mono   text-md      hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 							}}
-							to="/dashboard/"
+							to="/blogs"
 						>
-							Dashboards
+							Blogs
 						</NavLink>
 						<NavLink
 							className={({ isActive }) => {
@@ -77,35 +89,15 @@ const SideBar = ({ children, handleDarkTheme }) => {
 									? "font-mono   text-md      bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
 									: "font-bold font-mono   text-md      hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 							}}
-							to="/users"
+							to="/contact-us/"
 						>
-							Products
-						</NavLink>
-						<NavLink
-							className={({ isActive }) => {
-								return isActive
-									? "font-mono   text-md      bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
-									: "font-bold font-mono   text-md      hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
-							}}
-							to="/fff"
-						>
-							Products
-						</NavLink>
-						<NavLink
-							className={({ isActive }) => {
-								return isActive
-									? "font-mono   text-md      bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
-									: "font-bold font-mono   text-md      hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
-							}}
-							to="/fdsf"
-						>
-							Products
+							Contact Us
 						</NavLink>
 
 						{user ? (
 							<button
 								onClick={() => signOut(auth)}
-								className="font-bold   text-md      font-mono bg-secondary text-white px-4 mx-1 py-2 rounded-xl"
+								className="font-bold   text-md   mt-12   font-mono bg-secondary text-white px-4 mx-1 py-2 rounded-xl"
 							>
 								Log out
 							</button>

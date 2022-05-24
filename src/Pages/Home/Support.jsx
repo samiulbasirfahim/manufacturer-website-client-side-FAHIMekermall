@@ -2,10 +2,10 @@ import React from "react"
 
 import { PhoneIcon, ArrowSmRightIcon } from "@heroicons/react/outline"
 import { ChipIcon, SupportIcon } from "@heroicons/react/solid"
-
-// import supportImg from "../assets/support.jpg"
+import { useNavigate } from "react-router-dom"
 
 const Support = () => {
+	const navigate = useNavigate()
 	return (
 		<div name="support" className="w-full mt-24">
 			<div className="max-w-[1240px] mx-auto relative">
@@ -30,7 +30,10 @@ const Support = () => {
 								quibusdam exercitationem.
 							</p>
 						</div>
-						<div className="bg-primary pl-8 py-4">
+						<div
+							className="bg-primary pl-8 py-4 cursor-pointer"
+							onClick={() => navigate("/contact-us")}
+						>
 							<p className="flex items-center text-base-100">
 								Contact Us{" "}
 								<ArrowSmRightIcon className="w-5 ml-2" />
@@ -50,7 +53,10 @@ const Support = () => {
 								quibusdam exercitationem.
 							</p>
 						</div>
-						<div className="bg-primary pl-8 py-4">
+						<div
+							className="bg-primary pl-8 py-4 cursor-pointer"
+							onClick={() => navigate("/contact-us")}
+						>
 							<p className="flex items-center text-base-100">
 								Contact Us{" "}
 								<ArrowSmRightIcon className="w-5 ml-2" />
@@ -70,7 +76,10 @@ const Support = () => {
 								quibusdam exercitationem.
 							</p>
 						</div>
-						<div className="bg-primary pl-8 py-4">
+						<div
+							className="bg-primary pl-8 py-4 cursor-pointer"
+							onClick={() => navigate("/contact-us")}
+						>
 							<p className="flex items-center text-base-100">
 								Contact Us
 								<ArrowSmRightIcon className="w-5 ml-2" />

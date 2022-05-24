@@ -1,219 +1,104 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import {
+	FaDribbbleSquare,
+	FaFacebookSquare,
+	FaGithubSquare,
+	FaInstagram,
+	FaTwitterSquare,
+} from "react-icons/fa"
 
 const Footer = () => {
 	return (
-		<div>
-			<footer class="footer-1 bg-base-200 py-8 sm:py-12">
-				<div class="container mx-auto px-4">
-					<div class="sm:flex sm:flex-wrap sm:-mx-4 md:py-4">
-						<div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6">
-							<h5 class="text-xl font-bold mb-6">Features</h5>
-							<ul class="list-none footer-links">
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Cool stuff
-									</Link>
-								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Random feature
-									</Link>
-								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Team feature
-									</Link>
-								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Stuff for developers
-									</Link>
-								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Another one
-									</Link>
-								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Last time
-									</Link>
-								</li>
-							</ul>
-						</div>
-						<div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 sm:mt-0">
-							<h5 class="text-xl font-bold mb-6"> Shop</h5>
-							<ul class="list-none footer-links">
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Bike parts
-									</Link>
-								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Automotive
-									</Link>
-								</li>
-
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Others parts
-									</Link>
-								</li>
-							</ul>
-						</div>
-						<div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
-							<h5 class="text-xl font-bold mb-6">About</h5>
-							<ul class="list-none footer-links">
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Team
-									</Link>
-								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Locations
-									</Link>
-								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Privacy
-									</Link>
-								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Terms
-									</Link>
-								</li>
-							</ul>
-						</div>
-						<div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
-							<h5 class="text-xl font-bold mb-6">Help</h5>
-							<ul class="list-none footer-links">
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Support
-									</Link>
-								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Help Center
-									</Link>
-								</li>
-								<li class="mb-2">
-									<Link
-										to="#"
-										class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-									>
-										Contact Us
-									</Link>
-								</li>
-							</ul>
-						</div>
-						<div class="px-4 mt-4 sm:w-1/3 xl:w-1/6 sm:mx-auto xl:mt-0 xl:ml-auto">
-							<h5 class="text-xl font-bold mb-6 sm:text-center xl:text-left">
-								Stay connected
-							</h5>
-							<div class="flex sm:justify-center xl:justify-start">
-								<Link
-									to=""
-									class="w-8 h-8  border-2 border-gray-400 rounded-full text-center py-1 text-gray-600 hover:text-white hover:bg-blue-600 hover:border-blue-600"
-								>
-									<i class="fab fa-facebook"></i>
-								</Link>
-								<Link
-									to=""
-									class="w-8 h-8  border-2 border-gray-400 rounded-full text-center py-1 ml-2 text-gray-600 hover:text-white hover:bg-blue-400 hover:border-blue-400"
-								>
-									<i class="fab fa-twitter"></i>
-								</Link>
-								<Link
-									to=""
-									class="w-8 h-8  border-2 border-gray-400 rounded-full text-center py-1 ml-2 text-gray-600 hover:text-white hover:bg-red-600 hover:border-red-600"
-								>
-									<i class="fab fa-google-plus-g"></i>
-								</Link>
-							</div>
-						</div>
-					</div>
-
-					<div class="sm:flex sm:flex-wrap sm:-mx-4 mt-6 pt-6 sm:mt-12 sm:pt-12 border-t">
-						<div class="sm:w-full px-4 md:w-1/6 flex flex-col justify-start items-start">
-							<strong>Spark</strong>
-							<span>Manufacturer</span>
-						</div>
-						<div class="px-4 sm:w-1/2 md:w-1/4 mt-4 md:mt-0">
-							<h6 class="font-bold mb-2">Address</h6>
-							<address class="not-italic mb-4 text-sm">
-								123 6th St.
-								<br />
-								Mymensingh,2200
-							</address>
-						</div>
-						<div class="px-4 sm:w-1/2 md:w-1/4 mt-4 md:mt-0">
-							<h6 class="font-bold mb-2">Tag</h6>
-							<p class="mb-4 text-sm">
-								Bd best cycle parts <strong>SELLER</strong>.
-								<br />
-							</p>
-						</div>
-						<div class="px-4 md:w-1/4 md:ml-auto mt-6 sm:mt-4 md:mt-0">
-							<Link
-								to="/parts"
-								class="px-4 py-2 bg-purple-800 hover:bg-purple-900 rounded text-white"
-							>
-								Explore more
-							</Link>
-						</div>
+		<div className="bg-base-300">
+			<div className="max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 ">
+				<div>
+					<h1 className="w-full text-3xl font-bold text-primary">
+						REACT.
+					</h1>
+					<p className="py-4">
+						Lorem, ipsum dolor sit amet consectetur adipisicing
+						elit. Id odit ullam iste repellat consequatur libero
+						reiciendis, blanditiis accusantium.
+					</p>
+					<div className="flex justify-between md:w-[75%] my-6">
+						<FaFacebookSquare size={30} />
+						<FaInstagram size={30} />
+						<FaTwitterSquare size={30} />
+						<FaGithubSquare size={30} />
 					</div>
 				</div>
-			</footer>
+				<div className="lg:col-span-2 flex justify-between mt-6">
+					<div>
+						<h6 className="font-medium text-gray-400">Solutions</h6>
+						<ul>
+							<li className="py-2 text-sm cursor-pointer">
+								Analytics
+							</li>
+							<li className="py-2 text-sm cursor-pointer">
+								Marketing
+							</li>
+							<li className="py-2 text-sm cursor-pointer">
+								Commerce
+							</li>
+							<li className="py-2 text-sm cursor-pointer">
+								Insights
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h6 className="font-medium text-gray-400">Support</h6>
+						<ul>
+							<li className="py-2 text-sm cursor-pointer">
+								Pricing
+							</li>
+							<li className="py-2 text-sm cursor-pointer">
+								Documentation
+							</li>
+							<li className="py-2 text-sm cursor-pointer">
+								Guides
+							</li>
+							<li className="py-2 text-sm cursor-pointer">
+								API Status
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h6 className="font-medium text-gray-400">Company</h6>
+						<ul>
+							<li className="py-2 text-sm cursor-pointer">
+								About
+							</li>
+							<li className="py-2 text-sm cursor-pointer">
+								Blog
+							</li>
+							<li className="py-2 text-sm cursor-pointer">
+								Jobs
+							</li>
+
+							<li className="py-2 text-sm cursor-pointer">
+								Careers
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h6 className="font-medium text-gray-400">Legal</h6>
+						<ul>
+							<li className="py-2 text-sm cursor-pointer">
+								Claim
+							</li>
+							<li className="py-2 text-sm cursor-pointer">
+								Press
+							</li>
+							<li className="py-2 text-sm cursor-pointer">
+								Policy
+							</li>
+							<li className="py-2 text-sm cursor-pointer">
+								Terms
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }
