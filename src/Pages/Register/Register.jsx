@@ -36,6 +36,9 @@ const Register = () => {
 				})
 					.then(() => {
 						sendEmailVerification().then(() => {
+							toast.success(
+								"Check your email for verification mail"
+							)
 							toast.success("Register successfully!")
 						})
 						setIsLoading(false)

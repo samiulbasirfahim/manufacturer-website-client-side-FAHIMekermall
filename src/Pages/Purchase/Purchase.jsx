@@ -140,6 +140,9 @@ const Purchase = () => {
 									>
 										Quantity
 									</label>
+									<p class="block text-md font-bold text-gray-800 dark:text-gray-200">
+										Available : {availableQuantity}
+									</p>
 								</div>
 
 								<input
