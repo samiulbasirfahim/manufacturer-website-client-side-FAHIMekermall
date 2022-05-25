@@ -3,7 +3,7 @@ import React from "react"
 const AddProduct = () => {
 	return (
 		<div className="flex flex-no-wrap Item-start">
-			<div className="w-full ">
+			<form className="w-full ">
 				<div className="mt-4 px-2 lg:px-7">
 					<p className="text-xl font-semibold leading-tight text-gray-800">
 						Add Item
@@ -13,7 +13,7 @@ const AddProduct = () => {
 							<p className="text-base font-medium leading-none text-gray-800">
 								Title
 							</p>
-							<input className="w-full p-3 mt-4 border rounded outline-none" />
+							<input className="w-full p-3 mt-4 border rounded outline-none bg-base-100" />
 							<p className="mt-3 text-xs leading-3 text-gray-600">
 								Set Item title
 							</p>
@@ -24,7 +24,7 @@ const AddProduct = () => {
 							</p>
 
 							<select
-								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none focus:bg-gray-50"
+								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none bg-base-100 "
 								name="category"
 								id="category"
 							>
@@ -37,13 +37,13 @@ const AddProduct = () => {
 							</p>
 						</div>
 						<div>
-							<p className="text-base font-medium leading-none text-gray-800">
+							<p className="text-base font-medium leading-none text-gray-800 ">
 								Item price
 							</p>
 							<input
 								name="price"
 								type="number"
-								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none focus:bg-gray-50"
+								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none bg-base-100  "
 							/>
 							<p className="mt-3 text-xs leading-3 text-gray-600">
 								Set a simple and precise meta title
@@ -55,7 +55,7 @@ const AddProduct = () => {
 							</p>
 							<input
 								type="file"
-								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none focus:bg-gray-50"
+								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none bg-base-100  "
 							/>
 							<p className="mt-3 text-xs leading-[15px] text-gray-600">
 								Set item related image
@@ -69,7 +69,7 @@ const AddProduct = () => {
 								type="number"
 								defaultValue={50}
 								min={50}
-								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none focus:bg-gray-50"
+								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none bg-base-100  "
 							/>
 							<p className="mt-3 text-xs leading-3 text-gray-600">
 								Set Item quantity (min: 50)
@@ -83,7 +83,7 @@ const AddProduct = () => {
 								type="number"
 								min={50}
 								defaultValue={50}
-								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none focus:bg-gray-50"
+								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none bg-base-100  "
 							/>
 							<p className="mt-3 text-xs leading-[15px] text-gray-600">
 								Set minimum order quantity(min: 50)
@@ -98,25 +98,28 @@ const AddProduct = () => {
 					<div className="mt-2 border border-gray-300 rounded">
 						<textarea
 							name="description"
-							className="resize-none w-full h-[170px] px-4 py-4 text-base outline-none text-slate-600"
+							className="resize-none w-full h-[170px] px-4 py-4 text-base outline-none text-slate-600 bg-base-100"
 							placeholder="Start typing here ..."
-							defaultValue={" "}
 						/>
 					</div>
 				</div>
 				<p className="mt-3 text-xs leading-[15px] text-gray-600 px-7">
 					Enter product meta description for better understanding
 				</p>
-				<hr className="h-[1px] bg-gray-100 my-14" />
+				<hr className="h-[1px] bg-base-100 my-14" />
 				<div className="flex flex-col flex-wrap Item-center justify-center w-full px-7 lg:flex-row lg:justify-end md:justify-end gap-x-4 gap-y-4">
-					<button className="bg-white border-indigo-700 rounded hover:bg-gray-50 transform duration-300 ease-in-out text-sm font-medium px-6 py-4 text-indigo-700 border lg:max-w-[95px]  w-full ">
-						Cancel
-					</button>
-					<button className="bg-indigo-700 rounded hover:bg-indigo-600 transform duration-300 ease-in-out text-sm font-medium px-6 py-4 text-white lg:max-w-[144px] w-full ">
-						Save Changes
-					</button>
+					<input
+						type="reset"
+						className="btn  text-sm font-medium px-6 py-4 border lg:max-w-[95px] w-full"
+						value={"Reset"}
+					/>
+					<input
+						type="submit"
+						className="btn btn-primary cursor-pointer text-sm font-medium px-6 py-4 lg:max-w-[144px] w-full"
+						value="Add product"
+					/>
 				</div>
-			</div>
+			</form>
 		</div>
 	)
 }
