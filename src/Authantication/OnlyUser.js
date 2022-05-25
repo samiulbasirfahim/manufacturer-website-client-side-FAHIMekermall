@@ -1,4 +1,5 @@
 import { useAuthState } from "react-firebase-hooks/auth"
+import toast from "react-hot-toast"
 import { useQuery } from "react-query"
 import { Navigate } from "react-router-dom"
 import Spinner from "../Components/Spinner"
@@ -9,7 +10,7 @@ const OnlyUser = ({ children }) => {
     const {
         isLoading,
         data: userData,
-    } = useQuery("userData", () =>
+    } = useQuery(["userData", user], () =>
         fetch("https://manufacturer-website-server.herokuapp.com/user/" + user.email, {
             headers: {
                 authorization_email: user.email,
@@ -24,7 +25,8 @@ const OnlyUser = ({ children }) => {
         return <Spinner />
     }
 
-    if (userData.roles === 'admin') {
+    if (userData?.roles === 'admin') {
+        toast('This is a only user page')
         return <Navigate to={'/'} />
     } else {
         return children

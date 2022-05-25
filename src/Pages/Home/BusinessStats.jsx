@@ -7,7 +7,7 @@ const BusinessStats = () => {
 	useEffect(() => {
 		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/user/count"
-		).then(({ data}) => setTotalUsers(data.count))
+		).then(({ data }) => setTotalUsers(data.count))
 	}, [])
 	const [totalParts, setTotalParts] = useState(0)
 	useEffect(() => {
@@ -25,7 +25,8 @@ const BusinessStats = () => {
 	useEffect(() => {
 		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/booking/count"
-		).then((data) => {
+		).then(({data}) => {
+			
 			setTotalBookings(data.count)
 		})
 	}, [])

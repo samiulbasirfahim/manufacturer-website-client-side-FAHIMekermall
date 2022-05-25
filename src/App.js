@@ -49,7 +49,12 @@ const App = () => {
 										<Payment />
 									</OnlyUser>
 								} ></Route>
-								<Route path="/purchase/:id" element={<Purchase />}></Route>
+								<Route path="/purchase/:id" element={
+									<OnlyUser>
+
+										<Purchase />
+									</OnlyUser>
+								}></Route>
 								<Route path="/dashboard" element={<Dashboard />}>
 									<Route index element={<MyProfile />}></Route>
 									<Route path="orders" element={

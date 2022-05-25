@@ -13,9 +13,6 @@ const Support = () => {
 					<h2 className="text-3xl pt-6 font-bold uppercase text-center text-secondary">
 						Support
 					</h2>
-					<h3 className="text-5xl font-bold py-6 text-center">
-						Finding the right team
-					</h3>
 				</div>
 
 				<div className="2xl:container 2xl:mx-auto">
@@ -57,7 +54,7 @@ const Support = () => {
 									Support 24/7
 								</p>
 								<p className="text-base leading-6 dark:text-gray-400 font-normal text-gray-600 mt-3">
-									Contact us 24 hours a day at care@spark.com	
+									Contact us 24 hours a day at care@spark.com
 								</p>
 							</div>
 						</div>
@@ -86,7 +83,6 @@ const Support = () => {
 					</div>
 				</div>
 			</div>
-
 		</div>
 	)
 }

@@ -11,7 +11,7 @@ const AddReview = () => {
 	const [hover, setHover] = useState(0)
 	const [user] = useAuthState(auth)
 	const { isLoading, data: { data: userData } = {} } = useQuery(
-		"userData",
+		["userData", user],
 		() =>
 			axiosAuth(
 				"https://manufacturer-website-server.herokuapp.com/user/" +

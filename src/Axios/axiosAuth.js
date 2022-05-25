@@ -7,7 +7,7 @@ axiosAuth.interceptors.request.use(function (config) {
     if (!config?.headers?.authorization_token && localStorage.getItem("authorization_token")) {
         config.headers.authorization_token = 'Bearer ' + localStorage.getItem('authorization_token')
     }
-    if (!config.headers?.authorization_email && localStorage.getItem('authorization_email')) {
+    if (!config.headers?.authorization_email && localStorage.getItem('email')) {
         config.headers.authorization_email = localStorage.getItem('email')
     }
     return config;

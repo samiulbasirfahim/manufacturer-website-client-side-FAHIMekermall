@@ -14,7 +14,7 @@ const DashboardSidebar = () => {
 		isLoading,
 		error,
 		data: { data: userData } = {},
-	} = useQuery("userData", () =>
+	} = useQuery([["userData", user], user.email], () =>
 		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/user/" +
 				user.email
@@ -62,6 +62,7 @@ const DashboardSidebar = () => {
 				<Outlet />
 			</div>
 			<div className="drawer-side bg-base-300">
+				{isLoading && <Spinner />}
 				<label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 				<ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content fixed left-0 h-screen">
 					{/* <!-- Sidebar content here --> */}
@@ -75,7 +76,7 @@ const DashboardSidebar = () => {
 					>
 						My profile
 					</NavLink>
-					{userData.roles === "user" && (
+					{userData?.roles === "user" && (
 						<>
 							<NavLink
 								className={({ isActive }) => {
@@ -99,7 +100,7 @@ const DashboardSidebar = () => {
 							</NavLink>
 						</>
 					)}
-					{userData.roles === "admin" && (
+					{userData?.roles === "admin" && (
 						<>
 							<NavLink
 								className={({ isActive }) => {

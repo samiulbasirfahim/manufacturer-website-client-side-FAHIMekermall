@@ -14,7 +14,7 @@ const MyProfile = () => {
 		isLoading,
 		refetch,
 		data: { data: userData } = {},
-	} = useQuery("userData", () =>
+	} = useQuery(["userData", user], () =>
 		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/user/" +
 				user.email
@@ -64,7 +64,7 @@ const MyProfile = () => {
 			updatedUserInfo.imageUrl = imageUrl
 		}
 		axiosAuth({
-			method: "POST",
+			method: "PUT",
 			url:
 				"https://manufacturer-website-server.herokuapp.com/user/" +
 				user.email,
@@ -95,29 +95,29 @@ const MyProfile = () => {
 						<div class="flex justify-center px-5  -mt-12">
 							<img
 								class="h-32 w-32 bg-primary p-1 rounded-full   "
-								src={userData.imageUrl}
+								src={userData?.imageUrl}
 								alt=""
 							/>
 						</div>
 						<div class=" ">
 							<div class="text-center px-14">
 								<h2 class="text-gray-800 text-3xl font-bold">
-									{userData.name}
+									{userData?.name}
 								</h2>
 								<p class="text-gray-400 mt-2">
-									{userData.email}
+									{userData?.email}
 								</p>
 								<p class="mt-2 text-gray-600">
-									{userData.education}
+									{userData?.education}
 								</p>
 								<p class="mt-2 text-gray-600">
-									{userData.location}
+									{userData?.location}
 								</p>
 								<p class="mt-2 text-gray-600">
-									{userData.phone}
+									{userData?.phone}
 								</p>
 								<div class="flex justify-between">
-									{userData.linkedin && (
+									{userData?.linkedin && (
 										<a
 											href={userData.linkedin}
 											target="_blank"
@@ -126,7 +126,7 @@ const MyProfile = () => {
 											LinkedIn
 										</a>
 									)}
-									{userData.linkedin && (
+									{userData?.facebook && (
 										<a
 											href={userData.facebook}
 											target="_blank"
@@ -155,7 +155,7 @@ const MyProfile = () => {
 												type="text"
 												name="name"
 												required
-												defaultValue={userData.name}
+												defaultValue={userData?.name}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
@@ -172,7 +172,7 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="bio"
-												defaultValue={userData.bio}
+												defaultValue={userData?.bio}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
@@ -227,7 +227,7 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="facebook"
-												defaultValue={userData.facebook}
+												defaultValue={userData?.facebook}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
@@ -244,7 +244,7 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="linkedin"
-												defaultValue={userData.linkedin}
+												defaultValue={userData?.linkedin}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
@@ -262,7 +262,7 @@ const MyProfile = () => {
 												type="number"
 												name="phone"
 												minLength={8}
-												defaultValue={userData.phone}
+												defaultValue={userData?.phone}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
