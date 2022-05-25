@@ -12,10 +12,10 @@ const Parts = () => {
 	const [currentPage, setCurrentPage] = useState(0)
 	const [category, setCategory] = useState("all")
 	useEffect(() => {
-		fetch("http://localhost:4000/part/count")
+		fetch("http://localhost:4000/part/count?category=" + category)
 			.then((response) => response.json())
 			.then((data) => setCount(data.count))
-	}, [])
+	}, [category])
 	useEffect(() => {
 		setIsLoading(true)
 		fetch(
