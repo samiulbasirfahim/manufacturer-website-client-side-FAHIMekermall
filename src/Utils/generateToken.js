@@ -3,7 +3,7 @@ const generateToken = (email, name) => {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            email: email,
+            email: email.toLowerCase(),
             name: name,
         }),
     })

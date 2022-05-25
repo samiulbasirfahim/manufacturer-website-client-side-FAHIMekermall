@@ -26,6 +26,7 @@ import Payment from "./Pages/Payment/Payment"
 import NotFound from "./Pages/NotFound/NotFound"
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio"
 import Blogs from "./Pages/Blogs/Blogs"
+import ManageProduct from "./Pages/Dashboard/DashboardComponents/Admin/ManageProduct"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -51,7 +52,6 @@ const App = () => {
 								} ></Route>
 								<Route path="/purchase/:id" element={
 									<OnlyUser>
-
 										<Purchase />
 									</OnlyUser>
 								}></Route>
@@ -79,7 +79,11 @@ const App = () => {
 										</RequireAdmin>
 									}></Route>
 									<Route ></Route>
-									<Route path="manage-products" ></Route>
+									<Route path="manage-products" element={
+										<RequireAdmin>
+											<ManageProduct />
+										</RequireAdmin>
+									}></Route>
 									<Route path="manage-admin" ></Route>
 								</Route>
 							</Route>
