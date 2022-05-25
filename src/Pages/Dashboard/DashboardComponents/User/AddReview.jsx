@@ -10,11 +10,13 @@ const AddReview = () => {
 	const [rating, setRating] = useState(0)
 	const [hover, setHover] = useState(0)
 	const [user] = useAuthState(auth)
-	const { isLoading, data: userData } = useQuery("userData", () =>
-		axiosAuth(
-			"https://manufacturer-website-server.herokuapp.com/user/" +
-				user.email
-		)
+	const { isLoading, data: { data: userData } = {} } = useQuery(
+		"userData",
+		() =>
+			axiosAuth(
+				"https://manufacturer-website-server.herokuapp.com/user/" +
+					user.email
+			)
 	)
 
 	if (isLoading) {

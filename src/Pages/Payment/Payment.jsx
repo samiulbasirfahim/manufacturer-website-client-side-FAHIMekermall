@@ -15,11 +15,13 @@ const Payment = () => {
 	)
 	const [user] = useAuthState(auth)
 	const { id } = useParams()
-	const { isLoading, data: bookingData } = useQuery(["bookingData", id], () =>
-		axiosAuth(
-			"https://manufacturer-website-server.herokuapp.com/booking/getOne/" +
-				id
-		)
+	const { isLoading, data: { data: bookingData } = {} } = useQuery(
+		["bookingData", id],
+		() =>
+			axiosAuth(
+				"https://manufacturer-website-server.herokuapp.com/booking/getOne/" +
+					id
+			)
 	)
 
 	if (isLoading) {

@@ -7,13 +7,13 @@ const BusinessStats = () => {
 	useEffect(() => {
 		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/user/count"
-		).then(({ res }) => setTotalUsers(res.count))
+		).then(({ data}) => setTotalUsers(data.count))
 	}, [])
 	const [totalParts, setTotalParts] = useState(0)
 	useEffect(() => {
 		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/part/count"
-		).then(({ res }) => setTotalParts(res.count))
+		).then(({ data }) => setTotalParts(data.count))
 	}, [])
 	const [totalReviees, setTotalRevies] = useState(0)
 	useEffect(() => {

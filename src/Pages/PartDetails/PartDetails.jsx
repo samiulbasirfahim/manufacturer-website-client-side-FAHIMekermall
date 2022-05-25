@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useQuery } from "react-query"
-import { useLocation, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import axiosAuth from "../../Axios/axiosAuth"
 import Spinner from "../../Components/Spinner"
 import RecommendedParts from "./PartDetailsComponents/RecommentedParts"
@@ -13,15 +12,20 @@ const PartDetails = () => {
 	}
 
 	const [data, setData] = useState({})
-
+	const [isLoading, setIsLoading] = useState(false)
 	useEffect(() => {
+		setIsLoading(true)
 		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/part/" + id
-		).then(({ data }) => setData(data))
+		).then(({ data }) => {
+			setIsLoading(false)
+			setData(data)
+		})
 	}, [id])
 
 	return (
 		<div>
+			{isLoading && <Spinner />}
 			<div className="fixed top-0 w-full bg-base-200 backdrop-blur-md">
 				<div className="max-w-[1444px] w-full lg:px-4 px-2 mx-auto flex justify-between items-center z-50 h-16">
 					<button

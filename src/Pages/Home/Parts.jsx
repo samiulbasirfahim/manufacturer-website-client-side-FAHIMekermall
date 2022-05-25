@@ -6,7 +6,7 @@ import Spinner from "../../Components/Spinner"
 import SinglePart from "./PartsComponents/SinglePart"
 
 const Parts = () => {
-	const { isLoading, data: parts } = useQuery("repoData", () =>
+	const { isLoading, data: { data: parts } = {} } = useQuery("partData", () =>
 		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/part?limit=3&sort=1"
 		)

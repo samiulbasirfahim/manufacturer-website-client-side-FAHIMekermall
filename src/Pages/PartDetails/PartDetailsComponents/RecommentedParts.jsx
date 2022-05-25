@@ -13,8 +13,8 @@ const RecommendedParts = () => {
 	const {
 		isLoading,
 		error,
-		data: parts,
-	} = useQuery("repoData", () =>
+		data: {data:  parts} = {},
+	} = useQuery("recommendedPart", () =>
 		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/part?limit=8&sort=2"
 		)

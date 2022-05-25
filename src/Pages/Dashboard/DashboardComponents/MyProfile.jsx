@@ -13,7 +13,7 @@ const MyProfile = () => {
 	const {
 		isLoading,
 		refetch,
-		data: userData,
+		data: { data: userData } = {},
 	} = useQuery("userData", () =>
 		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/user/" +

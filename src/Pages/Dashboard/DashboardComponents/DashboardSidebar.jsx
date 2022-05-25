@@ -13,9 +13,12 @@ const DashboardSidebar = () => {
 	const {
 		isLoading,
 		error,
-		data: userData,
-	} = useQuery("repoData", () =>
-		axiosAuth("https://manufacturer-website-server.herokuapp.com/user/" + user.email, )
+		data: { data: userData } = {},
+	} = useQuery("userData", () =>
+		axiosAuth(
+			"https://manufacturer-website-server.herokuapp.com/user/" +
+				user.email
+		)
 	)
 
 	if (isLoading) {

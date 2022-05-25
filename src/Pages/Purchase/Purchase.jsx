@@ -15,14 +15,16 @@ const Purchase = () => {
 		isLoading,
 		error,
 		data: {
-			_id: partId,
-			title,
-			imageUrl,
-			description,
-			price,
-			minOrderQuantity,
-			availableQuantity,
-			category,
+			data: {
+				_id: partId,
+				title,
+				imageUrl,
+				description,
+				price,
+				minOrderQuantity,
+				availableQuantity,
+				category,
+			} = {},
 		} = {},
 	} = useQuery(["partDetails", id], () =>
 		axiosAuth(
