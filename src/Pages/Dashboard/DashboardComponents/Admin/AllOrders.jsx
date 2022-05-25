@@ -53,6 +53,7 @@ const AllOrders = () => {
 						Sort by
 					</label>
 					<select
+						className="text-primary bg-base-100"
 						name="sort"
 						id="sort"
 						onChange={(e) => {

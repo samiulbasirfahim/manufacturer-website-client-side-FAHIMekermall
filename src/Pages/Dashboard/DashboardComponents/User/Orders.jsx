@@ -63,6 +63,7 @@ const Orders = () => {
 					<select
 						name="sort"
 						id="sort"
+						className="text-primary bg-base-100"
 						onChange={(e) => {
 							setSort(e.target.value)
 						}}

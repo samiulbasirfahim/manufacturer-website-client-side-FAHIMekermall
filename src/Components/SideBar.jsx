@@ -57,7 +57,7 @@ const SideBar = ({ children, handleDarkTheme }) => {
 									? "font-mono   text-md    bg-neutral/70 px-4 mx-1  py-2 rounded-xl text-white font-normal "
 									: "font-bold font-mono   text-md      hover:bg-neutral/30 text-primary px-4 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 							}}
-							to="/products"
+							to="/parts"
 						>
 							Products
 						</NavLink>

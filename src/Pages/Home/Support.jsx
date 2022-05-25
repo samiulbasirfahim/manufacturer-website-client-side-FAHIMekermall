@@ -18,76 +18,75 @@ const Support = () => {
 					</h3>
 				</div>
 
-				<div className="grid grid-cols-1 lg:grid-cols-3 relative gap-x-8 gap-y-16 px-4 pt-12 sm:pt-20 ">
-					<div className="bg-base-300 rounded-xl shadow-2xl">
-						<div className="p-8">
-							<PhoneIcon className="w-16 p-4 bg-indigo-600 text-white rounded-lg mt-[-4rem]" />
-							<h3 className="font-bold text-2xl my-6 ">Sales</h3>
-							<p className=" text-xl">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Excepturi provident iure
-								placeat blanditiis ea sint earum hic iste
-								quibusdam exercitationem.
-							</p>
+				<div class="2xl:container 2xl:mx-auto">
+					<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-24 md:gap-10 gap-12 lg:px-20 md:py-12 md:px-6 py-9 px-4">
+						<div class="flex space-x-4">
+							<img
+								class="dark:hidden"
+								src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-4-svg1.svg"
+								alt="Free Shipping"
+							/>
+							<img
+								class="hidden dark:block"
+								src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-4-svg1dark.svg"
+								alt="Free Shipping"
+							/>
+							<div>
+								<p class="text-xl dark:text-white leading-5 font-semibold text-gray-800">
+									Free Shipping
+								</p>
+								<p class="text-base leading-6 dark:text-gray-400 font-normal text-gray-600 mt-3">
+									Free shipping on orders above $100
+								</p>
+							</div>
 						</div>
-						<div
-							className="bg-primary pl-8 py-4 cursor-pointer"
-							onClick={() => navigate("/contact-us")}
-						>
-							<p className="flex items-center text-base-100">
-								Contact Us{" "}
-								<ArrowSmRightIcon className="w-5 ml-2" />
-							</p>
+
+						<div class="flex space-x-4">
+							<img
+								class="dark:hidden"
+								src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-4-svg2.svg"
+								alt="Support 24/7"
+							/>
+							<img
+								class="hidden dark:block"
+								src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-4-svg2dark.svg"
+								alt="Support 24/7"
+							/>
+							<div>
+								<p class="text-xl dark:text-white leading-5 font-semibold text-gray-800">
+									Support 24/7
+								</p>
+								<p class="text-base leading-6 dark:text-gray-400 font-normal text-gray-600 mt-3">
+									Contact us 24 hours a day at care@spark.com	
+								</p>
+							</div>
 						</div>
-					</div>
-					<div className="bg-base-300  rounded-xl shadow-2xl">
-						<div className="p-8">
-							<SupportIcon className="w-16 p-4 bg-indigo-600 text-white rounded-lg mt-[-4rem]" />
-							<h3 className="font-bold text-2xl my-6">
-								Technical Support
-							</h3>
-							<p className=" text-xl">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Excepturi provident iure
-								placeat blanditiis ea sint earum hic iste
-								quibusdam exercitationem.
-							</p>
-						</div>
-						<div
-							className="bg-primary pl-8 py-4 cursor-pointer"
-							onClick={() => navigate("/contact-us")}
-						>
-							<p className="flex items-center text-base-100">
-								Contact Us{" "}
-								<ArrowSmRightIcon className="w-5 ml-2" />
-							</p>
-						</div>
-					</div>
-					<div className="bg-base-300  rounded-xl shadow-2xl">
-						<div className="p-8">
-							<ChipIcon className="w-16 p-4 bg-indigo-600 text-white rounded-lg mt-[-4rem]" />
-							<h3 className="font-bold text-2xl my-6">
-								Media Inquiries
-							</h3>
-							<p className="text-xl">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Excepturi provident iure
-								placeat blanditiis ea sint earum hic iste
-								quibusdam exercitationem.
-							</p>
-						</div>
-						<div
-							className="bg-primary pl-8 py-4 cursor-pointer"
-							onClick={() => navigate("/contact-us")}
-						>
-							<p className="flex items-center text-base-100">
-								Contact Us
-								<ArrowSmRightIcon className="w-5 ml-2" />
-							</p>
+
+						<div class="flex space-x-4">
+							<img
+								class="dark:hidden"
+								src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-4-svg3.svg"
+								alt="Money Back Guarantee"
+							/>
+							<img
+								class="hidden dark:block"
+								src="https://tuk-cdn.s3.amazonaws.com/can-uploader/highlight-4-svg3dark.svg"
+								alt="Money Back Guarantee"
+							/>
+							<div>
+								<p class="text-xl dark:text-white leading-5 font-semibold text-gray-800">
+									Money Back Guarantee
+								</p>
+								<p class="text-base leading-6 dark:text-gray-400 font-normal text-gray-600 mt-3">
+									If you face eny problem with our parts, you
+									can return it
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			cc
 		</div>
 	)
 }

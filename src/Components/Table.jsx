@@ -51,7 +51,7 @@ const Table = ({ orders, handleDiscard, pay }) => {
 													<button
 														onClick={() =>
 															navigate(
-																"/pay/" + partId
+																"/payment/" + _id
 															)
 														}
 														class="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline"

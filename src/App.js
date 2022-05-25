@@ -21,6 +21,8 @@ import Contact from "./Pages/Contact-us/Contact"
 import AddReview from "./Pages/Dashboard/DashboardComponents/User/AddReview"
 import RequireAdmin from "./Authantication/RequireAdmin"
 import OnlyUser from "./Authantication/OnlyUser"
+import AddProduct from "./Pages/Dashboard/DashboardComponents/Admin/AddProduct"
+import Payment from "./Pages/Payment/Payment"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -39,6 +41,11 @@ const App = () => {
 						<Routes>
 							<Route path="/" element={<Home />}></Route>
 							<Route element={<RequireAuth />}>
+								<Route path="/payment/:id" element={
+									<OnlyUser>
+										<Payment />
+									</OnlyUser>
+								} ></Route>
 								<Route path="/purchase/:id" element={<Purchase />}></Route>
 								<Route path="/dashboard" element={<Dashboard />}>
 									<Route index element={<MyProfile />}></Route>
@@ -47,15 +54,23 @@ const App = () => {
 											<Orders />
 										</OnlyUser>
 									} ></Route>
-									<Route path="add-review" element={<OnlyUser>\
-										<AddReview />
-									</OnlyUser>} ></Route>
+									<Route path="add-review" element={
+										<OnlyUser>
+											<AddReview />
+										</OnlyUser>
+									} ></Route>
+
 									<Route path="all-orders" element={
 										<RequireAdmin >
 											<AllOrders />
 										</RequireAdmin>
 									}></Route>
-									<Route path="add-products" ></Route>
+									<Route path="add-products" element={
+										<RequireAdmin >
+											<AddProduct />
+										</RequireAdmin>
+									}></Route>
+									<Route ></Route>
 									<Route path="manage-products" ></Route>
 									<Route path="manage-admin" ></Route>
 								</Route>

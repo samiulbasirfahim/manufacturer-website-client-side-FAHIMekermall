@@ -10,6 +10,7 @@ const Parts = () => {
 	const [count, setCount] = useState(0)
 	const [totalPage, setTotalPage] = useState(0)
 	const [currentPage, setCurrentPage] = useState(0)
+	const [category, setCategory] = useState("all")
 	useEffect(() => {
 		fetch("http://localhost:4000/part/count")
 			.then((response) => response.json())
@@ -20,22 +21,42 @@ const Parts = () => {
 		fetch(
 			`http://localhost:4000/part?sort=${sort}&limit=${limit}&skip=${
 				currentPage * limit
-			}`
+			}&category=${category}`
 		)
 			.then((res) => res.json())
 			.then((data) => {
 				setIsLoading(false)
 				setParts(data)
 			})
-	}, [sort, limit, currentPage])
+	}, [sort, limit, currentPage, category])
 	useEffect(() => {
 		setTotalPage(Math.ceil(count / limit))
 	}, [limit, count, sort])
-	console.log(limit, count)
+	console.log(category, count)
 	return (
 		<div className="mt-20">
 			{isLoading && <Spinner />}
 			<div className="flex justify-end container mx-auto">
+				<div>
+					<label className="mx-2" htmlFor="sort">
+						Category
+					</label>
+					<select
+						name="sort"
+						id="sort"
+						className="text-primary bg-base-100"
+						onChange={(e) => {
+							setCategory(e.target.value)
+						}}
+					>
+						<option selected value="all">
+							All
+						</option>
+						<option value="cycle">Cycle</option>
+						<option value="bike">Bike</option>
+						<option value="car">Car</option>
+					</select>
+				</div>
 				<div>
 					<label className="mx-2" htmlFor="sort">
 						Sort by
@@ -43,6 +64,7 @@ const Parts = () => {
 					<select
 						name="sort"
 						id="sort"
+						className="text-primary bg-base-100"
 						onChange={(e) => {
 							setSort(e.target.value)
 						}}
@@ -56,11 +78,12 @@ const Parts = () => {
 				</div>
 				<div>
 					<label className="mx-2" htmlFor="limit">
-						Per page content
+						Per page
 					</label>
 					<select
 						name="limit"
 						id="limit"
+						className="text-primary bg-base-100"
 						onChange={(e) => {
 							setLimit(e.target.value)
 						}}
@@ -106,7 +129,9 @@ const Parts = () => {
 					{[...Array(totalPage).keys()].map((num) => (
 						<button
 							className={
-								currentPage !== num ? "mx-2 btn btn-sm btn-ghost" : "mx-2 btn btn-primary btn-sm"
+								currentPage !== num
+									? "mx-2 btn btn-sm btn-ghost"
+									: "mx-2 btn btn-primary btn-sm"
 							}
 							onClick={() => setCurrentPage(num)}
 						>

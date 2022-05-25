@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from "react"
 import {
 	FaDribbbleSquare,
@@ -13,18 +14,37 @@ const Footer = () => {
 			<div className="max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 ">
 				<div>
 					<h1 className="w-full text-3xl font-bold text-primary">
-						REACT.
+						SPARK
 					</h1>
 					<p className="py-4">
-						Lorem, ipsum dolor sit amet consectetur adipisicing
-						elit. Id odit ullam iste repellat consequatur libero
-						reiciendis, blanditiis accusantium.
+						We are confident that we can manufacture the best parts
+						for vehicle in world.
 					</p>
 					<div className="flex justify-between md:w-[75%] my-6">
-						<FaFacebookSquare size={30} />
-						<FaInstagram size={30} />
-						<FaTwitterSquare size={30} />
-						<FaGithubSquare size={30} />
+						<a
+							target="_blank"
+							href="https://facebook.com/samiulbasirfahim1"
+						>
+							<FaFacebookSquare size={30} />
+						</a>
+						<a
+							target="_blank"
+							href="https://facebook.com/samiulbasirfahim1"
+						>
+							<FaInstagram size={30} />
+						</a>
+						<a
+							target="_blank"
+							href="https://facebook.com/samiulbasirfahim1"
+						>
+							<FaTwitterSquare size={30} />
+						</a>
+						<a
+							target="_blank"
+							href="https://github.com/FAHIMekermall"
+						>
+							<FaGithubSquare size={30} />
+						</a>
 					</div>
 				</div>
 				<div className="lg:col-span-2 flex justify-between mt-6">

@@ -21,7 +21,8 @@ const Hero = () => {
 					/>
 				</div>
 				<p className="md:text-2xl text-xl font-bold text-gray-500">
-					Buy parts from us
+					We are confident that we can manufacture the best parts for
+					vehicle in world
 				</p>
 				<a
 					href="#items"

@@ -16,10 +16,12 @@ const Purchase = () => {
 		data: {
 			_id: partId,
 			title,
+			imageUrl,
 			description,
 			price,
 			minOrderQuantity,
 			availableQuantity,
+			category,
 		} = {},
 	} = useQuery(["partDetails", id], () =>
 		fetch("http://localhost:4000/part/" + id).then((res) => res.json())
@@ -45,7 +47,7 @@ const Purchase = () => {
 	const handlePurchase = (event) => {
 		event.preventDefault()
 		const bookingInfo = {
-			title: `${title} booking for ${user.displayName}`,
+			title: `${title} booked for ${user.displayName}`,
 			partTitle: title,
 			partId: partId,
 			quantity: event.target.quantity.value,
@@ -54,6 +56,8 @@ const Purchase = () => {
 			address: event.target.address.value,
 			phone: event.target.phone.value,
 			paid: false,
+			imageUrl,
+			category,
 		}
 		fetch("http://localhost:4000/booking", {
 			method: "POST",
