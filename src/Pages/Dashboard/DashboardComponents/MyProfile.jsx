@@ -187,7 +187,6 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="bio"
-												required
 												defaultValue={userData.bio}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
@@ -205,7 +204,7 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="education"
-												required
+
 												defaultValue={
 													userData?.education
 												}
@@ -225,7 +224,6 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="location"
-												required
 												defaultValue={
 													userData?.location
 												}
@@ -245,7 +243,6 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="facebook"
-												required
 												defaultValue={userData.facebook}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
@@ -263,7 +260,6 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="linkedin"
-												required
 												defaultValue={userData.linkedin}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
@@ -282,7 +278,6 @@ const MyProfile = () => {
 												type="number"
 												name="phone"
 												minLength={8}
-												required
 												defaultValue={userData.phone}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>

@@ -78,6 +78,16 @@ const Navbar = ({ handleDarkTheme }) => {
 								? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
 								: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
 						}}
+						to="/my-portfolio/"
+					>
+						My portfolio
+					</NavLink>
+					<NavLink
+						className={({ isActive }) => {
+							return isActive
+								? "font-mono xl:text-xl  text-sm lg:text-md bg-neutral/70 lg:px-4 px-2 mx-1  py-2 rounded-xl text-white font-normal "
+								: "font-bold font-mono xl:text-xl  text-sm lg:text-md hover:bg-neutral/30 text-primary lg:px-4 px-2 mx-1  py-2 rounded-xl hover:text-white hover:font-normal"
+						}}
 						to="/contact-us/"
 					>
 						Contact Us

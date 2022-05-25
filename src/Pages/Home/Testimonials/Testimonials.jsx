@@ -17,7 +17,7 @@ const Testimonials = () => {
 	}
 
 	return (
-		<div class="lg:px-20 md:px-6 px-4 pt-12">
+		<div class="lg:px-20 md:px-6 px-4 pt-12 container mx-auto">
 			<div class="flex flex-col items-center justify-center">
 				<h1 class="lg:text-4xl text-3xl font-bold text-center text-gray-800 dark:text-white ">
 					Hear from our clients

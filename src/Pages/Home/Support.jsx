@@ -86,7 +86,7 @@ const Support = () => {
 					</div>
 				</div>
 			</div>
-			cc
+
 		</div>
 	)
 }

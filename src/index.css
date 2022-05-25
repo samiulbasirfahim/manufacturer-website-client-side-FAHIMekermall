@@ -34,3 +34,6 @@ body {
 #product-image:hover .purchase-btn {
 	display: flex;
 }
+.font-cursive-custom {
+	font-family: cursive;
+}

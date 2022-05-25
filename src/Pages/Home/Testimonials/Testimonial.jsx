@@ -4,11 +4,25 @@ const Testimonial = ({ data }) => {
 	return (
 		<div class="py-8">
 			<div class="bg-white dark:bg-gray-800  border rounded-md border-gray-200 dark:border-gray-700  relative sm:p-10 p-6">
-				<div>
+				<div class="flex justify-between">
 					<img
 						src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonials-4-svg1.svg"
 						alt="commas"
 					/>
+					<div className="">
+						{data.rating &&
+							[...Array(5)].map((d, index) => (
+								<span
+									className={
+										index < data.rating
+											? "text-2xl text-primary"
+											: "text-2xl text-base-200"
+									}
+								>
+									&#9733;
+								</span>
+							))}
+					</div>
 				</div>
 
 				<p class="text-base leading-6 text-gray-600 dark:text-white  mt-4">

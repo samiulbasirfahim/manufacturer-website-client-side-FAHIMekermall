@@ -12,7 +12,10 @@ const Parts = () => {
 	const [currentPage, setCurrentPage] = useState(0)
 	const [category, setCategory] = useState("all")
 	useEffect(() => {
-		fetch("https://manufacturer-website-server.herokuapp.com/part/count?category=" + category)
+		fetch(
+			"https://manufacturer-website-server.herokuapp.com/part/count?category=" +
+				category
+		)
 			.then((response) => response.json())
 			.then((data) => setCount(data.count))
 	}, [category])
@@ -37,7 +40,7 @@ const Parts = () => {
 			{isLoading && <Spinner />}
 			<div className="flex justify-end container mx-auto">
 				<div>
-					<label className="mx-2" htmlFor="sort">
+					<label className="lg:mx-2" htmlFor="sort">
 						Category
 					</label>
 					<select
@@ -57,7 +60,7 @@ const Parts = () => {
 					</select>
 				</div>
 				<div>
-					<label className="mx-2" htmlFor="sort">
+					<label className="lg:mx-2" htmlFor="sort">
 						Sort by
 					</label>
 					<select
@@ -76,7 +79,7 @@ const Parts = () => {
 					</select>
 				</div>
 				<div>
-					<label className="mx-2" htmlFor="limit">
+					<label className="lg:mx-2" htmlFor="limit">
 						Per page
 					</label>
 					<select

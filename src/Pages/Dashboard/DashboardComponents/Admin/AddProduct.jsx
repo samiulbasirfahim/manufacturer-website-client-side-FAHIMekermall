@@ -1,9 +1,58 @@
 import React from "react"
+import { useAuthState } from "react-firebase-hooks/auth"
+import toast from "react-hot-toast"
+import auth from "../../../../firebase.init"
 
 const AddProduct = () => {
+	const [user] = useAuthState(auth)
+	const handleAddProduct = (event) => {
+		event.preventDefault()
+		const productInfo = {
+			title: event.target.title.value,
+			category: event.target.category.value,
+			description: event.target.description.value,
+			minOrderQuantity: event.target.minOrderQuantity.value,
+			availableQuantity: event.target.availableQuantity.value,
+			price: event.target.price.value,
+			addedBy: user.email,
+		}
+		const image = event.target.image.files[0]
+		const formData = new FormData()
+		formData.append("image", image)
+		fetch(
+			"https://api.imgbb.com/1/upload?key=" +
+				process.env.REACT_APP_imagebb_key,
+			{
+				method: "POST",
+
+				body: formData,
+			}
+		)
+			.then((response) => response.json())
+			.then((data) => {
+				if (data.data.url) {
+					productInfo.imageUrl = data?.data?.url
+					fetch("http://localhost:4000/part", {
+						method: "POST",
+						headers: {
+							"content-type": "application/json",
+						},
+						body: JSON.stringify(productInfo),
+					})
+						.then((response) => response.json())
+						.then((data) => {
+							if (data.part._id) {
+								event.target.reset()
+								toast.success("Product added successfully")
+							}
+						})
+				}
+			})
+	}
+
 	return (
 		<div className="flex flex-no-wrap Item-start">
-			<form className="w-full ">
+			<form className="w-full" onSubmit={handleAddProduct}>
 				<div className="mt-4 px-2 lg:px-7">
 					<p className="text-xl font-semibold leading-tight text-gray-800">
 						Add Item
@@ -13,7 +62,13 @@ const AddProduct = () => {
 							<p className="text-base font-medium leading-none text-gray-800">
 								Title
 							</p>
-							<input className="w-full p-3 mt-4 border rounded outline-none bg-base-100" />
+							<input
+								className="w-full p-3 mt-4 border rounded outline-none bg-base-100"
+								type={"text"}
+								name="title"
+								required
+								placeholder="Items Title"
+							/>
 							<p className="mt-3 text-xs leading-3 text-gray-600">
 								Set Item title
 							</p>
@@ -27,6 +82,7 @@ const AddProduct = () => {
 								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none bg-base-100 "
 								name="category"
 								id="category"
+								required
 							>
 								<option value="car">Car</option>
 								<option value="cycle">Cycle</option>
@@ -43,6 +99,8 @@ const AddProduct = () => {
 							<input
 								name="price"
 								type="number"
+								required
+								placeholder="Price"
 								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none bg-base-100  "
 							/>
 							<p className="mt-3 text-xs leading-3 text-gray-600">
@@ -55,6 +113,8 @@ const AddProduct = () => {
 							</p>
 							<input
 								type="file"
+								name="image"
+								required
 								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none bg-base-100  "
 							/>
 							<p className="mt-3 text-xs leading-[15px] text-gray-600">
@@ -67,8 +127,10 @@ const AddProduct = () => {
 							</p>
 							<input
 								type="number"
+								name="availableQuantity"
 								defaultValue={50}
 								min={50}
+								required
 								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none bg-base-100  "
 							/>
 							<p className="mt-3 text-xs leading-3 text-gray-600">
@@ -81,7 +143,9 @@ const AddProduct = () => {
 							</p>
 							<input
 								type="number"
+								name="minOrderQuantity"
 								min={50}
+								required
 								defaultValue={50}
 								className="w-full p-3 mt-4 border border-gray-300 rounded outline-none bg-base-100  "
 							/>
@@ -98,6 +162,7 @@ const AddProduct = () => {
 					<div className="mt-2 border border-gray-300 rounded">
 						<textarea
 							name="description"
+							required
 							className="resize-none w-full h-[170px] px-4 py-4 text-base outline-none text-slate-600 bg-base-100"
 							placeholder="Start typing here ..."
 						/>
