@@ -17,7 +17,7 @@ const SideBar = ({ children, handleDarkTheme }) => {
 				</div>
 				<div class="drawer-side">
 					<label htmlFor="my-drawer-4" class="drawer-overlay"></label>
-					<ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+					<ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content lg:hidden">
 						{/* <!-- Sidebar content here --> */}
 						<label class="swap swap-rotate my-6 ">
 							{/* <!-- this hidden checkbox controls the state --> */}

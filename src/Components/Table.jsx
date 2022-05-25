@@ -11,9 +11,9 @@ const Table = ({ orders, handleDiscard, pay, showUser }) => {
 						<th scope="col" class="px-6 py-3">
 							Part Name
 						</th>
-						<th scope="col" class="px-6 py-3">
+						{showUser && <th scope="col" class="px-6 py-3">
 							Added by
-						</th>
+						</th>}
 						<th scope="col" class="px-6 py-3">
 							Quantity
 						</th>
@@ -50,9 +50,9 @@ const Table = ({ orders, handleDiscard, pay, showUser }) => {
 									<td class="px-6 py-4 font-mono font-bold">
 										{partTitle}
 									</td>
-									<td class="px-6 py-4 font-mono font-bold">
+								{ showUser &&	<td class="px-6 py-4 font-mono font-bold">
 										{userEmail}
-									</td>
+									</td>}
 									<td class="px-6 py-4 font-mono font-bold">
 										{quantity}
 									</td>

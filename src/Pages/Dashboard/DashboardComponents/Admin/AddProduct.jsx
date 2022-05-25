@@ -32,13 +32,16 @@ const AddProduct = () => {
 			.then((data) => {
 				if (data.data.url) {
 					productInfo.imageUrl = data?.data?.url
-					fetch("http://localhost:4000/part", {
-						method: "POST",
-						headers: {
-							"content-type": "application/json",
-						},
-						body: JSON.stringify(productInfo),
-					})
+					fetch(
+						"https://manufacturer-website-server.herokuapp.com/part",
+						{
+							method: "POST",
+							headers: {
+								"content-type": "application/json",
+							},
+							body: JSON.stringify(productInfo),
+						}
+					)
 						.then((response) => response.json())
 						.then((data) => {
 							if (data.part._id) {

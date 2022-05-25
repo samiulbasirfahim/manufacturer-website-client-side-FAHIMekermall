@@ -25,6 +25,7 @@ import AddProduct from "./Pages/Dashboard/DashboardComponents/Admin/AddProduct"
 import Payment from "./Pages/Payment/Payment"
 import NotFound from "./Pages/NotFound/NotFound"
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio"
+import Blogs from "./Pages/Blogs/Blogs"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -83,6 +84,7 @@ const App = () => {
 							<Route path="/login" element={<Login />}></Route>
 							<Route path="/register" element={<Register />}></Route>
 							<Route path="/my-portfolio" element={<MyPortfolio />}></Route>
+							<Route path="/blogs" element={<Blogs />}></Route>
 							<Route path="*" element={<NotFound />}></Route>
 						</Routes>
 						<Footer />

@@ -47,18 +47,29 @@ const MyPortfolio = () => {
 						<p class="border-b-2 border-b-red-600 w-full font-bold text-3xl font-cursive-custom">
 							Best of projects:{" "}
 						</p>
-						<a href="https://rapid-post.web.app/" target="_blank">
-							Rapid post (Assignment 11)
-						</a>
-						<a
-							href="https://blog-post-media.web.app/"
-							target="_blank"
-						>
-							Blog posts
-						</a>
-						<a href="https://fahim-mondol.cf/" target="_blank">
-							My portfolio
-						</a>
+						<div class="grid gap-0 justify-items-start">
+							<a
+								className="btn btn-link mx-0 p-0 m-0 btn-sm block"
+								href="https://rapid-post.web.app/"
+								target="_blank"
+							>
+								Rapid post (Assignment 11)
+							</a>
+							<a
+								className="btn btn-link mx-0 p-0 m-0 btn-sm block"
+								href="https://blog-post-media.web.app/"
+								target="_blank"
+							>
+								Blog posts
+							</a>
+							<a
+								className="btn btn-link mx-0  mx-0 p-0 m-0 btn-sm block"
+								href="https://fahim-mondol.cf/"
+								target="_blank"
+							>
+								My portfolio
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

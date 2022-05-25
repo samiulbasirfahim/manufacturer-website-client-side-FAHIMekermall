@@ -127,10 +127,6 @@ const MyProfile = () => {
 								<p class="mt-2 text-gray-600">
 									{userData.phone}
 								</p>
-								<p class="mt-2 text-gray-600">
-									{userData.facebook}
-								</p>
-
 								<div class="flex justify-between">
 									{userData.linkedin && (
 										<a
@@ -204,7 +200,6 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="education"
-
 												defaultValue={
 													userData?.education
 												}

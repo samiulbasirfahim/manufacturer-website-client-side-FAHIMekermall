@@ -87,6 +87,7 @@ const Orders = () => {
 					orders={orders}
 					handleDiscard={handleDiscard}
 					pay={true}
+					
 				/>
 				{orders && orders.length === 0 && (
 					<div>
