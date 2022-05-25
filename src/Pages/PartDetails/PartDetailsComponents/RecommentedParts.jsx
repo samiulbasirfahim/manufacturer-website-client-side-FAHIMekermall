@@ -14,7 +14,7 @@ const RecommendedParts = () => {
 		error,
 		data: parts,
 	} = useQuery("repoData", () =>
-		fetch("http://localhost:4000/part?limit=8&sort=2").then((res) =>
+		fetch("https://manufacturer-website-server.herokuapp.com/part?limit=8&sort=2").then((res) =>
 			res.json()
 		)
 	)

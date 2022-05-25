@@ -11,7 +11,9 @@ const AllOrders = () => {
 	const [orders, setOrders] = useState([])
 	useEffect(() => {
 		setIsLoading(true)
-		fetch(`http://localhost:4000/booking?sort=${sort}`)
+		fetch(
+			`https://manufacturer-website-server.herokuapp.com/booking?sort=${sort}`
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				setIsLoading(false)
@@ -29,9 +31,13 @@ const AllOrders = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch("http://localhost:4000/booking/" + id, {
-					method: "DELETE",
-				})
+				fetch(
+					"https://manufacturer-website-server.herokuapp.com/booking/" +
+						id,
+					{
+						method: "DELETE",
+					}
+				)
 					.then((response) => response.json())
 					.then((data) => {
 						if (data.success) {
@@ -47,6 +53,7 @@ const AllOrders = () => {
 
 	return (
 		<div className="">
+			{isLoading && <Spinner />}
 			<div class="relative overflow-x-auto shadow-md sm:rounded-lg  bg-base-300 lg:mx-10 mx-2">
 				<div>
 					<label className="mx-2" htmlFor="sort">

@@ -24,7 +24,9 @@ const Purchase = () => {
 			category,
 		} = {},
 	} = useQuery(["partDetails", id], () =>
-		fetch("http://localhost:4000/part/" + id).then((res) => res.json())
+		fetch(
+			"https://manufacturer-website-server.herokuapp.com/part/" + id
+		).then((res) => res.json())
 	)
 
 	const [quantity, setQuantity] = useState(0)
@@ -59,7 +61,7 @@ const Purchase = () => {
 			imageUrl,
 			category,
 		}
-		fetch("http://localhost:4000/booking", {
+		fetch("https://manufacturer-website-server.herokuapp.com/booking", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",

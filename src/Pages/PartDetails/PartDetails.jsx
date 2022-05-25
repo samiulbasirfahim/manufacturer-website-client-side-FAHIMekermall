@@ -14,7 +14,7 @@ const PartDetails = () => {
 	const [data, setData] = useState({})
 
 	useEffect(() => {
-		fetch("http://localhost:4000/part/" + id)
+		fetch("https://manufacturer-website-server.herokuapp.com/part/" + id)
 			.then((res) => res.json())
 			.then((data) => setData(data))
 	}, [id])

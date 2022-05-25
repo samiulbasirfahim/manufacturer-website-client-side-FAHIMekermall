@@ -12,14 +12,14 @@ const Parts = () => {
 	const [currentPage, setCurrentPage] = useState(0)
 	const [category, setCategory] = useState("all")
 	useEffect(() => {
-		fetch("http://localhost:4000/part/count?category=" + category)
+		fetch("https://manufacturer-website-server.herokuapp.com/part/count?category=" + category)
 			.then((response) => response.json())
 			.then((data) => setCount(data.count))
 	}, [category])
 	useEffect(() => {
 		setIsLoading(true)
 		fetch(
-			`http://localhost:4000/part?sort=${sort}&limit=${limit}&skip=${
+			`https://manufacturer-website-server.herokuapp.com/part?sort=${sort}&limit=${limit}&skip=${
 				currentPage * limit
 			}&category=${category}`
 		)

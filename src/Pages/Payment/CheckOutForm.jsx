@@ -2,21 +2,25 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import React, { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
+import Spinner from "../../Components/Spinner"
 const CheckoutForm = ({ bookingData: { totalPrice }, bookingData }) => {
 	const navigate = useNavigate()
 	const [clientSecret, setClientSecret] = useState()
 	useEffect(() => {
-		fetch("http://localhost:4000/payment/intent", {
-			method: "POST",
-			headers: {
-				"content-type": "application/json",
-			},
-			body: JSON.stringify({ price: totalPrice }),
-		})
+		fetch(
+			"https://manufacturer-website-server.herokuapp.com/payment/intent",
+			{
+				method: "POST",
+				headers: {
+					"content-type": "application/json",
+				},
+				body: JSON.stringify({ price: totalPrice }),
+			}
+		)
 			.then((response) => response.json())
 			.then((data) => setClientSecret(data.clientSecret))
 	}, [totalPrice])
-
+	const [isLoading, setIsLoading] = useState(false)
 	const stripe = useStripe()
 	const elements = useElements()
 	const [error, setError] = useState("")
@@ -43,7 +47,7 @@ const CheckoutForm = ({ bookingData: { totalPrice }, bookingData }) => {
 		} else {
 			setError("")
 		}
-
+		setIsLoading(true)
 		stripe
 			.confirmCardPayment(clientSecret, {
 				payment_method: {
@@ -60,7 +64,8 @@ const CheckoutForm = ({ bookingData: { totalPrice }, bookingData }) => {
 					toast.success("Payment successful")
 					const transactionId = result.paymentIntent.id
 					fetch(
-						"http://localhost:4000/booking/pay/" + bookingData._id,
+						"https://manufacturer-website-server.herokuapp.com/booking/pay/" +
+							bookingData._id,
 						{
 							method: "PUT",
 							headers: {
@@ -70,17 +75,21 @@ const CheckoutForm = ({ bookingData: { totalPrice }, bookingData }) => {
 								transactionId: transactionId,
 							}),
 						}
-					).then(response => response.json()).then(data => {
-						if (data.success) {
-							navigate(-1)
-						}
-					})
+					)
+						.then((response) => response.json())
+						.then((data) => {
+							if (data.success) {
+								navigate(-1)
+								setIsLoading(false)
+							}
+						})
 				}
 			})
 	}
 
 	return (
 		<form onSubmit={handleSubmit}>
+			{isLoading && <Spinner />}
 			<CardElement
 				options={{
 					style: {

@@ -4,25 +4,25 @@ import React, { useEffect, useState } from "react"
 const BusinessStats = () => {
 	const [totalUsers, setTotalUsers] = useState(0)
 	useEffect(() => {
-		fetch("http://localhost:4000/user/count")
+		fetch("https://manufacturer-website-server.herokuapp.com/user/count")
 			.then((res) => res.json())
 			.then((res) => setTotalUsers(res.count))
 	}, [])
 	const [totalParts, setTotalParts] = useState(0)
 	useEffect(() => {
-		fetch("http://localhost:4000/part/count")
+		fetch("https://manufacturer-website-server.herokuapp.com/part/count")
 			.then((res) => res.json())
 			.then((res) => setTotalParts(res.count))
 	}, [])
 	const [totalReviees, setTotalRevies] = useState(0)
 	useEffect(() => {
-		fetch("http://localhost:4000/review/count")
+		fetch("https://manufacturer-website-server.herokuapp.com/review/count")
 			.then((res) => res.json())
 			.then((data) => setTotalRevies(data.count))
 	}, [])
 	const [totalBookings, setTotalBookings] = useState(0)
 	useEffect(() => {
-		fetch("http://localhost:4000/booking/count")
+		fetch("https://manufacturer-website-server.herokuapp.com/booking/count")
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data)

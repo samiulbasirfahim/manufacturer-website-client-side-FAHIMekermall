@@ -13,22 +13,28 @@ const MyProfile = () => {
 		isLoading,
 		refetch,
 		data: userData,
-	} = useQuery("repoData", () =>
-		fetch("http://localhost:4000/user/" + user.email, {
-			headers: {
-				authorization_email: user.email,
-				authorization_token: `Bearer ${localStorage.getItem(
-					"authorization_token"
-				)}`,
-			},
-		}).then((res) => res.json())
+	} = useQuery("userData", () =>
+		fetch(
+			"https://manufacturer-website-server.herokuapp.com/user/" +
+				user.email,
+			{
+				headers: {
+					authorization_email: user.email,
+					authorization_token: `Bearer ${localStorage.getItem(
+						"authorization_token"
+					)}`,
+				},
+			}
+		).then((res) => res.json())
 	)
 
+	const [loading, setLoading] = useState(false)
 	if (isLoading) {
 		return <Spinner />
 	}
 	const handleEdit = async (e) => {
 		e.preventDefault()
+		setLoading(true)
 		const image = e.target.image.files[0]
 		const formData = new FormData()
 		formData.append("image", image)
@@ -58,17 +64,22 @@ const MyProfile = () => {
 		if (imageUrl) {
 			updatedUserInfo.imageUrl = imageUrl
 		}
-		fetch("http://localhost:4000/user/" + user.email, {
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(updatedUserInfo),
-			method: "PUT",
-		})
+		fetch(
+			"https://manufacturer-website-server.herokuapp.com/user/" +
+				user.email,
+			{
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(updatedUserInfo),
+				method: "PUT",
+			}
+		)
 			.then((response) => response.json())
 			.then((data) => {
 				if (data.modifiedCount > 0) {
 					toast.success("user updated successfully")
 					setIsEdit(null)
 					refetch()
+					setLoading(false)
 				}
 			})
 	}
@@ -76,7 +87,8 @@ const MyProfile = () => {
 	return (
 		<div className="h-[80vh] w-full flex justify-center items-center">
 			<div>
-				<div class="h-screen bg-base-300  flex flex-wrap items-center  justify-center  ">
+				{loading && <Spinner />}
+				<div class="min-h-[80vh] bg-base-300  flex flex-wrap items-center  justify-center  ">
 					<div class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3    bg-base-300  shadow-lg    transform   duration-200 easy-in-out">
 						<div class=" h-32 overflow-hidden">
 							<img
@@ -121,7 +133,7 @@ const MyProfile = () => {
 												name="name"
 												required
 												defaultValue={userData.name}
-												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
 										<div class="mt-4">
@@ -139,7 +151,7 @@ const MyProfile = () => {
 												name="bio"
 												required
 												defaultValue={userData.bio}
-												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
 										<div class="mt-4">
@@ -155,28 +167,30 @@ const MyProfile = () => {
 											<input
 												type="file"
 												name="image"
-												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
 									</>
 								)}
 								<div>
 									{!isEdit ? (
-										<div
-											onClick={() => setIsEdit(true)}
-											class="text-center w-full p-4 hover:bg-gray-100 cursor-pointer"
-										>
-											<p>Edit</p>
+										<div className="flex justify-center w-full">
+											<button
+												onClick={() => setIsEdit(true)}
+												class="text-center btn btn-link text-red-600 cursor-pointer "
+											>
+												<p>Edit</p>
+											</button>
 										</div>
 									) : (
 										<div class="grid grid-cols-2">
 											<input
 												type="submit"
 												value="Save"
-												class="text-center w-full p-4 hover:bg-gray-100 cursor-pointer"
+												class="text-center cursor-pointer btn btn-link text-green-600"
 											/>
 											<button
-												class="text-center w-full p-4 hover:bg-gray-100 cursor-pointer"
+												class="text-centercursor-pointer btn btn-link btn-secondary text-yellow-600"
 												onClick={() => setIsEdit(false)}
 											>
 												Hide

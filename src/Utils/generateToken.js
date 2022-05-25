@@ -1,5 +1,5 @@
 const generateToken = (email, name) => {
-    fetch("http://localhost:4000/user", {
+    fetch("https://manufacturer-website-server.herokuapp.com/user", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

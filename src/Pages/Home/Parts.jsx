@@ -6,7 +6,7 @@ import SinglePart from "./PartsComponents/SinglePart"
 
 const Parts = () => {
 	const { isLoading, data: parts } = useQuery("repoData", () =>
-		fetch("http://localhost:4000/part?limit=3&sort=1").then((res) =>
+		fetch("https://manufacturer-website-server.herokuapp.com/part?limit=3&sort=1").then((res) =>
 			res.json()
 		)
 	)

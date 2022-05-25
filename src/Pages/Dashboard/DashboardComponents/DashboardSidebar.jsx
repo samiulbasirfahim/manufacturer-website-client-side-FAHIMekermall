@@ -14,7 +14,7 @@ const DashboardSidebar = () => {
 		error,
 		data: userData,
 	} = useQuery("repoData", () =>
-		fetch("http://localhost:4000/user/" + user.email, {
+		fetch("https://manufacturer-website-server.herokuapp.com/user/" + user.email, {
 			headers: {
 				authorization_email: user.email,
 				authorization_token: `Bearer ${localStorage.getItem(

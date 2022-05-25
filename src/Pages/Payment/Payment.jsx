@@ -15,7 +15,7 @@ const Payment = () => {
 	const [user] = useAuthState(auth)
 	const { id } = useParams()
 	const { isLoading, data: bookingData } = useQuery(["bookingData", id], () =>
-		fetch("http://localhost:4000/booking/getOne/" + id, {
+		fetch("https://manufacturer-website-server.herokuapp.com/booking/getOne/" + id, {
 			headers: {
 				authorization_email: user.email,
 				authorization_token: `Bearer ${localStorage.getItem(

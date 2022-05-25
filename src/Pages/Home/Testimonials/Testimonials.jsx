@@ -8,7 +8,7 @@ import { useQuery } from "react-query"
 import Spinner from "../../../Components/Spinner"
 const Testimonials = () => {
 	const { isLoading, data } = useQuery("reviewData", () =>
-		fetch("http://localhost:4000/review/").then((res) => res.json())
+		fetch("https://manufacturer-website-server.herokuapp.com/review/").then((res) => res.json())
 	)
 	console.log(data)
 	if (isLoading) {
