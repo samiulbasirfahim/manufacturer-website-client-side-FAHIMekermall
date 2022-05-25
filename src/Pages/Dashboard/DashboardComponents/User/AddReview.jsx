@@ -88,11 +88,11 @@ const AddReview = () => {
 					<p className="text-xl font-bold font-mono">{rating}</p>
 				</div>
 
-				<div class="mt-4 w-full">
-					<div class="flex items-center justify-between w-full">
+				<div className="mt-4 w-full">
+					<div className="flex items-center justify-between w-full">
 						<label
 							htmlFor="review"
-							class="block text-sm text-gray-800 dark:text-gray-200"
+							className="block text-sm text-gray-800 dark:text-gray-200"
 						>
 							Review
 						</label>
@@ -103,14 +103,14 @@ const AddReview = () => {
 						required
 						rows={5}
 						name="review"
-						class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+						className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 					/>
 				</div>
 				<input
 					disabled={rating === 0}
 					type="submit"
 					value="Submit"
-					class="btn w-full mt-8"
+					className="btn w-full mt-8"
 				/>
 			</form>
 		</div>

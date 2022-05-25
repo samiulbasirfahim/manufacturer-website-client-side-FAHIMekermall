@@ -62,7 +62,7 @@ const Orders = () => {
 	return (
 		<div className="">
 			{isLoading && <Spinner />}
-			<div class="relative overflow-x-auto shadow-md sm:rounded-lg  bg-base-300 lg:mx-10 mx-2">
+			<div className="relative overflow-x-auto shadow-md sm:rounded-lg  bg-base-300 lg:mx-10 mx-2">
 				<div>
 					<label className="mx-2" htmlFor="sort">
 						Sort by

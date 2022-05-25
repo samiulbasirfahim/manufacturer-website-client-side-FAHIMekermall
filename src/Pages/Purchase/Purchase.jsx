@@ -79,23 +79,23 @@ const Purchase = () => {
 
 	return (
 		<div>
-			<div class="py-12 mx-4">
-				<div class="max-w-md mx-auto bg-base-200/50 shadow-lg rounded-lg md:max-w-xl">
-					<form onSubmit={handlePurchase} class="">
-						<div class="w-full p-4 px-5 py-5">
-							<div class="flex flex-row mb-8">
-								<h2 class="text-3xl font-semibold">Spark</h2>
-								<h2 class="text-3xl text-green-400 font-semibold ml-4">
+			<div className="py-12 mx-4">
+				<div className="max-w-md mx-auto bg-base-200/50 shadow-lg rounded-lg md:max-w-xl">
+					<form onSubmit={handlePurchase} className="">
+						<div className="w-full p-4 px-5 py-5">
+							<div className="flex flex-row mb-8">
+								<h2 className="text-3xl font-semibold">Spark</h2>
+								<h2 className="text-3xl text-green-400 font-semibold ml-4">
 									Manufacturer
 								</h2>
 							</div>
 							<span>Customer Information</span>
 
-							<div class="mt-4">
-								<div class="flex items-center justify-between">
+							<div className="mt-4">
+								<div className="flex items-center justify-between">
 									<label
 										htmlFor="email"
-										class="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm text-gray-800 dark:text-gray-200"
 									>
 										Email
 									</label>
@@ -106,14 +106,14 @@ const Purchase = () => {
 									name="email"
 									defaultValue={user?.email}
 									disabled
-									class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 								/>
 							</div>
-							<div class="mt-4">
-								<div class="flex items-center justify-between">
+							<div className="mt-4">
+								<div className="flex items-center justify-between">
 									<label
 										htmlFor="password"
-										class="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm text-gray-800 dark:text-gray-200"
 									>
 										Full name
 									</label>
@@ -124,18 +124,18 @@ const Purchase = () => {
 									name="name"
 									defaultValue={user?.displayName}
 									disabled
-									class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 								/>
 							</div>
-							<span class="pt-6 pb-2 block">
+							<span className="pt-6 pb-2 block">
 								Shipping Address
 							</span>
-							<div class="grid md:grid-cols-2 md:gap-2"></div>
-							<div title={description} class="mt-4">
-								<div class="flex items-center justify-between">
+							<div className="grid md:grid-cols-2 md:gap-2"></div>
+							<div title={description} className="mt-4">
+								<div className="flex items-center justify-between">
 									<label
 										htmlFor="part_name"
-										class="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm text-gray-800 dark:text-gray-200"
 									>
 										Parts name
 									</label>
@@ -146,14 +146,14 @@ const Purchase = () => {
 									name="part_name"
 									defaultValue={title}
 									disabled
-									class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 								/>
 							</div>
-							<div class="mt-4">
-								<div class="flex items-center justify-between">
+							<div className="mt-4">
+								<div className="flex items-center justify-between">
 									<label
 										htmlFor="part_name"
-										class="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm text-gray-800 dark:text-gray-200"
 									>
 										Category
 									</label>
@@ -164,18 +164,18 @@ const Purchase = () => {
 									name="part_name"
 									defaultValue={category}
 									disabled
-									class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 								/>
 							</div>
-							<div class="mt-4">
-								<div class="flex items-center justify-between">
+							<div className="mt-4">
+								<div className="flex items-center justify-between">
 									<label
 										htmlFor="quantity"
-										class="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm text-gray-800 dark:text-gray-200"
 									>
 										Quantity
 									</label>
-									<p class="block text-md font-bold text-gray-800 dark:text-gray-200">
+									<p className="block text-md font-bold text-gray-800 dark:text-gray-200">
 										Available : {availableQuantity}
 									</p>
 								</div>
@@ -190,18 +190,18 @@ const Purchase = () => {
 									min={minOrderQuantity}
 									max={availableQuantity}
 									required
-									class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 								/>
-								<p class="block text-md font-bold text-gray-800 dark:text-gray-200">
+								<p className="block text-md font-bold text-gray-800 dark:text-gray-200">
 									Price : {price}
 								</p>
 								<p className="text-red-600 text-sm ">{err}</p>
 							</div>
-							<div class="mt-4">
-								<div class="flex items-center justify-between">
+							<div className="mt-4">
+								<div className="flex items-center justify-between">
 									<label
 										htmlFor="password"
-										class="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm text-gray-800 dark:text-gray-200"
 									>
 										Address
 									</label>
@@ -211,14 +211,14 @@ const Purchase = () => {
 									type="text"
 									required
 									name="address"
-									class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 								/>
 							</div>
-							<div class="mt-4">
-								<div class="flex items-center justify-between">
+							<div className="mt-4">
+								<div className="flex items-center justify-between">
 									<label
 										htmlFor="password"
-										class="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm text-gray-800 dark:text-gray-200"
 									>
 										Phone
 									</label>
@@ -228,24 +228,24 @@ const Purchase = () => {
 									required
 									type="number"
 									name="phone"
-									class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+									className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 								/>
 							</div>
 							<p className="text-bold text-3xl text-center py-4 ">
 								Total = ${+price * +quantity}
 							</p>
-							<div class="flex justify-between items-center pt-2">
+							<div className="flex justify-between items-center pt-2">
 								<button
 									type="button"
 									onClick={() => navigate(-1)}
-									class="h-12 w-24 text-blue-500 text-xs font-medium"
+									className="h-12 w-24 text-blue-500 text-xs font-medium"
 								>
 									Back
 								</button>
 								<input
 									disabled={err !== ""}
 									type="submit"
-									class="h-12 w-48 rounded btn btn-primary"
+									className="h-12 w-48 rounded btn btn-primary"
 									value={"Confirm purchase"}
 								/>
 							</div>

@@ -5,27 +5,27 @@ const Brands = () => {
 	const navigate = useNavigate()
 
 	return (
-		<div class="px-4 py-12">
-			<div class="lg:max-w-[1440px] md:max-w-[744px] max-w-[375px] w-full  py-12 lg:px-10  md:px-6 px-4 bg-base-300 mx-auto rounded-xl">
-				<div class="flex lg:justify-between lg:flex-row flex-col gap-x-8 gap-y-8">
-					<div aria-label="text-area" class="mb-7">
-						<p class="lg:text-4xl text-3xl font-semibold leading-10  mb-4 lg:max-w-[405px] w-full">
+		<div className="px-4 py-12">
+			<div className="lg:max-w-[1440px] md:max-w-[744px] max-w-[375px] w-full  py-12 lg:px-10  md:px-6 px-4 bg-base-300 mx-auto rounded-xl">
+				<div className="flex lg:justify-between lg:flex-row flex-col gap-x-8 gap-y-8">
+					<div aria-label="text-area" className="mb-7">
+						<p className="lg:text-4xl text-3xl font-semibold leading-10  mb-4 lg:max-w-[405px] w-full">
 							We Work with the Best Partners
 						</p>
-						<p class="text-base leading-normal  mb-[64px] lg:max-w-[513px] w-full">
+						<p className="text-base leading-normal  mb-[64px] lg:max-w-[513px] w-full">
 							We are confident that we can manufacture the best
 							parts for vehicle in world.
 						</p>
 						<button
-							class=" w-full px-4 py-4 text-base font-medium leading-none btn duration-300 ease-in-out transform  lg:max-w-[187px]"
+							className=" w-full px-4 py-4 text-base font-medium leading-none btn duration-300 ease-in-out transform  lg:max-w-[187px]"
 							onClick={() => navigate("/blogs")}
 						>
 							Read more
 						</button>
 					</div>
-					<div class="lg:block md:block hidden">
-						<div class="flex flex-col xl:min-w-[624px] w-full ">
-							<div class="flex gap-x-12 justify-between ">
+					<div className="lg:block md:block hidden">
+						<div className="flex flex-col xl:min-w-[624px] w-full ">
+							<div className="flex gap-x-12 justify-between ">
 								<svg
 									width="100"
 									height="26"
@@ -58,7 +58,7 @@ const Brands = () => {
 										fill="#1F2937"
 									/>
 								</svg>
-								<p class="border-gray-400 border-r h-[70px]"></p>
+								<p className="border-gray-400 border-r h-[70px]"></p>
 								<svg
 									width="100"
 									height="26"
@@ -73,7 +73,7 @@ const Brands = () => {
 										fill="#1F2937"
 									/>
 								</svg>
-								<p class="border-gray-400 border-r h-[70px]"></p>
+								<p className="border-gray-400 border-r h-[70px]"></p>
 								<svg
 									width="100"
 									height="26"
@@ -87,9 +87,9 @@ const Brands = () => {
 									/>
 								</svg>
 							</div>
-							<hr class="border-gray-400" />
+							<hr className="border-gray-400" />
 
-							<div class="flex gap-x-8 justify-between items-center">
+							<div className="flex gap-x-8 justify-between items-center">
 								<svg
 									width="100"
 									height="26"
@@ -162,7 +162,7 @@ const Brands = () => {
 										fill="#1F2937"
 									/>
 								</svg>
-								<p class="border-gray-400 border-r h-[90px]"></p>
+								<p className="border-gray-400 border-r h-[90px]"></p>
 								<svg
 									width="100"
 									height="26"
@@ -186,7 +186,7 @@ const Brands = () => {
 										</clipPath>
 									</defs>
 								</svg>
-								<p class="border-gray-400 border-r h-[90px]"></p>
+								<p className="border-gray-400 border-r h-[90px]"></p>
 								<svg
 									width="100"
 									height="26"
@@ -204,8 +204,8 @@ const Brands = () => {
 									/>
 								</svg>
 							</div>
-							<hr class="border-gray-400" />
-							<div class="flex gap-x-8 justify-between items-center">
+							<hr className="border-gray-400" />
+							<div className="flex gap-x-8 justify-between items-center">
 								<svg
 									width="100"
 									height="26"
@@ -242,7 +242,7 @@ const Brands = () => {
 										fill="#1F2937"
 									/>
 								</svg>
-								<p class="border-gray-400 border-r h-[90px]"></p>
+								<p className="border-gray-400 border-r h-[90px]"></p>
 								<svg
 									width="100"
 									height="26"
@@ -267,7 +267,7 @@ const Brands = () => {
 										fill="#1F2937"
 									/>
 								</svg>
-								<p class="border-gray-400 border-r h-[90px]"></p>
+								<p className="border-gray-400 border-r h-[90px]"></p>
 								<svg
 									width="100"
 									height="26"
@@ -287,9 +287,9 @@ const Brands = () => {
 							</div>
 						</div>
 					</div>
-					<div class="lg:hidden md:hidden block">
-						<div class="flex flex-col w-full   ">
-							<div class="flex gap-x-8 justify-center items-center">
+					<div className="lg:hidden md:hidden block">
+						<div className="flex flex-col w-full   ">
+							<div className="flex gap-x-8 justify-center items-center">
 								<svg
 									width="100"
 									height="26"
@@ -322,7 +322,7 @@ const Brands = () => {
 										fill="#1F2937"
 									/>
 								</svg>
-								<p class="border-gray-400 border-r h-[70px]"></p>
+								<p className="border-gray-400 border-r h-[70px]"></p>
 								<svg
 									width="100"
 									height="26"
@@ -338,9 +338,9 @@ const Brands = () => {
 									/>
 								</svg>
 							</div>
-							<hr class="border-gray-400" />
+							<hr className="border-gray-400" />
 
-							<div class="flex gap-x-8 justify-center items-center">
+							<div className="flex gap-x-8 justify-center items-center">
 								<svg
 									width="100"
 									height="26"
@@ -353,7 +353,7 @@ const Brands = () => {
 										fill="#1F2937"
 									/>
 								</svg>
-								<p class="border-gray-400 border-r h-[70px]"></p>
+								<p className="border-gray-400 border-r h-[70px]"></p>
 								<svg
 									width="100"
 									height="26"
@@ -427,8 +427,8 @@ const Brands = () => {
 									/>
 								</svg>
 							</div>
-							<hr class="border-gray-400" />
-							<div class="flex gap-x-8 justify-center items-center">
+							<hr className="border-gray-400" />
+							<div className="flex gap-x-8 justify-center items-center">
 								<svg
 									width="100"
 									height="26"
@@ -452,7 +452,7 @@ const Brands = () => {
 										</clipPath>
 									</defs>
 								</svg>
-								<p class="border-gray-400 border-r h-[90px]"></p>
+								<p className="border-gray-400 border-r h-[90px]"></p>
 								<svg
 									width="100"
 									height="26"
@@ -470,8 +470,8 @@ const Brands = () => {
 									/>
 								</svg>
 							</div>
-							<hr class="border-gray-400" />
-							<div class="flex gap-x-8 justify-center items-center">
+							<hr className="border-gray-400" />
+							<div className="flex gap-x-8 justify-center items-center">
 								<svg
 									width="100"
 									height="26"
@@ -508,7 +508,7 @@ const Brands = () => {
 										fill="#1F2937"
 									/>
 								</svg>
-								<p class="border-gray-400 border-r h-[90px]"></p>
+								<p className="border-gray-400 border-r h-[90px]"></p>
 								<svg
 									width="100"
 									height="26"
@@ -534,8 +534,8 @@ const Brands = () => {
 									/>
 								</svg>
 							</div>
-							<hr class="border-gray-400" />
-							<div class="flex gap-x-8 justify-center items-center ">
+							<hr className="border-gray-400" />
+							<div className="flex gap-x-8 justify-center items-center ">
 								<svg
 									width="100"
 									height="26"
@@ -552,8 +552,8 @@ const Brands = () => {
 										fill="#1F2937"
 									/>
 								</svg>
-								<p class="border-gray-400 border-r h-[90px]"></p>
-								<p class="w-[101px]"></p>
+								<p className="border-gray-400 border-r h-[90px]"></p>
+								<p className="w-[101px]"></p>
 							</div>
 						</div>
 					</div>

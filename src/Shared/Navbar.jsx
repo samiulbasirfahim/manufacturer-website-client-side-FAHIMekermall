@@ -96,13 +96,13 @@ const Navbar = ({ handleDarkTheme }) => {
 			</div>
 			<div className="flex items-center">
 				<div className="hidden md:flex">
-					<label class="swap swap-rotate mr-6">
+					<label className="swap swap-rotate mr-6">
 						{/* <!-- this hidden checkbox controls the state --> */}
 						<input type="checkbox" onClick={handleDarkTheme} />
 
 						{/* <!-- sun icon --> */}
 						<svg
-							class="swap-on fill-current w-10 h-10"
+							className="swap-on fill-current w-10 h-10"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 24 24"
 						>
@@ -111,7 +111,7 @@ const Navbar = ({ handleDarkTheme }) => {
 
 						{/* <!-- moon icon --> */}
 						<svg
-							class="swap-off fill-current w-10 h-10"
+							className="swap-off fill-current w-10 h-10"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 24 24"
 						>
@@ -136,12 +136,12 @@ const Navbar = ({ handleDarkTheme }) => {
 				</div>
 				<label
 					htmlFor="my-drawer-4"
-					class="drawer-button btn-circle swap swap-rotate md:hidden"
+					className="drawer-button btn-circle swap swap-rotate md:hidden"
 				>
 					<input type="checkbox" />
 
 					<svg
-						class="swap-off fill-current"
+						className="swap-off fill-current"
 						xmlns="http://www.w3.org/2000/svg"
 						width="32"
 						height="32"
@@ -151,7 +151,7 @@ const Navbar = ({ handleDarkTheme }) => {
 					</svg>
 
 					<svg
-						class="swap-on fill-current"
+						className="swap-on fill-current"
 						xmlns="http://www.w3.org/2000/svg"
 						width="32"
 						height="32"

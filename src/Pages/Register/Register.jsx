@@ -73,16 +73,16 @@ const Register = () => {
 	return (
 		<div className="min-h-screen flex justify-center items-center">
 			{isLoading && <Spinner />}
-			<div class="w-full max-w-sm p-6 m-auto  rounded-md bg-base-200/50">
-				<h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">
+			<div className="w-full max-w-sm p-6 m-auto  rounded-md bg-base-200/50">
+				<h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">
 					Brand
 				</h1>
 
-				<form class="mt-6" onSubmit={handleSubmit(onSubmit)}>
+				<form className="mt-6" onSubmit={handleSubmit(onSubmit)}>
 					<div>
 						<label
 							htmlFor="username"
-							class="block text-sm text-gray-800 dark:text-gray-200"
+							className="block text-sm text-gray-800 dark:text-gray-200"
 						>
 							Name
 						</label>
@@ -94,7 +94,7 @@ const Register = () => {
 								minLength: 3,
 								maxLength: 30,
 							})}
-							class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+							className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
 						{errors.name?.type === "required" && (
 							<p className="text-red-600 text-xs">
@@ -112,10 +112,10 @@ const Register = () => {
 							</p>
 						)}
 					</div>
-					<div class="mt-4">
+					<div className="mt-4">
 						<label
 							htmlFor="username"
-							class="block text-sm text-gray-800 dark:text-gray-200"
+							className="block text-sm text-gray-800 dark:text-gray-200"
 						>
 							Email
 						</label>
@@ -127,7 +127,7 @@ const Register = () => {
 							})}
 							type="text"
 							name="email"
-							class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+							className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
 						{errors.email?.type === "required" && (
 							<p className="text-red-600 text-xs">
@@ -141,11 +141,11 @@ const Register = () => {
 						)}
 					</div>
 
-					<div class="mt-4">
-						<div class="flex items-center justify-between">
+					<div className="mt-4">
+						<div className="flex items-center justify-between">
 							<label
 								htmlFor="password"
-								class="block text-sm text-gray-800 dark:text-gray-200"
+								className="block text-sm text-gray-800 dark:text-gray-200"
 							>
 								Password
 							</label>
@@ -158,7 +158,7 @@ const Register = () => {
 							})}
 							type="password"
 							name="password"
-							class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+							className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
 						{errors.password?.type === "required" && (
 							<p className="text-red-600 text-xs">
@@ -172,8 +172,8 @@ const Register = () => {
 						)}
 					</div>
 
-					<div class="mt-6">
-						<button class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+					<div className="mt-6">
+						<button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
 							Register
 						</button>
 					</div>
@@ -181,11 +181,11 @@ const Register = () => {
 
 				<SocialLogin />
 
-				<p class="mt-8 text-xs font-light text-center text-gray-400">
+				<p className="mt-8 text-xs font-light text-center text-gray-400">
 					Already have an account?
 					<Link
 						to="/login"
-						class="font-medium text-gray-700 dark:text-gray-200 hover:underline"
+						className="font-medium text-gray-700 dark:text-gray-200 hover:underline"
 					>
 						Login
 					</Link>

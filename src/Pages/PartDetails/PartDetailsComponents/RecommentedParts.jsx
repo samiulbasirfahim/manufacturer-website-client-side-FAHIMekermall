@@ -25,7 +25,7 @@ const RecommendedParts = () => {
 	let slideItems
 	if (parts?.length > 0) {
 		slideItems = parts.map((part) => (
-			<SwiperSlide>
+			<SwiperSlide key={part._id}>
 				<RecommendedPart part={part} />
 			</SwiperSlide>
 		))

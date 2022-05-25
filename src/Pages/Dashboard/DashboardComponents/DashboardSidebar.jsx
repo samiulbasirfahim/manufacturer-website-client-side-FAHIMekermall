@@ -29,21 +29,21 @@ const DashboardSidebar = () => {
 	}
 
 	return (
-		<div class="drawer drawer-mobile">
+		<div className="drawer drawer-mobile">
 			<input
 				id="my-drawer-2"
 				type="checkbox"
-				class="drawer-toggle bg-base-200 w-full"
+				className="drawer-toggle bg-base-200 w-full"
 			/>
-			<div class="drawer-content mt-5 bg-base-300 lg:rounded-tl-3xl lg:ml-80 pt-16">
+			<div className="drawer-content mt-5 bg-base-300 lg:rounded-tl-3xl lg:ml-80 pt-16">
 				<label
 					htmlFor="my-drawer-2"
-					class="btn btn-circle swap swap-rotate fixed left-0 z-50"
+					className="btn btn-circle swap swap-rotate fixed left-0 z-50"
 				>
 					<input type="checkbox" />
 
 					<svg
-						class="swap-off fill-current"
+						className="swap-off fill-current"
 						xmlns="http://www.w3.org/2000/svg"
 						width="32"
 						height="32"
@@ -53,7 +53,7 @@ const DashboardSidebar = () => {
 					</svg>
 
 					<svg
-						class="swap-on fill-current"
+						className="swap-on fill-current"
 						xmlns="http://www.w3.org/2000/svg"
 						width="32"
 						height="32"
@@ -64,9 +64,9 @@ const DashboardSidebar = () => {
 				</label>
 				<Outlet />
 			</div>
-			<div class="drawer-side bg-base-300">
-				<label htmlFor="my-drawer-2" class="drawer-overlay"></label>
-				<ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content fixed left-0 h-screen">
+			<div className="drawer-side bg-base-300">
+				<label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+				<ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content fixed left-0 h-screen">
 					{/* <!-- Sidebar content here --> */}
 					<NavLink
 						className={({ isActive }) => {

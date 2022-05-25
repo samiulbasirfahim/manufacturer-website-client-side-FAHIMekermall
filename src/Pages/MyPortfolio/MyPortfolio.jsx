@@ -16,14 +16,14 @@ const MyPortfolio = () => {
 							(Developer,Student,Freelancer)
 						</p>
 						<a
-							class="btn btn-link lowercase px-0 text-base text-green-600"
+							className="btn btn-link lowercase px-0 text-base text-green-600"
 							href="mailto:samiulbasirfahim360@hotmail.com?body=Hello fahim"
 						>
 							samiulbasirfahim360@hotmail.com
 						</a>
 					</div>
-					<div class="mt-6">
-						<p class="border-b-2 border-b-red-600 w-full font-bold text-3xl font-cursive-custom">
+					<div className="mt-6">
+						<p className="border-b-2 border-b-red-600 w-full font-bold text-3xl font-cursive-custom">
 							Education:{" "}
 						</p>
 						<p className="font-mono">
@@ -31,8 +31,8 @@ const MyPortfolio = () => {
 						</p>
 						<p className="font-mono">JSC: 2019(gpa-4.23)</p>
 					</div>
-					<div class="mt-6">
-						<p class="border-b-2 border-b-red-600 w-full font-bold text-3xl font-cursive-custom">
+					<div className="mt-6">
+						<p className="border-b-2 border-b-red-600 w-full font-bold text-3xl font-cursive-custom">
 							Technologies:{" "}
 						</p>
 						<p className="font-mono">React Js</p>
@@ -43,11 +43,11 @@ const MyPortfolio = () => {
 						<p className="font-mono">Tailwind Css</p>
 						<p className="font-mono">Html, Css</p>
 					</div>
-					<div class="mt-6">
-						<p class="border-b-2 border-b-red-600 w-full font-bold text-3xl font-cursive-custom">
+					<div className="mt-6">
+						<p className="border-b-2 border-b-red-600 w-full font-bold text-3xl font-cursive-custom">
 							Best of projects:{" "}
 						</p>
-						<div class="grid gap-0 justify-items-start">
+						<div className="grid gap-0 justify-items-start">
 							<a
 								className="btn btn-link mx-0 p-0 m-0 btn-sm block"
 								href="https://rapid-post.web.app/"

@@ -101,18 +101,18 @@ const Parts = () => {
 			</div>
 			<div className="container mx-auto grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-6 pb-24 px-6">
 				{parts.map((part) => (
-					<SinglePart part={part} />
+					<SinglePart key={part._id} part={part} />
 				))}
 			</div>
 			<div className="container mx-auto justify-between flex items-center pb-16">
 				{currentPage !== 0 ? (
 					<button
 						onClick={() => setCurrentPage(currentPage - 1)}
-						class="flex items-center h-8 btn btn-outline"
+						className="flex items-center h-8 btn btn-outline"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							class="h-5 w-5"
+							className="h-5 w-5"
 							viewBox="0 0 20 20"
 							fill="currentColor"
 						>
@@ -147,12 +147,12 @@ const Parts = () => {
 						onClick={() => {
 							setCurrentPage(currentPage + 1)
 						}}
-						class="flex items-center h-8 btn btn-outline"
+						className="flex items-center h-8 btn btn-outline"
 					>
 						<p>next</p>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							class="h-5 w-5"
+							className="h-5 w-5"
 							viewBox="0 0 20 20"
 							fill="currentColor"
 						>

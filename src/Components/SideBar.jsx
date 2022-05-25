@@ -9,23 +9,23 @@ const SideBar = ({ children, handleDarkTheme }) => {
 
 	return (
 		<div>
-			<div class="drawer drawer-end fixed right-0">
-				<input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
-				<div class="drawer-content">
+			<div className="drawer drawer-end fixed right-0">
+				<input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+				<div className="drawer-content">
 					{/* <!-- Page content here --> */}
 					{children}
 				</div>
-				<div class="drawer-side">
-					<label htmlFor="my-drawer-4" class="drawer-overlay"></label>
-					<ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content lg:hidden">
+				<div className="drawer-side">
+					<label htmlFor="my-drawer-4" className="drawer-overlay"></label>
+					<ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content lg:hidden">
 						{/* <!-- Sidebar content here --> */}
-						<label class="swap swap-rotate my-6 ">
+						<label className="swap swap-rotate my-6 ">
 							{/* <!-- this hidden checkbox controls the state --> */}
 							<input type="checkbox" onClick={handleDarkTheme} />
 
 							{/* <!-- sun icon --> */}
 							<svg
-								class="swap-on fill-current w-10 h-10"
+								className="swap-on fill-current w-10 h-10"
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 24 24"
 							>
@@ -34,7 +34,7 @@ const SideBar = ({ children, handleDarkTheme }) => {
 
 							{/* <!-- moon icon --> */}
 							<svg
-								class="swap-off fill-current w-10 h-10"
+								className="swap-off fill-current w-10 h-10"
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 24 24"
 							>

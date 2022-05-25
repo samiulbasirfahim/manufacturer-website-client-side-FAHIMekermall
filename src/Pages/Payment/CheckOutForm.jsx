@@ -106,8 +106,8 @@ const CheckoutForm = ({ bookingData: { totalPrice }, bookingData }) => {
 					},
 				}}
 			/>
-			<p class="text-red-600 text-sm">{error}</p>
-			<div class="flex justify-center">
+			<p className="text-red-600 text-sm">{error}</p>
+			<div className="flex justify-center">
 				{clientSecret ? (
 					<button
 						type="submit"
@@ -117,7 +117,7 @@ const CheckoutForm = ({ bookingData: { totalPrice }, bookingData }) => {
 						Pay
 					</button>
 				) : (
-					<button class=" loading btn mt-12 mx-auto  btn-outline px-20"></button>
+					<button className=" loading btn mt-12 mx-auto  btn-outline px-20"></button>
 				)}
 			</div>
 		</form>
