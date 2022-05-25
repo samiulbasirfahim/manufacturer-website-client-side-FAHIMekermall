@@ -60,7 +60,13 @@ const MyProfile = () => {
 		const updatedUserInfo = {
 			name: e.target.name.value,
 			bio: e.target.bio.value,
+			education: e.target.education.value,
+			location: e.target.location.value,
+			facebook: e.target.facebook.value,
+			linkedin: e.target.linkedin.value,
+			phone: e.target.phone.value,
 		}
+
 		if (imageUrl) {
 			updatedUserInfo.imageUrl = imageUrl
 		}
@@ -112,7 +118,39 @@ const MyProfile = () => {
 								<p class="text-gray-400 mt-2">
 									{userData.email}
 								</p>
-								<p class="mt-2 text-gray-600">{userData.bio}</p>
+								<p class="mt-2 text-gray-600">
+									{userData.education}
+								</p>
+								<p class="mt-2 text-gray-600">
+									{userData.location}
+								</p>
+								<p class="mt-2 text-gray-600">
+									{userData.phone}
+								</p>
+								<p class="mt-2 text-gray-600">
+									{userData.facebook}
+								</p>
+
+								<div class="flex justify-between">
+									{userData.linkedin && (
+										<a
+											href={userData.linkedin}
+											target="_blank"
+											className="btn btn-link text-green-700"
+										>
+											LinkedIn
+										</a>
+									)}
+									{userData.linkedin && (
+										<a
+											href={userData.facebook}
+											target="_blank"
+											className="btn btn-link text-blue-700"
+										>
+											Facebook
+										</a>
+									)}
+								</div>
 							</div>
 							<hr class="mt-6" />
 							<form class="px-8" onSubmit={handleEdit}>
@@ -157,18 +195,101 @@ const MyProfile = () => {
 										<div class="mt-4">
 											<div class="flex items-center justify-between">
 												<label
-													htmlFor="bio"
+													htmlFor="education"
 													class="block text-sm text-gray-800 dark:text-gray-200"
 												>
-													Image
+													Education
 												</label>
 											</div>
 
 											<input
-												type="file"
-												name="image"
+												type="text"
+												name="education"
+												required
+												defaultValue={
+													userData?.education
+												}
 												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
+										</div>
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
+												<label
+													htmlFor="location"
+													class="block text-sm text-gray-800 dark:text-gray-200"
+												>
+													Location
+												</label>
+											</div>
+
+											<input
+												type="text"
+												name="location"
+												required
+												defaultValue={
+													userData?.location
+												}
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+											/>
+										</div>
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
+												<label
+													htmlFor="facebook"
+													class="block text-sm text-gray-800 dark:text-gray-200"
+												>
+													Facebook Link
+												</label>
+											</div>
+
+											<input
+												type="text"
+												name="facebook"
+												required
+												defaultValue={userData.facebook}
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+											/>
+										</div>
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
+												<label
+													htmlFor="linkedin"
+													class="block text-sm text-gray-800 dark:text-gray-200"
+												>
+													LinkedIn Link
+												</label>
+											</div>
+
+											<input
+												type="text"
+												name="linkedin"
+												required
+												defaultValue={userData.linkedin}
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+											/>
+										</div>
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
+												<label
+													htmlFor="phone"
+													class="block text-sm text-gray-800 dark:text-gray-200"
+												>
+													Phone
+												</label>
+											</div>
+
+											<input
+												type="number"
+												name="phone"
+												minLength={8}
+												required
+												defaultValue={userData.phone}
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+											/>
+										</div>
+
+										<div class="mt-4">
+											<input type="file" name="image" />
 										</div>
 									</>
 								)}

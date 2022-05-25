@@ -4,7 +4,7 @@ import Typed from "react-typed"
 const Hero = () => {
 	return (
 		<div className="bg-[url('https://i.ibb.co/t4RGQYP/andrew-seaman-ZKB9-Bo4z-Cq-Q-unsplash.jpg')] mt-16  bg-center bg-no-repeat bg-fixed bg-cover ">
-			<div className="w-full mt-[-96px]  h-screen mx-auto text-center flex flex-col justify-center bg-base-200/50 backdrop-blur-sm">
+			<div className="w-full mt-[-96px]  h-screen mx-auto text-center flex flex-col justify-center bg-base-200/70 backdrop-blur-md">
 				<h1 className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6">
 					GROW YOUR BUSINESS WITH US
 				</h1>

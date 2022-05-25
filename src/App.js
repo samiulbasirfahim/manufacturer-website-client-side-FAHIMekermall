@@ -23,6 +23,7 @@ import RequireAdmin from "./Authantication/RequireAdmin"
 import OnlyUser from "./Authantication/OnlyUser"
 import AddProduct from "./Pages/Dashboard/DashboardComponents/Admin/AddProduct"
 import Payment from "./Pages/Payment/Payment"
+import NotFound from "./Pages/NotFound/NotFound"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -80,6 +81,7 @@ const App = () => {
 							<Route path="/part/:id" element={<PartDetails />}></Route>
 							<Route path="/login" element={<Login />}></Route>
 							<Route path="/register" element={<Register />}></Route>
+							<Route path="*" element={<NotFound />}></Route>
 						</Routes>
 						<Footer />
 					</SideBar>

@@ -25,7 +25,6 @@ const BusinessStats = () => {
 		fetch("https://manufacturer-website-server.herokuapp.com/booking/count")
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data)
 				setTotalBookings(data.count)})
 	}, [])
 	return (

@@ -12,7 +12,7 @@ const Navbar = ({ handleDarkTheme }) => {
 		return null
 	}
 	return (
-		<section className="max-w-[1444px] lg:px-4 px-2 mx-auto flex justify-between items-center h-16 z-50">
+		<section className="max-w-[1444px] lg:px-4 px-2 mx-auto flex justify-between items-center h-16 z-40">
 			<div className="flex">
 				<Link to="/" className="flex h-16 items-center">
 					<div className="xl:w-16 w-8 flex items-center xl:h-16 h-8 mr-2 ">

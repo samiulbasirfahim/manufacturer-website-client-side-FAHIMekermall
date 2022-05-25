@@ -32,7 +32,6 @@ const Parts = () => {
 	useEffect(() => {
 		setTotalPage(Math.ceil(count / limit))
 	}, [limit, count, sort])
-	console.log(category, count)
 	return (
 		<div className="mt-20">
 			{isLoading && <Spinner />}

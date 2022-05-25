@@ -80,6 +80,7 @@ const AllOrders = () => {
 						orders={orders}
 						handleDiscard={handleDiscard}
 						pay={false}
+						showUser={true}
 					/>
 				)}
 				{orders.length === 0 && (

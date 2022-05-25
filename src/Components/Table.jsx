@@ -1,7 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 
-const Table = ({ orders, handleDiscard, pay }) => {
+const Table = ({ orders, handleDiscard, pay, showUser }) => {
 	const navigate = useNavigate()
 	return (
 		<div>
@@ -12,7 +12,13 @@ const Table = ({ orders, handleDiscard, pay }) => {
 							Part Name
 						</th>
 						<th scope="col" class="px-6 py-3">
+							Added by
+						</th>
+						<th scope="col" class="px-6 py-3">
 							Quantity
+						</th>
+						<th scope="col" class="px-6 py-3">
+							Category
 						</th>
 						<th scope="col" class="px-6 py-3">
 							Total Price
@@ -36,6 +42,8 @@ const Table = ({ orders, handleDiscard, pay }) => {
 							totalPrice,
 							paid,
 							transactionId,
+							userEmail,
+							category,
 						}) => {
 							return (
 								<tr class="border-b bg-base-300">
@@ -43,7 +51,13 @@ const Table = ({ orders, handleDiscard, pay }) => {
 										{partTitle}
 									</td>
 									<td class="px-6 py-4 font-mono font-bold">
+										{userEmail}
+									</td>
+									<td class="px-6 py-4 font-mono font-bold">
 										{quantity}
+									</td>
+									<td class="px-6 py-4 font-mono font-bold">
+										{category}
 									</td>
 									<td class="px-6 py-4 font-mono font-bold">
 										${totalPrice}
