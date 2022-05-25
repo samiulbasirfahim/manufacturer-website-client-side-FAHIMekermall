@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import axiosAuth from "../../Axios/axiosAuth"
 import Spinner from "../../Components/Spinner"
 import SinglePart from "../Home/PartsComponents/SinglePart"
 
@@ -12,25 +13,21 @@ const Parts = () => {
 	const [currentPage, setCurrentPage] = useState(0)
 	const [category, setCategory] = useState("all")
 	useEffect(() => {
-		fetch(
+		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/part/count?category=" +
 				category
-		)
-			.then((response) => response.json())
-			.then((data) => setCount(data.count))
+		).then(({data}) => setCount(data.count))
 	}, [category])
 	useEffect(() => {
 		setIsLoading(true)
-		fetch(
+		axiosAuth(
 			`https://manufacturer-website-server.herokuapp.com/part?sort=${sort}&limit=${limit}&skip=${
 				currentPage * limit
 			}&category=${category}`
-		)
-			.then((res) => res.json())
-			.then((data) => {
-				setIsLoading(false)
-				setParts(data)
-			})
+		).then(({ data }) => {
+			setIsLoading(false)
+			setParts(data)
+		})
 	}, [sort, limit, currentPage, category])
 	useEffect(() => {
 		setTotalPage(Math.ceil(count / limit))

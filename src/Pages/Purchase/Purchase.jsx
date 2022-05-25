@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth"
 import toast from "react-hot-toast"
 import { useQuery } from "react-query"
 import { useNavigate, useParams } from "react-router-dom"
+import axiosAuth from "../../Axios/axiosAuth"
 import Spinner from "../../Components/Spinner"
 import auth from "../../firebase.init"
 
@@ -24,9 +25,9 @@ const Purchase = () => {
 			category,
 		} = {},
 	} = useQuery(["partDetails", id], () =>
-		fetch(
+		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/part/" + id
-		).then((res) => res.json())
+		)
 	)
 
 	const [quantity, setQuantity] = useState(0)
@@ -61,20 +62,16 @@ const Purchase = () => {
 			imageUrl,
 			category,
 		}
-		fetch("https://manufacturer-website-server.herokuapp.com/booking", {
+		axiosAuth({
 			method: "POST",
-			headers: {
-				"content-type": "application/json",
-			},
-			body: JSON.stringify(bookingInfo),
+			url: "https://manufacturer-website-server.herokuapp.com/booking",
+			data: bookingInfo,
+		}).then(({ data }) => {
+			if (data?.data?._id) {
+				navigate(-1)
+				toast.success("Booking successful ")
+			}
 		})
-			.then((res) => res.json())
-			.then((data) => {
-				if (data?.data?._id) {
-					navigate(-1)
-					toast.success("Booking successful ")
-				}
-			})
 	}
 
 	return (
@@ -84,7 +81,9 @@ const Purchase = () => {
 					<form onSubmit={handlePurchase} className="">
 						<div className="w-full p-4 px-5 py-5">
 							<div className="flex flex-row mb-8">
-								<h2 className="text-3xl font-semibold">Spark</h2>
+								<h2 className="text-3xl font-semibold">
+									Spark
+								</h2>
 								<h2 className="text-3xl text-green-400 font-semibold ml-4">
 									Manufacturer
 								</h2>

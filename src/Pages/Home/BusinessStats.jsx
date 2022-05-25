@@ -1,31 +1,33 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState } from "react"
+import axiosAuth from "../../Axios/axiosAuth"
 
 const BusinessStats = () => {
 	const [totalUsers, setTotalUsers] = useState(0)
 	useEffect(() => {
-		fetch("https://manufacturer-website-server.herokuapp.com/user/count")
-			.then((res) => res.json())
-			.then((res) => setTotalUsers(res.count))
+		axiosAuth(
+			"https://manufacturer-website-server.herokuapp.com/user/count"
+		).then(({ res }) => setTotalUsers(res.count))
 	}, [])
 	const [totalParts, setTotalParts] = useState(0)
 	useEffect(() => {
-		fetch("https://manufacturer-website-server.herokuapp.com/part/count")
-			.then((res) => res.json())
-			.then((res) => setTotalParts(res.count))
+		axiosAuth(
+			"https://manufacturer-website-server.herokuapp.com/part/count"
+		).then(({ res }) => setTotalParts(res.count))
 	}, [])
 	const [totalReviees, setTotalRevies] = useState(0)
 	useEffect(() => {
-		fetch("https://manufacturer-website-server.herokuapp.com/review/count")
-			.then((res) => res.json())
-			.then((data) => setTotalRevies(data.count))
+		axiosAuth(
+			"https://manufacturer-website-server.herokuapp.com/review/count"
+		).then(({ data }) => setTotalRevies(data.count))
 	}, [])
 	const [totalBookings, setTotalBookings] = useState(0)
 	useEffect(() => {
-		fetch("https://manufacturer-website-server.herokuapp.com/booking/count")
-			.then((res) => res.json())
-			.then((data) => {
-				setTotalBookings(data.count)})
+		axiosAuth(
+			"https://manufacturer-website-server.herokuapp.com/booking/count"
+		).then((data) => {
+			setTotalBookings(data.count)
+		})
 	}, [])
 	return (
 		<div name="about" className="w-full my-32">

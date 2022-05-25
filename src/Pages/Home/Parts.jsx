@@ -1,14 +1,15 @@
 import React from "react"
 import { useQuery } from "react-query"
 import { Link } from "react-router-dom"
+import axiosAuth from "../../Axios/axiosAuth"
 import Spinner from "../../Components/Spinner"
 import SinglePart from "./PartsComponents/SinglePart"
 
 const Parts = () => {
 	const { isLoading, data: parts } = useQuery("repoData", () =>
-		fetch(
+		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/part?limit=3&sort=1"
-		).then((res) => res.json())
+		)
 	)
 	if (isLoading) {
 		return <Spinner />

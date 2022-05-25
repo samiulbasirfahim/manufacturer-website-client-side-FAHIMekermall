@@ -4,6 +4,7 @@ import React from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useQuery } from "react-query"
 import { useParams } from "react-router-dom"
+import axiosAuth from "../../Axios/axiosAuth"
 import Spinner from "../../Components/Spinner"
 import auth from "../../firebase.init"
 import CheckoutForm from "./CheckOutForm"
@@ -15,14 +16,10 @@ const Payment = () => {
 	const [user] = useAuthState(auth)
 	const { id } = useParams()
 	const { isLoading, data: bookingData } = useQuery(["bookingData", id], () =>
-		fetch("https://manufacturer-website-server.herokuapp.com/booking/getOne/" + id, {
-			headers: {
-				authorization_email: user.email,
-				authorization_token: `Bearer ${localStorage.getItem(
-					"authorization_token"
-				)}`,
-			},
-		}).then((res) => res.json())
+		axiosAuth(
+			"https://manufacturer-website-server.herokuapp.com/booking/getOne/" +
+				id
+		)
 	)
 
 	if (isLoading) {

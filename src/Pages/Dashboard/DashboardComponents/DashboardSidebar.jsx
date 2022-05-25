@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useQuery } from "react-query"
 import { NavLink, Outlet } from "react-router-dom"
+import axiosAuth from "../../../Axios/axiosAuth"
 import Spinner from "../../../Components/Spinner"
 import auth from "../../../firebase.init"
 
@@ -14,14 +15,7 @@ const DashboardSidebar = () => {
 		error,
 		data: userData,
 	} = useQuery("repoData", () =>
-		fetch("https://manufacturer-website-server.herokuapp.com/user/" + user.email, {
-			headers: {
-				authorization_email: user.email,
-				authorization_token: `Bearer ${localStorage.getItem(
-					"authorization_token"
-				)}`,
-			},
-		}).then((res) => res.json())
+		axiosAuth("https://manufacturer-website-server.herokuapp.com/user/" + user.email, )
 	)
 
 	if (isLoading) {

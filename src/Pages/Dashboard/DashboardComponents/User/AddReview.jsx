@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import toast from "react-hot-toast"
 import { useQuery } from "react-query"
+import axiosAuth from "../../../../Axios/axiosAuth"
 import Spinner from "../../../../Components/Spinner"
 import auth from "../../../../firebase.init"
 
@@ -9,19 +10,11 @@ const AddReview = () => {
 	const [rating, setRating] = useState(0)
 	const [hover, setHover] = useState(0)
 	const [user] = useAuthState(auth)
-	const {
-		isLoading,
-		refetch,
-		data: userData,
-	} = useQuery("repoData", () =>
-		fetch("https://manufacturer-website-server.herokuapp.com/user/" + user.email, {
-			headers: {
-				authorization_email: user.email,
-				authorization_token: `Bearer ${localStorage.getItem(
-					"authorization_token"
-				)}`,
-			},
-		}).then((res) => res.json())
+	const { isLoading, data: userData } = useQuery("userData", () =>
+		axiosAuth(
+			"https://manufacturer-website-server.herokuapp.com/user/" +
+				user.email
+		)
 	)
 
 	if (isLoading) {
@@ -37,22 +30,18 @@ const AddReview = () => {
 			author: userData.name,
 			authorEmail: userData.email,
 		}
-		fetch("https://manufacturer-website-server.herokuapp.com/review", {
+		axiosAuth({
 			method: "POST",
-			headers: {
-				"content-type": "application/json",
-			},
-			body: JSON.stringify(review),
+			url: "https://manufacturer-website-server.herokuapp.com/review",
+			data: review,
+		}).then(({ data }) => {
+			if (data.part._id) {
+				toast.success("Review successfully")
+				event.target.reset()
+			} else {
+				toast.error("Something went wrong")
+			}
 		})
-			.then((response) => response.json())
-			.then((data) => {
-				if (data.part._id) {
-					toast.success("Review successfully")
-					event.target.reset()
-				} else {
-					toast.error("Something went wrong")
-				}
-			})
 	}
 
 	return (

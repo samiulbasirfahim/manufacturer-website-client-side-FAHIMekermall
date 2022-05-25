@@ -1,6 +1,7 @@
 import React from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import toast from "react-hot-toast"
+import axiosAuth from "../../../../Axios/axiosAuth"
 import auth from "../../../../firebase.init"
 
 const AddProduct = () => {
@@ -32,23 +33,16 @@ const AddProduct = () => {
 			.then((data) => {
 				if (data.data.url) {
 					productInfo.imageUrl = data?.data?.url
-					fetch(
-						"https://manufacturer-website-server.herokuapp.com/part",
-						{
-							method: "POST",
-							headers: {
-								"content-type": "application/json",
-							},
-							body: JSON.stringify(productInfo),
+					axiosAuth({
+						method: "POST",
+						url: "https://manufacturer-website-server.herokuapp.com/part",
+						data: productInfo,
+					}).then(({ data }) => {
+						if (data.part._id) {
+							toast.success("Product added successfully")
+							event.target.reset()
 						}
-					)
-						.then((response) => response.json())
-						.then((data) => {
-							if (data.part._id) {
-								event.target.reset()
-								toast.success("Product added successfully")
-							}
-						})
+					})
 				}
 			})
 	}

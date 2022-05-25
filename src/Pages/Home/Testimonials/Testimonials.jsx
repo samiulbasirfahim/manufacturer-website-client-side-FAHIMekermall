@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/scrollbar"
@@ -6,11 +6,10 @@ import { Scrollbar } from "swiper"
 import Testimonial from "./Testimonial"
 import { useQuery } from "react-query"
 import Spinner from "../../../Components/Spinner"
+import axiosAuth from "../../../Axios/axiosAuth"
 const Testimonials = () => {
 	const { isLoading, data } = useQuery("reviewData", () =>
-		fetch("https://manufacturer-website-server.herokuapp.com/review/").then(
-			(res) => res.json()
-		)
+		axiosAuth("https://manufacturer-website-server.herokuapp.com/review/")
 	)
 	if (isLoading) {
 		return <Spinner />

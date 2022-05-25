@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import Spinner from "../../../../Components/Spinner"
 import Swal from "sweetalert2"
 import Table from "../../../../Components/Table"
+import axiosAuth from "../../../../Axios/axiosAuth"
 
 const AllOrders = () => {
 	const [sort, setSort] = useState(0)
@@ -11,14 +12,12 @@ const AllOrders = () => {
 	const [orders, setOrders] = useState([])
 	useEffect(() => {
 		setIsLoading(true)
-		fetch(
+		axiosAuth(
 			`https://manufacturer-website-server.herokuapp.com/booking?sort=${sort}`
-		)
-			.then((res) => res.json())
-			.then((data) => {
-				setIsLoading(false)
-				setOrders(data)
-			})
+		).then((data) => {
+			setIsLoading(false)
+			setOrders(data.data)
+		})
 	}, [sort])
 	const handleDiscard = (id) => {
 		Swal.fire({
@@ -31,22 +30,19 @@ const AllOrders = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(
-					"https://manufacturer-website-server.herokuapp.com/booking/" +
+				axiosAuth({
+					method: "DELETE",
+					url:
+						"https://manufacturer-website-server.herokuapp.com/booking/" +
 						id,
-					{
-						method: "DELETE",
+				}).then(({ data }) => {
+					if (data.success) {
+						const remaining = orders.filter(
+							(order) => order._id !== id
+						)
+						setOrders(remaining)
 					}
-				)
-					.then((response) => response.json())
-					.then((data) => {
-						if (data.success) {
-							const remaining = orders.filter(
-								(order) => order._id !== id
-							)
-							setOrders(remaining)
-						}
-					})
+				})
 			}
 		})
 	}
@@ -83,7 +79,7 @@ const AllOrders = () => {
 						showUser={true}
 					/>
 				)}
-				{orders.length === 0 && (
+				{orders?.length === 0 && (
 					<div>
 						<p className="text-center text-3xl font-bold py-28">
 							No orders available

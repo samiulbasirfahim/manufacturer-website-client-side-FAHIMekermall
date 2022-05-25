@@ -2,23 +2,27 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import React, { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
+import axiosAuth from "../../Axios/axiosAuth"
 import Spinner from "../../Components/Spinner"
 const CheckoutForm = ({ bookingData: { totalPrice }, bookingData }) => {
 	const navigate = useNavigate()
 	const [clientSecret, setClientSecret] = useState()
 	useEffect(() => {
-		fetch(
-			"https://manufacturer-website-server.herokuapp.com/payment/intent",
-			{
-				method: "POST",
-				headers: {
-					"content-type": "application/json",
-				},
-				body: JSON.stringify({ price: totalPrice }),
+		axiosAuth({
+			method: "POST",
+			url: "https://manufacturer-website-server.herokuapp.com/payment/intent",
+			data: {
+				price: totalPrice,
+			},
+		}).then(({ data }) => {
+			if (data.clientSecret) {
+				setClientSecret(data.clientSecret)
+			} else if (data.message === "Your price is too high") {
+				toast.error(
+					"Your price is too high, You should contact with us "
+				)
 			}
-		)
-			.then((response) => response.json())
-			.then((data) => setClientSecret(data.clientSecret))
+		})
 	}, [totalPrice])
 	const [isLoading, setIsLoading] = useState(false)
 	const stripe = useStripe()
@@ -63,26 +67,20 @@ const CheckoutForm = ({ bookingData: { totalPrice }, bookingData }) => {
 				} else if (result.paymentIntent.id) {
 					toast.success("Payment successful")
 					const transactionId = result.paymentIntent.id
-					fetch(
-						"https://manufacturer-website-server.herokuapp.com/booking/pay/" +
+					axiosAuth({
+						method: "PUT",
+						url:
+							"http://localhost:4000/booking/pay/" +
 							bookingData._id,
-						{
-							method: "PUT",
-							headers: {
-								"content-type": "application/json",
-							},
-							body: JSON.stringify({
-								transactionId: transactionId,
-							}),
+						data: {
+							transactionId: transactionId,
+						},
+					}).then(({ data }) => {
+						if (data.success) {
+							navigate(-1)
+							setIsLoading(false)
 						}
-					)
-						.then((response) => response.json())
-						.then((data) => {
-							if (data.success) {
-								navigate(-1)
-								setIsLoading(false)
-							}
-						})
+					})
 				}
 			})
 	}

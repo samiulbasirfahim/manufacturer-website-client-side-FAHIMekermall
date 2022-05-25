@@ -7,6 +7,7 @@ import RecommendedPart from "./RecommentedPart"
 import Spinner from "../../../Components/Spinner"
 import { useQuery } from "react-query"
 import { useNavigate } from "react-router-dom"
+import axiosAuth from "../../../Axios/axiosAuth"
 const RecommendedParts = () => {
 	const navigate = useNavigate()
 	const {
@@ -14,8 +15,8 @@ const RecommendedParts = () => {
 		error,
 		data: parts,
 	} = useQuery("repoData", () =>
-		fetch("https://manufacturer-website-server.herokuapp.com/part?limit=8&sort=2").then((res) =>
-			res.json()
+		axiosAuth(
+			"https://manufacturer-website-server.herokuapp.com/part?limit=8&sort=2"
 		)
 	)
 	if (isLoading) {

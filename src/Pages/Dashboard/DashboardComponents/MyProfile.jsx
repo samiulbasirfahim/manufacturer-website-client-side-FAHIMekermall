@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import toast from "react-hot-toast"
 import { useQuery } from "react-query"
+import axiosAuth from "../../../Axios/axiosAuth"
 import Spinner from "../../../Components/Spinner"
 import auth from "../../../firebase.init"
 
@@ -14,18 +15,10 @@ const MyProfile = () => {
 		refetch,
 		data: userData,
 	} = useQuery("userData", () =>
-		fetch(
+		axiosAuth(
 			"https://manufacturer-website-server.herokuapp.com/user/" +
-				user.email,
-			{
-				headers: {
-					authorization_email: user.email,
-					authorization_token: `Bearer ${localStorage.getItem(
-						"authorization_token"
-					)}`,
-				},
-			}
-		).then((res) => res.json())
+				user.email
+		)
 	)
 
 	const [loading, setLoading] = useState(false)
@@ -70,64 +63,60 @@ const MyProfile = () => {
 		if (imageUrl) {
 			updatedUserInfo.imageUrl = imageUrl
 		}
-		fetch(
-			"https://manufacturer-website-server.herokuapp.com/user/" +
+		axiosAuth({
+			method: "POST",
+			url:
+				"https://manufacturer-website-server.herokuapp.com/user/" +
 				user.email,
-			{
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(updatedUserInfo),
-				method: "PUT",
+			data: updatedUserInfo,
+		}).then(({ data }) => {
+			if (data.modifiedCount > 0) {
+				toast.success("user updated successfully")
+				setIsEdit(null)
+				refetch()
+				setLoading(false)
 			}
-		)
-			.then((response) => response.json())
-			.then((data) => {
-				if (data.modifiedCount > 0) {
-					toast.success("user updated successfully")
-					setIsEdit(null)
-					refetch()
-					setLoading(false)
-				}
-			})
+		})
 	}
 
 	return (
 		<div className="h-[80vh] w-full flex justify-center items-center">
 			<div>
 				{loading && <Spinner />}
-				<div className="min-h-[80vh] bg-base-300  flex flex-wrap items-center  justify-center  ">
-					<div className="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3    bg-base-300  shadow-lg    transform   duration-200 easy-in-out">
-						<div className=" h-32 overflow-hidden">
+				<div class="min-h-[80vh] bg-base-300  flex flex-wrap items-center  justify-center  ">
+					<div class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3    bg-base-300  shadow-lg    transform   duration-200 easy-in-out">
+						<div class=" h-32 overflow-hidden">
 							<img
-								className="w-full"
+								class="w-full"
 								src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
 								alt=""
 							/>
 						</div>
-						<div className="flex justify-center px-5  -mt-12">
+						<div class="flex justify-center px-5  -mt-12">
 							<img
-								className="h-32 w-32 bg-primary p-1 rounded-full   "
+								class="h-32 w-32 bg-primary p-1 rounded-full   "
 								src={userData.imageUrl}
 								alt=""
 							/>
 						</div>
-						<div className=" ">
-							<div className="text-center px-14">
-								<h2 className="text-gray-800 text-3xl font-bold">
+						<div class=" ">
+							<div class="text-center px-14">
+								<h2 class="text-gray-800 text-3xl font-bold">
 									{userData.name}
 								</h2>
-								<p className="text-gray-400 mt-2">
+								<p class="text-gray-400 mt-2">
 									{userData.email}
 								</p>
-								<p className="mt-2 text-gray-600">
+								<p class="mt-2 text-gray-600">
 									{userData.education}
 								</p>
-								<p className="mt-2 text-gray-600">
+								<p class="mt-2 text-gray-600">
 									{userData.location}
 								</p>
-								<p className="mt-2 text-gray-600">
+								<p class="mt-2 text-gray-600">
 									{userData.phone}
 								</p>
-								<div className="flex justify-between">
+								<div class="flex justify-between">
 									{userData.linkedin && (
 										<a
 											href={userData.linkedin}
@@ -148,15 +137,15 @@ const MyProfile = () => {
 									)}
 								</div>
 							</div>
-							<hr className="mt-6" />
-							<form className="px-8" onSubmit={handleEdit}>
+							<hr class="mt-6" />
+							<form class="px-8" onSubmit={handleEdit}>
 								{isEdit && (
 									<>
-										<div className="mt-4">
-											<div className="flex items-center justify-between">
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
 												<label
 													htmlFor="name"
-													className="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm text-gray-800 dark:text-gray-200"
 												>
 													Full name
 												</label>
@@ -167,14 +156,14 @@ const MyProfile = () => {
 												name="name"
 												required
 												defaultValue={userData.name}
-												className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
-										<div className="mt-4">
-											<div className="flex items-center justify-between">
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
 												<label
 													htmlFor="bio"
-													className="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm text-gray-800 dark:text-gray-200"
 												>
 													Bio
 												</label>
@@ -184,14 +173,14 @@ const MyProfile = () => {
 												type="text"
 												name="bio"
 												defaultValue={userData.bio}
-												className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
-										<div className="mt-4">
-											<div className="flex items-center justify-between">
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
 												<label
 													htmlFor="education"
-													className="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm text-gray-800 dark:text-gray-200"
 												>
 													Education
 												</label>
@@ -203,14 +192,14 @@ const MyProfile = () => {
 												defaultValue={
 													userData?.education
 												}
-												className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
-										<div className="mt-4">
-											<div className="flex items-center justify-between">
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
 												<label
 													htmlFor="location"
-													className="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm text-gray-800 dark:text-gray-200"
 												>
 													Location
 												</label>
@@ -222,14 +211,14 @@ const MyProfile = () => {
 												defaultValue={
 													userData?.location
 												}
-												className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
-										<div className="mt-4">
-											<div className="flex items-center justify-between">
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
 												<label
 													htmlFor="facebook"
-													className="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm text-gray-800 dark:text-gray-200"
 												>
 													Facebook Link
 												</label>
@@ -239,14 +228,14 @@ const MyProfile = () => {
 												type="text"
 												name="facebook"
 												defaultValue={userData.facebook}
-												className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
-										<div className="mt-4">
-											<div className="flex items-center justify-between">
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
 												<label
 													htmlFor="linkedin"
-													className="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm text-gray-800 dark:text-gray-200"
 												>
 													LinkedIn Link
 												</label>
@@ -256,14 +245,14 @@ const MyProfile = () => {
 												type="text"
 												name="linkedin"
 												defaultValue={userData.linkedin}
-												className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
-										<div className="mt-4">
-											<div className="flex items-center justify-between">
+										<div class="mt-4">
+											<div class="flex items-center justify-between">
 												<label
 													htmlFor="phone"
-													className="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm text-gray-800 dark:text-gray-200"
 												>
 													Phone
 												</label>
@@ -274,11 +263,11 @@ const MyProfile = () => {
 												name="phone"
 												minLength={8}
 												defaultValue={userData.phone}
-												className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+												class="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
 
-										<div className="mt-4">
+										<div class="mt-4">
 											<input type="file" name="image" />
 										</div>
 									</>
@@ -288,20 +277,20 @@ const MyProfile = () => {
 										<div className="flex justify-center w-full">
 											<button
 												onClick={() => setIsEdit(true)}
-												className="text-center btn btn-link text-red-600 cursor-pointer "
+												class="text-center btn btn-link text-red-600 cursor-pointer "
 											>
 												<p>Edit</p>
 											</button>
 										</div>
 									) : (
-										<div className="grid grid-cols-2">
+										<div class="grid grid-cols-2">
 											<input
 												type="submit"
 												value="Save"
-												className="text-center cursor-pointer btn btn-link text-green-600"
+												class="text-center cursor-pointer btn btn-link text-green-600"
 											/>
 											<button
-												className="text-centercursor-pointer btn btn-link btn-secondary text-yellow-600"
+												class="text-centercursor-pointer btn btn-link btn-secondary text-yellow-600"
 												onClick={() => setIsEdit(false)}
 											>
 												Hide

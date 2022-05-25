@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useQuery } from "react-query"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
+import axiosAuth from "../../Axios/axiosAuth"
 import Spinner from "../../Components/Spinner"
 import RecommendedParts from "./PartDetailsComponents/RecommentedParts"
 
@@ -14,9 +15,9 @@ const PartDetails = () => {
 	const [data, setData] = useState({})
 
 	useEffect(() => {
-		fetch("https://manufacturer-website-server.herokuapp.com/part/" + id)
-			.then((res) => res.json())
-			.then((data) => setData(data))
+		axiosAuth(
+			"https://manufacturer-website-server.herokuapp.com/part/" + id
+		).then(({ data }) => setData(data))
 	}, [id])
 
 	return (

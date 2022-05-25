@@ -23,10 +23,6 @@ const Orders = () => {
 			})
 	}, [sort])
 
-	// if (isLoading) {
-	// 	return <Spinner />
-	// }
-
 	const handleDiscard = (id) => {
 		Swal.fire({
 			title: "Are you sure?",
@@ -38,22 +34,19 @@ const Orders = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(
-					"https://manufacturer-website-server.herokuapp.com/booking/" +
+				axiosAuth({
+					method: "DELETE",
+					url:
+						"https://manufacturer-website-server.herokuapp.com/booking/" +
 						id,
-					{
-						method: "DELETE",
+				}).then(({ data }) => {
+					if (data.success) {
+						const remaining = orders.filter(
+							(order) => order._id !== id
+						)
+						setOrders(remaining)
 					}
-				)
-					.then((response) => response.json())
-					.then((data) => {
-						if (data.success) {
-							const remaining = orders.filter(
-								(order) => order._id !== id
-							)
-							setOrders(remaining)
-						}
-					})
+				})
 			}
 		})
 	}
