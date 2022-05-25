@@ -14,6 +14,10 @@ const generateToken = (email, name) => {
                     "authorization_token",
                     data.token
                 )
+                window.localStorage.setItem(
+                    "email",
+                    email
+                )
             }
         })
 }

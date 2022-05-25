@@ -5,6 +5,7 @@ import Spinner from "../../../../Components/Spinner"
 import auth from "../../../../firebase.init"
 import Swal from "sweetalert2"
 import Table from "../../../../Components/Table"
+import axiosAuth from "../../../../Axios/axiosAuth"
 
 const Orders = () => {
 	const [user] = useAuthState(auth)
@@ -14,13 +15,11 @@ const Orders = () => {
 	const [orders, setOrders] = useState([])
 	useEffect(() => {
 		setIsLoading(true)
-		fetch(
-			`https://manufacturer-website-server.herokuapp.com/booking/${user.email}?sort=${sort}`
-		)
-			.then((res) => res.json())
+		axiosAuth
+			.get(`http://localhost:4000/booking/${user.email}?sort=${sort}`)
 			.then((data) => {
 				setIsLoading(false)
-				setOrders(data)
+				setOrders(data.data)
 			})
 	}, [sort])
 
@@ -87,7 +86,6 @@ const Orders = () => {
 					orders={orders}
 					handleDiscard={handleDiscard}
 					pay={true}
-					
 				/>
 				{orders && orders.length === 0 && (
 					<div>
