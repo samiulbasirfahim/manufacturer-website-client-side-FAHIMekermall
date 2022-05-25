@@ -14,6 +14,7 @@ const Home = () => {
 				Latest items
 			</p>
 			<Parts />
+			
 			<BusinessStats />
 			<Brands />
 			<Testimonials />

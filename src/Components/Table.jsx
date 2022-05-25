@@ -17,8 +17,11 @@ const Table = ({ orders, handleDiscard, pay }) => {
 						<th scope="col" class="px-6 py-3">
 							Total Price
 						</th>
+						<th scope="col" class="px-6 py-3">
+							Transaction Id
+						</th>
 						<th scope="col" class="flex justify-end px-6 py-3">
-							<span class="text-right"></span>
+							<span class="text-right">Status</span>
 						</th>
 					</tr>
 				</thead>
@@ -32,6 +35,7 @@ const Table = ({ orders, handleDiscard, pay }) => {
 							quantity,
 							totalPrice,
 							paid,
+							transactionId,
 						}) => {
 							return (
 								<tr class="border-b bg-base-300">
@@ -44,6 +48,9 @@ const Table = ({ orders, handleDiscard, pay }) => {
 									<td class="px-6 py-4 font-mono font-bold">
 										${totalPrice}
 									</td>
+									<td class="px-6 py-4 font-mono font-bold">
+										{transactionId}
+									</td>
 									<td class="px-6 py-4 text-right font-mono font-bold">
 										{!paid ? (
 											<>
@@ -51,7 +58,8 @@ const Table = ({ orders, handleDiscard, pay }) => {
 													<button
 														onClick={() =>
 															navigate(
-																"/payment/" + _id
+																"/payment/" +
+																	_id
 															)
 														}
 														class="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline"
