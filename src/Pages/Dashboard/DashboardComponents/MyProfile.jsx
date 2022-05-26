@@ -1,4 +1,4 @@
-import { async } from "@firebase/util"
+import { motion } from "framer-motion"
 import React, { useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import toast from "react-hot-toast"
@@ -81,7 +81,7 @@ const MyProfile = () => {
 
 	return (
 		<div className="h-[80vh] w-full flex justify-center items-center">
-			<div>
+			<motion.div animate={{ scale: [0.1, 1] }}>
 				{loading && <Spinner />}
 				<div className="min-h-[80vh] bg-base-300  flex flex-wrap items-center  justify-center  ">
 					<div className="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3    bg-base-300  shadow-lg    transform   duration-200 easy-in-out">
@@ -227,7 +227,9 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="facebook"
-												defaultValue={userData?.facebook}
+												defaultValue={
+													userData?.facebook
+												}
 												className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
@@ -244,7 +246,9 @@ const MyProfile = () => {
 											<input
 												type="text"
 												name="linkedin"
-												defaultValue={userData?.linkedin}
+												defaultValue={
+													userData?.linkedin
+												}
 												className="block w-full px-4 py-2 mt-2 text-gray-700 bg-base-100 rounded-md  dark:text-gray-300  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 											/>
 										</div>
@@ -302,7 +306,7 @@ const MyProfile = () => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</div>
 	)
 }

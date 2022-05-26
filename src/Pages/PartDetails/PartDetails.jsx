@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import axiosAuth from "../../Axios/axiosAuth"
 import Spinner from "../../Components/Spinner"
 import RecommendedParts from "./PartDetailsComponents/RecommentedParts"
+import { motion } from "framer-motion"
 
 const PartDetails = () => {
 	const { id } = useParams()
@@ -22,7 +23,9 @@ const PartDetails = () => {
 			setData(data)
 		})
 	}, [id])
-
+	if (isLoading) {
+		return <Spinner />
+	}
 	return (
 		<div>
 			{isLoading && <Spinner />}
@@ -41,7 +44,8 @@ const PartDetails = () => {
 			</div>
 			<div className="container mx-auto">
 				<div>
-					<div
+					<motion.div
+						animate={{ y: [-100, 0] }}
 						id="top"
 						className="flex items-center justify-center h-[60vh]"
 					>
@@ -50,7 +54,7 @@ const PartDetails = () => {
 							src={data?.imageUrl}
 							alt=""
 						/>
-					</div>
+					</motion.div>
 					<div className="flex flex-col items-center">
 						<p className="text-center text-md font-semibold text-secondary">
 							$ {data?.price}
@@ -67,14 +71,15 @@ const PartDetails = () => {
 							</span>
 						</p>
 						<div>
-							<button
+							<motion.button
+								animate={{ y: [-1000, 0] }}
 								className="btn btn-primary sm:w-96 rounded-none hover:bg-secondary "
 								onClick={() =>
 									navigate("/purchase/" + data?._id)
 								}
 							>
 								Purchase now
-							</button>
+							</motion.button>
 						</div>
 						<p className="container mx-auto text-justify text-base-content p-6">
 							{data?.description}

@@ -1,6 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-
+import { motion } from "framer-motion"
 const Table = ({
 	orders,
 	handleDiscard,
@@ -61,7 +61,11 @@ const Table = ({
 							shipped,
 						}) => {
 							return (
-								<tr key={_id} className="border-b bg-base-300">
+								<motion.tr
+									animate={{ y: [100, 1] }}
+									key={_id}
+									className="border-b bg-base-300"
+								>
 									<td className="px-6 py-4 font-mono font-bold">
 										{partTitle}
 									</td>
@@ -150,7 +154,7 @@ const Table = ({
 											</button>
 										)}
 									</td>
-								</tr>
+								</motion.tr>
 							)
 						}
 					)}

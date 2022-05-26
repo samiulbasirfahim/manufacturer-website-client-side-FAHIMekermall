@@ -1,5 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
+import { motion } from "framer-motion"
 
 const SinglePart = ({
 	part: {
@@ -15,13 +16,15 @@ const SinglePart = ({
 }) => {
 	const navigate = useNavigate()
 	return (
-		<div className="flex flex-col max-w-md lg:px-12 px-6 shadow-md py-8 relative bg-base-200">
+		<motion.div
+			animate={{ x: [-1000, 0] }}
+			className="flex flex-col max-w-md lg:px-12 px-6 shadow-md py-8 relative bg-base-200"
+		>
 			{isNew && (
 				<p className="bg-accent-content absolute top-[-15px] left-[-15px] font-bold lowercase px-2 py-1 rounded-2xl">
 					New
 				</p>
 			)}
-
 			<div
 				id="product-image"
 				className="relative flex justify-center items-center"
@@ -113,7 +116,7 @@ const SinglePart = ({
 					<p className="">Available: {availableQuantity}</p>
 				</span>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 
