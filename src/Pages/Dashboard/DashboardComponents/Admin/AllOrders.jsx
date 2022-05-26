@@ -4,6 +4,7 @@ import Spinner from "../../../../Components/Spinner"
 import Swal from "sweetalert2"
 import Table from "../../../../Components/Table"
 import axiosAuth from "../../../../Axios/axiosAuth"
+import toast from "react-hot-toast"
 
 const AllOrders = () => {
 	const [sort, setSort] = useState(0)
@@ -49,11 +50,12 @@ const AllOrders = () => {
 	const shippedOrder = (id) => {
 		Swal.fire({
 			title: "Are you sure?",
+			text: "Are you want to deliver",
 			icon: "warning",
 			showCancelButton: true,
 			confirmButtonColor: "#3085d6",
 			cancelButtonColor: "#d33",
-			confirmButtonText: "Yes, delete it!",
+			confirmButtonText: "Deliver",
 		}).then((result) => {
 			if (result.isConfirmed) {
 				axiosAuth
@@ -62,8 +64,12 @@ const AllOrders = () => {
 							id
 					)
 					.then(({ data }) => {
-						if (data.success) {
-							console.log(data)
+						if (data._id) {
+							toast.success("Deliver successfully")
+							const order = orders.find((o) => o._id === id)
+							order.shipped = true
+							setOrders([...orders, order])
+							console.log(order)
 						}
 					})
 			}
@@ -92,6 +98,7 @@ const AllOrders = () => {
 						<option value="1">Date</option>
 						<option value="2">Price</option>
 						<option value="3">Quantity</option>
+						<option value="4">Pending</option>
 					</select>
 				</div>
 				{orders && (

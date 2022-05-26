@@ -9,11 +9,12 @@ const ProductTable = ({ parts, refetch }) => {
 	const handleDelete = (id) => {
 		Swal.fire({
 			title: "Are you sure?",
+			text: "Yes, delete it!",
 			icon: "warning",
 			showCancelButton: true,
 			confirmButtonColor: "#3085d6",
 			cancelButtonColor: "#d33",
-			confirmButtonText: "Yes, delete it!",
+			confirmButtonText: "Delete",
 		}).then((result) => {
 			if (result.isConfirmed) {
 				axiosAuth({

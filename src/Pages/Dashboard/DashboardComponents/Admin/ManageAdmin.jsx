@@ -14,7 +14,9 @@ const ManageAdmin = () => {
 		refetch,
 		data: { data: users } = {},
 	} = useQuery(["allUsers"], () =>
-		axiosAuth("https://manufacturer-website-server.herokuapp.com/user/admin")
+		axiosAuth(
+			"https://manufacturer-website-server.herokuapp.com/user/admin"
+		)
 	)
 	if (isLoading) {
 		return <Spinner />
@@ -26,16 +28,19 @@ const ManageAdmin = () => {
 		}
 		Swal.fire({
 			title: "Are you sure?",
+			text: `Remove ${email}`,
 			icon: "warning",
 			showCancelButton: true,
 			confirmButtonColor: "#3085d6",
 			cancelButtonColor: "#d33",
-			confirmButtonText: "Yes, delete it!",
+			confirmButtonText: "Remove",
 		}).then((result) => {
 			if (result.isConfirmed) {
 				axiosAuth({
 					method: "PUT",
-					url: "https://manufacturer-website-server.herokuapp.com/user/roles/" + email,
+					url:
+						"https://manufacturer-website-server.herokuapp.com/user/roles/" +
+						email,
 					data: {
 						roles: "user",
 					},
@@ -53,7 +58,9 @@ const ManageAdmin = () => {
 		const email2 = event.target.email.value
 		axiosAuth({
 			method: "PUT",
-			url: "https://manufacturer-website-server.herokuapp.com/user/roles/" + email2,
+			url:
+				"https://manufacturer-website-server.herokuapp.com/user/roles/" +
+				email2,
 			data: {
 				roles: "admin",
 			},

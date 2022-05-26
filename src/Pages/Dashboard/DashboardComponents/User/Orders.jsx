@@ -26,12 +26,12 @@ const Orders = () => {
 	const handleDiscard = (id) => {
 		Swal.fire({
 			title: "Are you sure?",
-			text: "You won't be able to revert this!",
+			text: "Do want to delete this order!",
 			icon: "warning",
 			showCancelButton: true,
 			confirmButtonColor: "#3085d6",
 			cancelButtonColor: "#d33",
-			confirmButtonText: "Yes, delete it!",
+			confirmButtonText: "Delete!",
 		}).then((result) => {
 			if (result.isConfirmed) {
 				axiosAuth({
