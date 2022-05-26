@@ -83,7 +83,7 @@ const AddReview = () => {
 					<div className="flex items-center justify-between w-full">
 						<label
 							htmlFor="review"
-							className="block text-sm text-gray-800 dark:text-gray-200"
+							className="block text-sm   dark:text-gray-200"
 						>
 							Review
 						</label>

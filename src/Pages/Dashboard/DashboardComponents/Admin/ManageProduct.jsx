@@ -12,6 +12,9 @@ const ManageProduct = () => {
 	} = useQuery(["allParts"], () =>
 		axiosAuth("https://manufacturer-website-server.herokuapp.com/part/")
 	)
+	if (isLoading) {
+		return <Spinner />
+	}
 	return (
 		<div>
 			<div className="">

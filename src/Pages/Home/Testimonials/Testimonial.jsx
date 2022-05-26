@@ -45,7 +45,7 @@ const Testimonial = ({ data }) => {
 					/>
 				</div>
 				<div className="flex flex-col items-start ml-4">
-					<p className="text-base font-semibold leading-4 text-gray-800 dark:text-white ">
+					<p className="text-base font-semibold leading-4   dark:text-white ">
 						{data.author}
 					</p>
 				</div>

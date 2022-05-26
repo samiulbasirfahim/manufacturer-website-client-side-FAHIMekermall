@@ -1,19 +1,33 @@
 import React from "react"
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
+import Swal from "sweetalert2"
 import axiosAuth from "../../../../Axios/axiosAuth"
 
 const ProductTable = ({ parts, refetch }) => {
 	const navigate = useNavigate()
 	const handleDelete = (id) => {
-		axiosAuth({
-			method: "DELETE",
-			url: "http://localhost:4000/part/" + id,
-		}).then(({ data }) => {
-			console.log(data)
-			if (data.success) {
-				toast.success("Delete successfully")
-				refetch()
+		Swal.fire({
+			title: "Are you sure?",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, delete it!",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				axiosAuth({
+					method: "DELETE",
+					url:
+						"https://manufacturer-website-server.herokuapp.com/part/" +
+						id,
+				}).then(({ data }) => {
+					console.log(data)
+					if (data.success) {
+						toast.success("Delete successfully")
+						refetch()
+					}
+				})
 			}
 		})
 	}

@@ -16,7 +16,7 @@ const Orders = () => {
 	useEffect(() => {
 		setIsLoading(true)
 		axiosAuth
-			.get(`http://localhost:4000/booking/${user.email}?sort=${sort}`)
+			.get(`https://manufacturer-website-server.herokuapp.com/booking/${user.email}?sort=${sort}`)
 			.then((data) => {
 				setIsLoading(false)
 				setOrders(data.data)

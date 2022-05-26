@@ -96,7 +96,7 @@ const Purchase = () => {
 								<div className="flex items-center justify-between">
 									<label
 										htmlFor="email"
-										className="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm   dark:text-gray-200"
 									>
 										Email
 									</label>
@@ -114,7 +114,7 @@ const Purchase = () => {
 								<div className="flex items-center justify-between">
 									<label
 										htmlFor="password"
-										className="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm   dark:text-gray-200"
 									>
 										Full name
 									</label>
@@ -136,7 +136,7 @@ const Purchase = () => {
 								<div className="flex items-center justify-between">
 									<label
 										htmlFor="part_name"
-										className="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm   dark:text-gray-200"
 									>
 										Parts name
 									</label>
@@ -154,7 +154,7 @@ const Purchase = () => {
 								<div className="flex items-center justify-between">
 									<label
 										htmlFor="part_name"
-										className="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm   dark:text-gray-200"
 									>
 										Category
 									</label>
@@ -172,11 +172,11 @@ const Purchase = () => {
 								<div className="flex items-center justify-between">
 									<label
 										htmlFor="quantity"
-										className="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm   dark:text-gray-200"
 									>
 										Quantity
 									</label>
-									<p className="block text-md font-bold text-gray-800 dark:text-gray-200">
+									<p className="block text-md font-bold   dark:text-gray-200">
 										Available : {availableQuantity}
 									</p>
 								</div>
@@ -193,7 +193,7 @@ const Purchase = () => {
 									required
 									className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-[#2a303c] dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
 								/>
-								<p className="block text-md font-bold text-gray-800 dark:text-gray-200">
+								<p className="block text-md font-bold   dark:text-gray-200">
 									Price : {price}
 								</p>
 								<p className="text-red-600 text-sm ">{err}</p>
@@ -202,7 +202,7 @@ const Purchase = () => {
 								<div className="flex items-center justify-between">
 									<label
 										htmlFor="password"
-										className="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm   dark:text-gray-200"
 									>
 										Address
 									</label>
@@ -219,7 +219,7 @@ const Purchase = () => {
 								<div className="flex items-center justify-between">
 									<label
 										htmlFor="password"
-										className="block text-sm text-gray-800 dark:text-gray-200"
+										className="block text-sm   dark:text-gray-200"
 									>
 										Phone
 									</label>

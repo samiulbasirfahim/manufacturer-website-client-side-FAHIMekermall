@@ -101,7 +101,7 @@ const MyProfile = () => {
 						</div>
 						<div class=" ">
 							<div class="text-center px-14">
-								<h2 class="text-gray-800 text-3xl font-bold">
+								<h2 class="  text-3xl font-bold">
 									{userData?.name}
 								</h2>
 								<p class="text-gray-400 mt-2">
@@ -145,7 +145,7 @@ const MyProfile = () => {
 											<div class="flex items-center justify-between">
 												<label
 													htmlFor="name"
-													class="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm   dark:text-gray-200"
 												>
 													Full name
 												</label>
@@ -163,7 +163,7 @@ const MyProfile = () => {
 											<div class="flex items-center justify-between">
 												<label
 													htmlFor="bio"
-													class="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm   dark:text-gray-200"
 												>
 													Bio
 												</label>
@@ -180,7 +180,7 @@ const MyProfile = () => {
 											<div class="flex items-center justify-between">
 												<label
 													htmlFor="education"
-													class="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm   dark:text-gray-200"
 												>
 													Education
 												</label>
@@ -199,7 +199,7 @@ const MyProfile = () => {
 											<div class="flex items-center justify-between">
 												<label
 													htmlFor="location"
-													class="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm   dark:text-gray-200"
 												>
 													Location
 												</label>
@@ -218,7 +218,7 @@ const MyProfile = () => {
 											<div class="flex items-center justify-between">
 												<label
 													htmlFor="facebook"
-													class="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm   dark:text-gray-200"
 												>
 													Facebook Link
 												</label>
@@ -235,7 +235,7 @@ const MyProfile = () => {
 											<div class="flex items-center justify-between">
 												<label
 													htmlFor="linkedin"
-													class="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm   dark:text-gray-200"
 												>
 													LinkedIn Link
 												</label>
@@ -252,7 +252,7 @@ const MyProfile = () => {
 											<div class="flex items-center justify-between">
 												<label
 													htmlFor="phone"
-													class="block text-sm text-gray-800 dark:text-gray-200"
+													class="block text-sm   dark:text-gray-200"
 												>
 													Phone
 												</label>

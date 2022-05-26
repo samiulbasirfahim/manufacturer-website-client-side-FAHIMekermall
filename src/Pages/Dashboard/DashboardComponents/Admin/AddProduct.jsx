@@ -51,12 +51,12 @@ const AddProduct = () => {
 		<div className="flex flex-no-wrap Item-start">
 			<form className="w-full" onSubmit={handleAddProduct}>
 				<div className="mt-4 px-2 lg:px-7">
-					<p className="text-xl font-semibold leading-tight text-gray-800">
+					<p className="text-xl font-semibold leading-tight  ">
 						Add Item
 					</p>
 					<div className="grid w-full grid-cols-1 lg:grid-cols-2 md:grid-cols-1 gap-7 mt-7 ">
 						<div>
-							<p className="text-base font-medium leading-none text-gray-800">
+							<p className="text-base font-medium leading-none  ">
 								Title
 							</p>
 							<input
@@ -71,7 +71,7 @@ const AddProduct = () => {
 							</p>
 						</div>
 						<div>
-							<p className="text-base font-medium leading-none text-gray-800">
+							<p className="text-base font-medium leading-none  ">
 								Category
 							</p>
 
@@ -90,7 +90,7 @@ const AddProduct = () => {
 							</p>
 						</div>
 						<div>
-							<p className="text-base font-medium leading-none text-gray-800 ">
+							<p className="text-base font-medium leading-none   ">
 								Item price
 							</p>
 							<input
@@ -105,7 +105,7 @@ const AddProduct = () => {
 							</p>
 						</div>
 						<div>
-							<p className="text-base font-medium leading-none text-gray-800">
+							<p className="text-base font-medium leading-none  ">
 								Item image
 							</p>
 							<input
@@ -119,7 +119,7 @@ const AddProduct = () => {
 							</p>
 						</div>
 						<div>
-							<p className="text-base font-medium leading-none text-gray-800">
+							<p className="text-base font-medium leading-none  ">
 								Item quantity
 							</p>
 							<input
@@ -135,7 +135,7 @@ const AddProduct = () => {
 							</p>
 						</div>
 						<div>
-							<p className="text-base font-medium leading-none text-gray-800">
+							<p className="text-base font-medium leading-none  ">
 								Minimum order quantity
 							</p>
 							<input
@@ -152,15 +152,16 @@ const AddProduct = () => {
 						</div>
 					</div>
 				</div>
-				<div className="pt-6 border-gray-300 mt-2 px-7">
-					<p className="text-base font-semibold leading-4 text-gray-800">
+				<div className="pt-2 border-gray-300 mt-2 px-7">
+					<p className="text-base font-semibold leading-4  ">
 						Item description
 					</p>
 					<div className="mt-2 border border-gray-300 rounded">
 						<textarea
 							name="description"
 							required
-							className="resize-none w-full h-[170px] px-4 py-4 text-base outline-none text-slate-600 bg-base-100"
+							rows={5}
+							className="resize-none w-full px-4 py-4 text-base outline-none text-slate-600 bg-base-100"
 							placeholder="Start typing here ..."
 						/>
 					</div>
@@ -168,7 +169,7 @@ const AddProduct = () => {
 				<p className="mt-3 text-xs leading-[15px] text-gray-600 px-7">
 					Enter product meta description for better understanding
 				</p>
-				<hr className="h-[1px] bg-base-100 my-14" />
+				<hr className="h-[1px] bg-base-100 my-4" />
 				<div className="flex flex-col flex-wrap Item-center justify-center w-full px-7 lg:flex-row lg:justify-end md:justify-end gap-x-4 gap-y-4">
 					<input
 						type="reset"

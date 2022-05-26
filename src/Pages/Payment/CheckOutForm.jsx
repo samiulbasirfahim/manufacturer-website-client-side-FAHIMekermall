@@ -70,7 +70,7 @@ const CheckoutForm = ({ bookingData: { totalPrice }, bookingData }) => {
 					axiosAuth({
 						method: "PUT",
 						url:
-							"http://localhost:4000/booking/pay/" +
+							"https://manufacturer-website-server.herokuapp.com/booking/pay/" +
 							bookingData._id,
 						data: {
 							transactionId: transactionId,

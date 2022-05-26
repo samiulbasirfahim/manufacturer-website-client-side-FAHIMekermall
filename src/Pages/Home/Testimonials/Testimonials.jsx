@@ -21,7 +21,7 @@ const Testimonials = () => {
 	return (
 		<div class="lg:px-20 md:px-6 px-4 pt-12 container mx-auto">
 			<div class="flex flex-col items-center justify-center">
-				<h1 class="lg:text-4xl text-3xl font-bold text-center text-gray-800 dark:text-white ">
+				<h1 class="lg:text-4xl text-3xl font-bold text-center   dark:text-white ">
 					Hear from our clients
 				</h1>
 				<p class="text-base leading-6 mt-4 text-center text-gray-600 dark:text-white  2xl:w-2/5 ">

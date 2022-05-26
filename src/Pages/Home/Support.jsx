@@ -29,7 +29,7 @@ const Support = () => {
 								alt="Free Shipping"
 							/>
 							<div>
-								<p className="text-xl dark:text-white leading-5 font-semibold text-gray-800">
+								<p className="text-xl dark:text-white leading-5 font-semibold  ">
 									Free Shipping
 								</p>
 								<p className="text-base leading-6 dark:text-gray-400 font-normal text-gray-600 mt-3">
@@ -50,7 +50,7 @@ const Support = () => {
 								alt="Support 24/7"
 							/>
 							<div>
-								<p className="text-xl dark:text-white leading-5 font-semibold text-gray-800">
+								<p className="text-xl dark:text-white leading-5 font-semibold  ">
 									Support 24/7
 								</p>
 								<p className="text-base leading-6 dark:text-gray-400 font-normal text-gray-600 mt-3">
@@ -71,7 +71,7 @@ const Support = () => {
 								alt="Money Back Guarantee"
 							/>
 							<div>
-								<p className="text-xl dark:text-white leading-5 font-semibold text-gray-800">
+								<p className="text-xl dark:text-white leading-5 font-semibold  ">
 									Money Back Guarantee
 								</p>
 								<p className="text-base leading-6 dark:text-gray-400 font-normal text-gray-600 mt-3">

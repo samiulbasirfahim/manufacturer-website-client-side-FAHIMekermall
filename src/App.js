@@ -27,6 +27,7 @@ import NotFound from "./Pages/NotFound/NotFound"
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio"
 import Blogs from "./Pages/Blogs/Blogs"
 import ManageProduct from "./Pages/Dashboard/DashboardComponents/Admin/ManageProduct"
+import ManageAdmin from "./Pages/Dashboard/DashboardComponents/Admin/ManageAdmin"
 const App = () => {
 	const [isDarkTheme, setIsDarkTheme] = useState(JSON.parse(localStorage.getItem('isDarkTheme')))
 	const handleDarkTheme = () => {
@@ -84,7 +85,11 @@ const App = () => {
 											<ManageProduct />
 										</RequireAdmin>
 									}></Route>
-									<Route path="manage-admin" ></Route>
+									<Route path="manage-admin" element={
+										<RequireAdmin >
+											<ManageAdmin />
+										</RequireAdmin>
+									} ></Route>
 								</Route>
 							</Route>
 							<Route path="/parts" element={<Parts />}></Route>

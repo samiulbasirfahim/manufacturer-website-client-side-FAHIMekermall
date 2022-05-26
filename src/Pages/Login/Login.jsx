@@ -64,7 +64,7 @@ const Login = () => {
 					<div className="mt-4">
 						<label
 							htmlFor="username"
-							className="block text-sm text-gray-800 dark:text-gray-200"
+							className="block text-sm   dark:text-gray-200"
 						>
 							Email
 						</label>
@@ -94,7 +94,7 @@ const Login = () => {
 						<div className="flex items-center justify-between">
 							<label
 								htmlFor="password"
-								className="block text-sm text-gray-800 dark:text-gray-200"
+								className="block text-sm   dark:text-gray-200"
 							>
 								Password
 							</label>
