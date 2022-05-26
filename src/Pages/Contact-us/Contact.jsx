@@ -1,5 +1,6 @@
 import axios from "axios"
 import React from "react"
+import toast from "react-hot-toast"
 
 const handleSendEmail = (event) => {
 	event.preventDefault()
@@ -10,12 +11,15 @@ const handleSendEmail = (event) => {
 	}
 	axios({
 		method: "POST",
-		url: "http://localhost:4000/email",
+		url: "https://manufacturer-website-server.herokuapp.com/email",
 		data: {
 			...data,
 		},
 	}).then(({ data }) => {
-		console.log(data)
+		if (data.messageId) {
+			event.target.reset()
+			toast.success(data.message)
+		}
 	})
 }
 
@@ -23,7 +27,10 @@ const Contact = () => {
 	return (
 		<div>
 			<div class="w-full flex items-center justify-center my-12">
-				<form onSubmit={handleSendEmail} class=" dark:bg-gray-800 shadow rounded py-12 lg:px-28 px-8 w-full md:w-1/2">
+				<form
+					onSubmit={handleSendEmail}
+					class=" dark:bg-gray-800 shadow rounded py-12 lg:px-28 px-8 w-full md:w-1/2"
+				>
 					<p class="md:text-3xl text-xl font-bold leading-7 text-center   dark:text-white">
 						Let’s chat
 					</p>
