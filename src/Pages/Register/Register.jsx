@@ -70,6 +70,8 @@ const Register = () => {
 				}
 			})
 	}
+	console.log(from)
+
 	return (
 		<div className="min-h-screen flex justify-center items-center">
 			{isLoading && <Spinner />}
@@ -185,6 +187,8 @@ const Register = () => {
 					Already have an account?
 					<Link
 						to="/login"
+						state={{ from }}
+						replace
 						className="font-medium text-gray-700 dark:text-gray-200 hover:underline"
 					>
 						Login

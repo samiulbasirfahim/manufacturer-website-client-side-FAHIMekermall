@@ -1,7 +1,14 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 
-const Table = ({ orders, handleDiscard, pay, showUser }) => {
+const Table = ({
+	orders,
+	handleDiscard,
+	pay,
+	showUser,
+	shippedOrder,
+	showShipped,
+}) => {
 	const navigate = useNavigate()
 	return (
 		<div>
@@ -28,8 +35,13 @@ const Table = ({ orders, handleDiscard, pay, showUser }) => {
 						<th scope="col" className="px-6 py-3">
 							Transaction Id
 						</th>
+						{showShipped && (
+							<th scope="col" className="px-6 py-3">
+								Status
+							</th>
+						)}
 						<th scope="col" className="flex justify-end px-6 py-3">
-							<span className="text-right">Status</span>
+							<span className="text-right">payment</span>
 						</th>
 					</tr>
 				</thead>
@@ -46,6 +58,7 @@ const Table = ({ orders, handleDiscard, pay, showUser }) => {
 							transactionId,
 							userEmail,
 							category,
+							shipped,
 						}) => {
 							return (
 								<tr key={_id} className="border-b bg-base-300">
@@ -67,8 +80,42 @@ const Table = ({ orders, handleDiscard, pay, showUser }) => {
 										${totalPrice}
 									</td>
 									<td className="px-6 py-4 font-mono font-bold">
-										{transactionId}
+										{transactionId || (
+											<span className="text-blue-900">
+												Unpaid
+											</span>
+										)}
 									</td>
+									{showShipped && (
+										<td className="px-6 py-4 font-mono font-bold">
+											{shipped ? (
+												<button
+													disabled
+													className="cursor-not-allowed font-medium text-purple-600 dark:text-purple-500 btn btn-xs btn-primary"
+												>
+													Shipped
+												</button>
+											) : (
+												<>
+													<button
+														disabled
+														className="cursor-not-allowed font-medium mr-6 text-purple-600  hover:underline btn btn-xs"
+													>
+														Pending
+													</button>
+													<button
+														onClick={() =>
+															shippedOrder(_id)
+														}
+														className="cursor-pointer font-medium text-green-600 dark:text-green-500 hover:underline
+														"
+													>
+														Deliver
+													</button>
+												</>
+											)}
+										</td>
+									)}
 									<td className="px-6 py-4 text-right font-mono font-bold">
 										{!paid ? (
 											<>
@@ -97,7 +144,7 @@ const Table = ({ orders, handleDiscard, pay, showUser }) => {
 										) : (
 											<button
 												disabled
-												className="cursor-not-allowed font-medium text-green-600 dark:text-green-500 hover:underline"
+												className="cursor-not-allowed font-medium text-green-600 dark:text-green-500 hover:underline btn btn-xs"
 											>
 												Paid
 											</button>

@@ -1,3 +1,5 @@
+# [Sparks manufacturer](https://brand-manufacturer.web.app/)
+
 # Project description:
 
 # Features
@@ -44,3 +46,11 @@
 
 -   In my portfolio section, you can see some of my basic information ,
 -   and in blogs section, you can see the answer and questions
+
+---
+
+-   if any user is logged in he can purchase items, but a admin cant purchase items,
+-   if any user is logged in he can payment in dashboard, byt a admin cant do it
+-   if any admin is logged in he can add items ,
+-   user cant access to admin page, and admin cant access to only user page,
+-   user 

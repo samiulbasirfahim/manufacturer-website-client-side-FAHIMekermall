@@ -46,6 +46,29 @@ const AllOrders = () => {
 			}
 		})
 	}
+	const shippedOrder = (id) => {
+		Swal.fire({
+			title: "Are you sure?",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, delete it!",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				axiosAuth
+					.get(
+						"https://manufacturer-website-server.herokuapp.com/booking/shipped/" +
+							id
+					)
+					.then(({ data }) => {
+						if (data.success) {
+							console.log(data)
+						}
+					})
+			}
+		})
+	}
 
 	return (
 		<div className="">
@@ -77,6 +100,8 @@ const AllOrders = () => {
 						handleDiscard={handleDiscard}
 						pay={false}
 						showUser={true}
+						shippedOrder={shippedOrder}
+						showShipped={true}
 					/>
 				)}
 				{orders?.length === 0 && (

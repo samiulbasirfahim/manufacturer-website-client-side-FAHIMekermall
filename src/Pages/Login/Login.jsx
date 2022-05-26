@@ -51,6 +51,8 @@ const Login = () => {
 			navigate(from, { replace: true })
 		}
 	}, [user])
+	console.log(from)
+
 	return (
 		<div className="min-h-screen flex justify-center items-center">
 			{loading && <Spinner />}
@@ -100,6 +102,8 @@ const Login = () => {
 							</label>
 							<Link
 								to="/resetPassword"
+								state={{ from }}
+								replace
 								className="text-xs text-gray-600 dark:text-gray-400 hover:underline"
 							>
 								Forget Password?
@@ -141,6 +145,8 @@ const Login = () => {
 					<Link
 						to="/register"
 						className="font-medium text-gray-700 dark:text-gray-200 hover:underline"
+						state={{ from }}
+						replace
 					>
 						Create One
 					</Link>
